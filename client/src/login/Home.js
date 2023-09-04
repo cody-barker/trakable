@@ -1,13 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux"
+import { fetchCurrentUser } from './usersSlice'
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 function Home() {
     const [showLogin, setShowLogin] = useState(true)
 
+    //currentUser is first reading null
+    //const currentUser = useSelector((state) => state.users.entity)
+    //const dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(fetchCurrentUser())
+    // } ,[dispatch])
+
     return(
         <div>
             <div className="large-font">Trakable</div>
+
             {showLogin ? (
                 <>
                     <LoginForm />
