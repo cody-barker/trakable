@@ -11,7 +11,6 @@ export function fetchCurrentUser() {
 //sync actions
 
 //Reducer
-
 const initialState = {
     entity: {},
     status: "idle"

@@ -1,3 +1,1 @@
-SignIn
-
-1.
+Need to figure out what to do about fetching to /me to set currentUser
