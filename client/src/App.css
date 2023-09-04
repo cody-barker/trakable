@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.large-font {
+  font-size: 24px;
+}
+
+.errors {
+  color: red;
+}
+
+.login-btn {
+  background-color: white;
+  border-radius: 7.5px;
+  border-width: 0.5px;
+  cursor: pointer;
+}

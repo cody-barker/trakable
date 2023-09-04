@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: [:create, :destroy]
+    #skip_before_action :authorize, only: [:create, :destroy]
     
         def create
             user = User.find_by(email: params[:email])
@@ -15,6 +15,4 @@ class SessionsController < ApplicationController
             session.delete(:user_id)
             render json: {}, status: :no_content
         end
-    end
-    
 end
