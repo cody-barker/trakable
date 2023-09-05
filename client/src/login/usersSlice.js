@@ -1,47 +1,31 @@
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+
 //Action Creators
-
-//async actions
-export function fetchCurrentUser() {
-    return function (dispatch) {
-        dispatch({ type: "users/fetchCurrentUser/pending" });
-        fetch("/users/1")
-            .then((response) => response.json())
-            .then((data) => {
-                dispatch({
-                    type: "users/fetch/fulfilled",
-                    payload: data
-                })
-            })
-    }
-}
-
-//sync actions
+export const fetchUsers = createAsyncThunk("users/fetchUsers", () => {
+    return fetch("/users")
+    .then((r) => r.json())
+    .then((users) => users)
+})
 
 //Reducer
-const initialState = {
-    entity: {},
-    status: "idle"
-};
+const usersSlice = createSlice({
+    name: "users",
+    initialState: {
+        entities: [],
+        status: "idle"
+    },
+    reducers: {
 
-function usersReducer(state = initialState, action) {
-    const { type, payload } = action
-    switch(type) {
-        //sync actions
-        //async actions
-        case "users/fetchCurrentUser/pending":
-            return {
-                ...state,
-                status: "loading",
-            };
-        case "users/fetchCurrentUser/fulfilled":
-            return {
-                ...state,
-                entity: payload,
-                status: "idle"
-            };
-        default:
-            return state
-    }
-}
+    },
+    extraReducers: {
+        [fetchUsers.pending](state) {
+            state.status = "loading";
+        },
+        [fetchUsers.fulfilled](state, action) {
+            state.entities = action.payload;
+            state.status = "idle"
+        },
+    },
+});
 
-export default usersReducer
+export default usersSlice.reducer;
