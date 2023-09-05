@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Error from './Error'
+import { useSelector, useDispatch } from "react-redux"
+import loginUser from "./usersSlice"
 
 function LoginForm () {
     const [email, setEmail] = useState("");
@@ -7,23 +9,28 @@ function LoginForm () {
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
+    const dispatch = useDispatch()
+
     function handleSubmit(e){
         e.preventDefault()
         setIsLoading(true)
-        fetch('/login', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        }).then((r) => {
-            setIsLoading(false)
+        dispatch(loginUser({email, password}))
+        setIsLoading(false)
+
+        // fetch('/login', {
+        //     method: "POST",
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({ email, password })
+        // }).then((r) => {
+            // setIsLoading(false)
             // if (r.ok) {
             //     r.json().then((user) => setUser(user))
             // } else {
             //     r.json().then((err) => setErrors(err.errors))
             // }
-        })
+        // })
     }
 
     return(

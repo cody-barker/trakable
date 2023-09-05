@@ -1,26 +1,23 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
-import { fetchUsers } from './usersSlice'
+import { fetchCurrentUser } from './usersSlice'
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 function Home() {
     const [showLogin, setShowLogin] = useState(true)
-
-    //user is first reading null
-    const users = useSelector((state) => state.users.entities)
+    const currentUser = useSelector((state) => state.users.currentUser)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchUsers())
-    }, [])
-
-    const userComps = users.map((u) => <p key={u.id}>{u.first_name}</p>)
+        dispatch(fetchCurrentUser())
+    }, [dispatch])
 
     return(
         <div>
             <div className="large-font">Trakable</div>
-            {userComps}
+
+            {currentUser? <p>{currentUser.first_name}</p> : null}
 
             {showLogin ? (
                 <>
