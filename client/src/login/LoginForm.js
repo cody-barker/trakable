@@ -1,21 +1,33 @@
 import { useState } from 'react'
-import Error from './Error'
-import { useSelector, useDispatch } from "react-redux"
-import loginUser from "./usersSlice"
+// import Error from './Error'
+import { useDispatch } from "react-redux"
+import { loginUser } from "./usersSlice"
 
 function LoginForm () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
     const dispatch = useDispatch()
+    let formData = {
+        email,
+        password
+    }
 
     function handleSubmit(e){
-        e.preventDefault()
-        setIsLoading(true)
-        dispatch(loginUser({email, password}))
-        setIsLoading(false)
+        e.preventDefault();
+        setIsLoading(true);
+        dispatch(loginUser(formData))
+        .unwrap()
+        .then(() => {
+            setIsLoading(false)
+            setEmail("");
+            setPassword("");
+        })
+        .catch((error) => {
+            setIsLoading(false);
+            console.error('Login failed:', error);
+        })
 
         // fetch('/login', {
         //     method: "POST",
@@ -58,9 +70,9 @@ function LoginForm () {
 
             <button className="login-btn" type="submit">{isLoading? "Loading..." : "Login"}</button>
 
-                {errors.map((err) => (
+                {/* {errors.map((err) => (
                     <Error key={err}>{err}</Error>
-                ))}
+                ))} */}
         </form>
     )
 }

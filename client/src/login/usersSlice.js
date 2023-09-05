@@ -13,21 +13,16 @@ export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () =>
     .then((data) => data)
 })
 
-export const loginUser = createAsyncThunk("users/loginUser", () => {
+export const loginUser = createAsyncThunk("users/loginUser", (payload) => {
     return fetch("/login", {
         method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(action.payload)
+            body: JSON.stringify(payload)
     })
-    .then((r) => {
-        if (r.ok) {
-            r.json().then((user) => user)
-        } else {
-            r.json().then((err) => err.errors)
-        }
-    })
+    .then((r) => r.json())
+    .then((data) => data)
 })
 
 //Reducer
@@ -36,7 +31,8 @@ const usersSlice = createSlice({
     initialState: {
         entities: [],
         status: "idle",
-        currentUser: {}
+        currentUser: {},
+        errors: []
     },
     reducers: {
 
@@ -56,6 +52,17 @@ const usersSlice = createSlice({
             state.currentUser = action.payload;
             state.status = "idle"
         },
+        [loginUser.pending](state) {
+            state.status = "loading";
+        },
+        [loginUser.fulfilled](state, action) {
+            state.currentUser = action.payload;
+            state.status = "idle";
+        },
+        [loginUser.rejected](state, action) {
+            state.errors = action.payload.errors;
+            state.status = "idle"
+        }
     },
 });
 
