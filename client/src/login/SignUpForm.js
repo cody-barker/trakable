@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import Error from './Error'
 
 function SignUp() {
 
-    const [errors, setErrors] = useState([]);
+    const [signupErrors, setSignupErrors] = useState([]);
     const [isLoading, setisLoading] = useState(false);
 
     const [inputState, setInputState] = useState({
@@ -11,6 +10,7 @@ function SignUp() {
         lastName: "",
         email: "",
         password: "",
+        passwordConfirmation: "",
         title: "",
     })
 
@@ -32,7 +32,7 @@ function SignUp() {
 
     function handleSubmit(e){
         e.preventDefault()
-        setErrors([])
+        setSignupErrors([])
         setisLoading(true)
         fetch('/signup', {
             method: "POST",
@@ -121,11 +121,7 @@ function SignUp() {
             </label>
 
             <button className="login-btn" type="submit">{isLoading? "Loading..." : "Sign Up"}</button>
-            <div className="errors-div">
-                {errors.map((err) => (
-                    <Error key={err}>{err}</Error>
-                ))}
-            </div>
+      
         </form>
     )
 }

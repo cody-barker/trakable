@@ -9,11 +9,9 @@ function Home() {
     const currentUser = useSelector((state) => state.users.currentUser)
     const loginErrors = useSelector((state) => state.users.errors)
     const dispatch = useDispatch()
-    const errorComps = loginErrors.map((e) => {
-      return <p>{e.error}</p>
+    const errorComps = loginErrors.map((e, index) => {
+      return <p key={index}>{e.error}</p>
     })
-
-    console.log(loginErrors)
 
     useEffect(() => {
         dispatch(fetchCurrentUser())
@@ -27,7 +25,6 @@ function Home() {
           
             {loginErrors.length > 0 ? errorComps : null}
            
-
             {showLogin ? (
                 <>
                     <LoginForm />

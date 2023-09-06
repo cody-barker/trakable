@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
+//Action Creators
 export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () => {
     return fetch("/me")
     .then((r) => r.json())
@@ -15,7 +16,17 @@ export const loginUser = createAsyncThunk("users/loginUser", (payload) => {
             body: JSON.stringify(payload)
     })
     .then((r) => r.json())
-    .then((data) => data)
+})
+
+export const signupUser = createAsyncThunk("users/signupUser", (payload) => {
+    return fetch("/signup", {
+        method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+    })
+    .then((r) => r.json())
 })
 
 //Reducer
@@ -31,6 +42,7 @@ const usersSlice = createSlice({
 
     },
     extraReducers: {
+        //fetchCurrentUser
         [fetchCurrentUser.pending](state) {
             state.status = "loading";
         },
@@ -39,6 +51,7 @@ const usersSlice = createSlice({
             state.status = "idle";
             state.errors = []
         },
+        //loginUser
         [loginUser.pending](state) {
             state.status = "loading";
         },
