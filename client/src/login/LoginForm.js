@@ -18,7 +18,6 @@ function LoginForm () {
         e.preventDefault();
         setIsLoading(true);
         dispatch(loginUser(formData))
-        .unwrap()
         .then(() => {
             setIsLoading(false)
             setEmail("");

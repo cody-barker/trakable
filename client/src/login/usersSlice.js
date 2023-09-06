@@ -1,11 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
-//Action Creators
-// export const fetchUsers = createAsyncThunk("users/fetchUsers", () => {
-//     return fetch("/users")
-//     .then((r) => r.json())
-//     .then((users) => users)
-// })
+import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit"
 
 export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () => {
     return fetch("/me")
@@ -38,29 +31,29 @@ const usersSlice = createSlice({
 
     },
     extraReducers: {
-        // [fetchUsers.pending](state) {
-        //     state.status = "loading";
-        // },
-        // [fetchUsers.fulfilled](state, action) {
-        //     state.entities = action.payload;
-        //     state.status = "idle"
-        // },
         [fetchCurrentUser.pending](state) {
             state.status = "loading";
         },
         [fetchCurrentUser.fulfilled](state, action) {
             state.currentUser = action.payload;
-            state.status = "idle"
+            state.status = "idle";
+            state.errors = []
         },
         [loginUser.pending](state) {
             state.status = "loading";
         },
         [loginUser.fulfilled](state, action) {
-            state.currentUser = action.payload;
+            if ('error' in action.payload) {
+                state.errors = [];
+                state.errors.push(action.payload);
+            } else {
+                state.currentUser = action.payload;
+                state.errors = [];
+            }
             state.status = "idle";
         },
         [loginUser.rejected](state, action) {
-            state.errors = action.payload.errors;
+            state.errors = action.payload;
             state.status = "idle"
         }
     },
