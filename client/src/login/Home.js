@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from "react-redux"
-import { fetchCurrentUser } from './usersSlice'
+import { useState } from 'react'
+import { useSelector } from "react-redux"
+
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
@@ -8,18 +8,13 @@ function Home() {
     const [showLogin, setShowLogin] = useState(true)
     const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.users.errors)
-    const dispatch = useDispatch()
-    const errorComps = errors.map((e) => (
-        <ul>
+    const errorComps = errors.map((e, index) => (
+        <ul key={index}>
             {e.errors.map((errorMessage, i) => (
                 <li key={i} className="error">{errorMessage}</li>
             ))}
         </ul>
     ));
-
-    useEffect(() => {
-        dispatch(fetchCurrentUser())
-    }, [dispatch])
 
     return(
         <div>

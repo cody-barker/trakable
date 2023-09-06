@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () => {
     return fetch("/me")
     .then((r) => r.json())
-    .then((data) => data)
 })
 
 export const loginUser = createAsyncThunk("users/loginUser", (payload) => {
@@ -27,6 +26,12 @@ export const signupUser = createAsyncThunk("users/signupUser", (payload) => {
             body: JSON.stringify(payload)
     })
     .then((r) => r.json())
+})
+
+export const logoutUser = createAsyncThunk("users/logoutUser", () => {
+    return fetch("/logout", {
+        method: "DELETE"
+    })
 })
 
 //Reducer
@@ -87,6 +92,14 @@ const usersSlice = createSlice({
             state.errors = action.payload;
             state.status = "idle"
         },
+        //logoutUser
+        [logoutUser.pending](state) {
+            state.status = "loading";
+        },
+        [logoutUser.fulfilled](state, action) {
+            state.status = "idle"
+            state.currentUser = action.payload
+        }
     },
 });
 
