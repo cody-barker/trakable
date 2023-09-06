@@ -41,7 +41,6 @@ export const logoutUser = createAsyncThunk("users/logoutUser", () => {
         }
         return { success: true };
     })
-    // .then((r) => r.json())
 })
 
 //Reducer
@@ -97,10 +96,6 @@ const usersSlice = createSlice({
             }
             state.status = "idle";
         },
-        [signupUser.rejected](state, action) {
-            state.errors = action.payload;
-            state.status = "idle"
-        },
         //logoutUser
         [logoutUser.pending](state) {
             state.status = "loading";
@@ -108,7 +103,7 @@ const usersSlice = createSlice({
         [logoutUser.fulfilled](state) {
             state.status = "idle";
             state.currentUser = null;
-        }
+        },
     },
 });
 
