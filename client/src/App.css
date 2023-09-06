@@ -51,3 +51,9 @@
   border-width: 0.5px;
   cursor: pointer;
 }
+
+form {
+  padding: 10px;
+  width: 180px;
+  color: rgb(27, 49, 15);
+}
