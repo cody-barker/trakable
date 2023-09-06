@@ -12,7 +12,7 @@ function Home() {
     const errorComps = errors.map((e) => (
         <ul>
             {e.errors.map((errorMessage, i) => (
-                <li key={i}>{errorMessage}</li>
+                <li key={i} className="error">{errorMessage}</li>
             ))}
         </ul>
     ));
