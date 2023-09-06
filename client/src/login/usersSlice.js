@@ -56,7 +56,7 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [loginUser.fulfilled](state, action) {
-            if ('error' in action.payload) {
+            if ('errors' in action.payload) {
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
@@ -74,7 +74,7 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [signupUser.fulfilled](state, action) {
-            if ('error' in action.payload) {
+            if ('errors' in action.payload) {
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {

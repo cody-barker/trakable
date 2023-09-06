@@ -9,9 +9,9 @@ function Home() {
     const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.users.errors)
     const dispatch = useDispatch()
-    const errorComps = errors.map((e, index) => (
-        <ul key={index}>
-            {e.error.map((errorMessage, i) => (
+    const errorComps = errors.map((e) => (
+        <ul>
+            {e.errors.map((errorMessage, i) => (
                 <li key={i}>{errorMessage}</li>
             ))}
         </ul>
