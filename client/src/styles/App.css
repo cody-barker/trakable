@@ -61,3 +61,34 @@ form {
 .error {
   color: red
 }
+
+.nav-btn-split {
+  background: transparent;
+  border-color: transparent;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(27, 49, 15);
+  margin-left: 8px;
+  cursor: pointer;
+  padding-top: 2px;
+}
+
+#navbar {
+  display: flex;
+  padding-left: 15px;
+  border-bottom: 1px solid grey;
+  height: 60px;
+  align-items: center;
+  object-fit: contain;
+  overflow: hidden
+}
+
+.nav-btn {
+  cursor: pointer;
+  font-weight: bolder;
+  border: 0px black solid;
+  background-color: transparent;
+  color: rgb(27, 49, 15);
+  padding: 7px;
+  margin: 7px;
+}
