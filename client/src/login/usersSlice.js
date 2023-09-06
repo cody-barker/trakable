@@ -30,8 +30,12 @@ export const signupUser = createAsyncThunk("users/signupUser", (payload) => {
 
 export const logoutUser = createAsyncThunk("users/logoutUser", () => {
     return fetch("/logout", {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+            'Content-Type' : "application/json"
+        }
     })
+    .then((r) => r)
 })
 
 //Reducer

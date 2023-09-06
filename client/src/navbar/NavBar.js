@@ -11,7 +11,6 @@ function NavBar() {
 
     function handleLogout() {
         dispatch(logoutUser())
-        .then(navigate("/"))
     }
 
     return(

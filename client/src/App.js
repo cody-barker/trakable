@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from './navbar/NavBar'
 import Tasks from './tasks/Tasks'
-import Home from './login/Home'
+import LoginPage from './login/LoginPage'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -18,7 +18,7 @@ function App() {
   const currentUser = useSelector((state) => state.users.currentUser)
 
   if (!currentUser) {
-    return <Home />
+    return <LoginPage />
   }
 
   return (
@@ -28,6 +28,10 @@ function App() {
           <Route
           path="/"
           element={<Tasks />}/>
+          <Route
+          path="/login"
+          element={<LoginPage />}
+          />
         </Routes>
     </main>
 
