@@ -42,7 +42,6 @@ export const logoutUser = createAsyncThunk("users/logoutUser", () => {
 const usersSlice = createSlice({
     name: "users",
     initialState: {
-        entities: [],
         status: "idle",
         currentUser: {},
         errors: []
@@ -100,9 +99,9 @@ const usersSlice = createSlice({
         [logoutUser.pending](state) {
             state.status = "loading";
         },
-        [logoutUser.fulfilled](state, action) {
-            state.status = "idle"
-            state.currentUser = action.payload
+        [logoutUser.fulfilled](state) {
+            state.status = "idle";
+            state.currentUser = null;
         }
     },
 });
