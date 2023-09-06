@@ -29,10 +29,6 @@ function App() {
           <Route
           path="/"
           element={<Tasks />}/>
-          <Route
-          path="/login"
-          element={<LoginPage />}
-          />
           <Route 
           path="/tasks/:id"
           element={<Task />}
