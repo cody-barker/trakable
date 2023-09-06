@@ -6,11 +6,11 @@ function TaskCard({task}) {
         due_date,
         description
     } = task
-    
+
     return(
-        <li>
-            {name}
-        </li>
+        <div>
+            {name} {due_date}
+        </div>
     )
 }
 
