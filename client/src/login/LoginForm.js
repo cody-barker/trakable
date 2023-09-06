@@ -6,7 +6,6 @@ import { loginUser } from "./usersSlice"
 function LoginForm () {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const dispatch = useDispatch()
     let formData = {
@@ -23,25 +22,6 @@ function LoginForm () {
             setEmail("");
             setPassword("");
         })
-        .catch((error) => {
-            setIsLoading(false);
-            console.error('Login failed:', error);
-        })
-
-        // fetch('/login', {
-        //     method: "POST",
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ email, password })
-        // }).then((r) => {
-            // setIsLoading(false)
-            // if (r.ok) {
-            //     r.json().then((user) => setUser(user))
-            // } else {
-            //     r.json().then((err) => setErrors(err.errors))
-            // }
-        // })
     }
 
     return(
@@ -68,10 +48,6 @@ function LoginForm () {
             </label>
 
             <button className="login-btn" type="submit">{isLoading? "Loading..." : "Login"}</button>
-
-                {/* {errors.map((err) => (
-                    <Error key={err}>{err}</Error>
-                ))} */}
         </form>
     )
 }

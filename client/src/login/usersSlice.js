@@ -68,7 +68,25 @@ const usersSlice = createSlice({
         [loginUser.rejected](state, action) {
             state.errors = action.payload;
             state.status = "idle"
-        }
+        },
+        //signupUser
+        [signupUser.pending](state) {
+            state.status = "loading";
+        },
+        [signupUser.fulfilled](state, action) {
+            if ('error' in action.payload) {
+                state.errors = [];
+                state.errors.push(action.payload);
+            } else {
+                state.currentUser = action.payload;
+                state.errors = [];
+            }
+            state.status = "idle";
+        },
+        [signupUser.rejected](state, action) {
+            state.errors = action.payload;
+            state.status = "idle"
+        },
     },
 });
 

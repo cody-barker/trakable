@@ -1,25 +1,27 @@
 import { useState } from 'react'
+import { signupUser } from './usersSlice'
+import { useDispatch } from 'react-redux'
 
 function SignUp() {
 
-    const [signupErrors, setSignupErrors] = useState([]);
     const [isLoading, setisLoading] = useState(false);
+    const dispatch = useDispatch()
 
     const [inputState, setInputState] = useState({
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
-        passwordConfirmation: "",
+        password_confirmation: "",
         title: "",
     })
 
     const {
-        firstName ,
-        lastName,
+        first_name ,
+        last_name,
         email,
         password,
-        passwordConfirmation,
+        password_confirmation,
         title,
     } = inputState
 
@@ -32,28 +34,18 @@ function SignUp() {
 
     function handleSubmit(e){
         e.preventDefault()
-        setSignupErrors([])
         setisLoading(true)
-        fetch('/signup', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                first_name: firstName,
-                last_name: lastName,
-                email,
-                password,
-                password_confirmation: passwordConfirmation,
-                title
-            })
-        }).then((r) => {
+        dispatch(signupUser(inputState))
+        .then(() => {
             setisLoading(false)
-            // if (r.ok) {
-            //     r.json().then((user) => setUser(user))
-            // } else {
-            //     r.json().then((err) => setErrors(err.errors))
-            // }
+            setInputState({
+                first_name: "",
+                last_name: "",
+                email: "",
+                password: "",
+                password_confirmation: "",
+                title: "",
+            })
         })
     }
 
@@ -62,20 +54,20 @@ function SignUp() {
             <label>
                 First Name
                 <input
-                name="firstName"
+                name="first_name"
                 type="text"
                 autoComplete="off"
-                value={firstName}
+                value={first_name}
                 onChange={onInputChange}
                 ></input>
             </label>
             <label>
                 Last Name
                 <input
-                name="lastName"
+                name="last_name"
                 type="text"
                 autoComplete="off"
-                value={lastName}
+                value={last_name}
                 onChange={onInputChange}
                 ></input>
             </label>
@@ -112,10 +104,10 @@ function SignUp() {
             <label>
                 Password Confirmation
                 <input
-                name="passwordConfirmation"
+                name="password_confirmation"
                 type="password"
                 autoComplete="off"
-                value={passwordConfirmation}
+                value={password_confirmation}
                 onChange={onInputChange}
                 ></input>
             </label>
