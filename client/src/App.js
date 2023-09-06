@@ -2,6 +2,7 @@ import './styles/App.css';
 import NavBar from './navbar/NavBar'
 import Tasks from './tasks/Tasks'
 import LoginPage from './login/LoginPage'
+import Task from './tasks/Task'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -31,6 +32,10 @@ function App() {
           <Route
           path="/login"
           element={<LoginPage />}
+          />
+          <Route 
+          path="/tasks/:id"
+          element={<Task />}
           />
         </Routes>
     </main>
