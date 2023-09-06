@@ -1,13 +1,10 @@
-import { NavLink, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { logoutUser } from '../login/usersSlice'
 
 function NavBar() {
     
-    // const navigate = useNavigate()
-
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     function handleLogout() {
         dispatch(logoutUser())

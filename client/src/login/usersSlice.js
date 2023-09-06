@@ -35,7 +35,13 @@ export const logoutUser = createAsyncThunk("users/logoutUser", () => {
             'Content-Type' : "application/json"
         }
     })
-    .then((r) => r)
+    .then((r) => {
+        if (!r.ok) {
+            throw new Error("Logout request failed");
+        }
+        return { success: true };
+    })
+    // .then((r) => r.json())
 })
 
 //Reducer
@@ -43,7 +49,7 @@ const usersSlice = createSlice({
     name: "users",
     initialState: {
         status: "idle",
-        currentUser: {},
+        currentUser: null,
         errors: []
     },
     reducers: {
