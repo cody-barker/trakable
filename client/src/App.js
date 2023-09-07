@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import { fetchCurrentUser } from './login/usersSlice'
+// import { fetchProjects } from './projects/projectsSlice'
 
 function App() {
 
@@ -19,6 +20,11 @@ function App() {
     dispatch(fetchCurrentUser())
     .then(() => setLoading(false))
   }, [dispatch])
+
+  // useEffect(() => {
+  //   dispatch(fetchProjects())
+  //   .then(() => setLoading(false))
+  // }, [dispatch])
 
   const currentUser = useSelector((state) => state.users.currentUser)
 
