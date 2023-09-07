@@ -7,9 +7,9 @@ function TaskForm() {
     const dispatch = useDispatch()
 
     const [inputState, setInputState] = useState({
-        name: "",
-        due_date: "",
-        description: "",
+        name,
+        due_date,
+        description,
     })
 
     const {

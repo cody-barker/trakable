@@ -9,6 +9,13 @@ class TasksController < ApplicationController
         render json: tasks, status: :created
     end
 
+    def update
+        user = find_user_by_session_id
+        task = user.tasks.find(params[:id])
+        task.update!(task_params)
+        render json: task, status: :accepted
+    end
+
     def destroy
         user = find_user_by_session_id
         task = user.tasks.find(params[:id])

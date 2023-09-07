@@ -58,6 +58,17 @@ export const deleteTask = createAsyncThunk("tasks/deleteTask", (payload) => {
     .then((r) => r.json())
 })
 
+export const updateTask = createAsyncThunk("tasks/updateTask", (payload) => {
+    return fetch(`/tasks/${payload.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((r) => r.json())
+})
+
 //Reducer
 const usersSlice = createSlice({
     name: "users",
@@ -135,6 +146,20 @@ const usersSlice = createSlice({
             state.status = "idle";
             state.currentUser.tasks = state.currentUser.tasks.filter((task) => {
                 return action.payload.id !== task.id
+            })
+        },
+        //updateTask
+        [updateTask.pending](state) {
+            state.status = "loading";
+        },
+        [updateTask.fulfilled](state, action) {
+            state.status = "idle";
+            state.currentUser.tasks = state.currentUser.tasks.map((task) => {
+                if (task.id === action.payload.id) {
+                    return action.payload
+                } else {
+                    return task
+                }
             })
         },
     },
