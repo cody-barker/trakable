@@ -5,11 +5,11 @@ import LoginPage from './login/LoginPage'
 import Task from './tasks/Task'
 import EditTask from './tasks/EditTask'
 import Projects from './projects/Projects'
+import Project from './projects/Project'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import { fetchCurrentUser } from './login/usersSlice'
-// import { fetchProjects } from './projects/projectsSlice'
 
 function App() {
 
@@ -20,11 +20,6 @@ function App() {
     dispatch(fetchCurrentUser())
     .then(() => setLoading(false))
   }, [dispatch])
-
-  // useEffect(() => {
-  //   dispatch(fetchProjects())
-  //   .then(() => setLoading(false))
-  // }, [dispatch])
 
   const currentUser = useSelector((state) => state.users.currentUser)
 
@@ -54,6 +49,10 @@ function App() {
           <Route 
           path="/projects"
           element={<Projects />}
+          />
+          <Route 
+          path="/projects/:id"
+          element={<Project />}
           />
         </Routes>
     </main>

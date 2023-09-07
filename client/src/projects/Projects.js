@@ -1,9 +1,5 @@
-//On the Projects page, I want to see a list of all the projects I am apart of
-//On the Teams page I want to see all teams I am apart of
-//Later on I'll handle seeing everyone else's projects and workspaces
-//How do I render only projects which I belong to on this page?
-
 import {useSelector} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
 function Projects() {
 
@@ -12,16 +8,8 @@ function Projects() {
         return project
     })
     const projectComps = userProjects.map((project) => {
-        return <div key={project.id}>{project.name}</div>
+        return <NavLink to={`/projects/${project.id}`} key={project.id}>{project.name}</NavLink>
     })
-    // const projects = useSelector((state) => state.projects.entities)
-    // const projectComps = projects.map((project) => {
-    //     return <div key={project.id}>{project.name}</div>
-    // })
-
-    console.log(currentUser)
-    console.log(userProjects)
-    // const myProjects = currentUser.project
 
     return (
         <div>
