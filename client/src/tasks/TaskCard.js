@@ -1,10 +1,11 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {deleteTask} from '../login/usersSlice'
 
 function TaskCard({task}) {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const {
         name,
@@ -12,8 +13,12 @@ function TaskCard({task}) {
         id
     } = task
 
-    function handleClick() {
+    function handleComplete() {
         dispatch(deleteTask(id))
+    }
+
+    function handleEdit() {
+        navigate(`/tasks/${id}/edit`)
     }
 
     return(
@@ -21,7 +26,8 @@ function TaskCard({task}) {
             <NavLink to={`/tasks/${id}`}>
             {name} {due_date}
             </NavLink>
-            <button onClick={handleClick}>✔</button>
+            <button onClick={handleComplete}>✔</button>
+            <button onClick={handleEdit}>edit</button>
         </div>
     )
 }

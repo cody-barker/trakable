@@ -3,6 +3,7 @@ import NavBar from './navbar/NavBar'
 import Tasks from './tasks/Tasks'
 import LoginPage from './login/LoginPage'
 import Task from './tasks/Task'
+import EditTask from './tasks/EditTask'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -38,6 +39,10 @@ function App() {
           <Route 
           path="/tasks/:id"
           element={<Task />}
+          />
+          <Route 
+          path="/tasks/:id/edit"
+          element={<EditTask />}
           />
         </Routes>
     </main>
