@@ -9,10 +9,14 @@ function Task() {
         name,
         description,
         due_date,
+        project_name
     } = task
     return (
         <div>
-            {name} {due_date} {description}
+            {name} {due_date} {project_name}
+            <br></br>
+            {description} 
+            <hr></hr>
         </div>
     )
 }

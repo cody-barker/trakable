@@ -10,7 +10,8 @@ function TaskCard({task}) {
     const {
         name,
         due_date,
-        id
+        id,
+        project_name
     } = task
 
     function handleComplete() {
@@ -21,10 +22,12 @@ function TaskCard({task}) {
         navigate(`/tasks/${id}/edit`)
     }
 
+    console.log(task)
+
     return(
         <div>
             <NavLink to={`/tasks/${id}`}>
-            {name} {due_date}
+            {name} {due_date} {project_name}
             </NavLink>
             <button onClick={handleComplete}>✔</button>
             <button onClick={handleEdit}>edit</button>
