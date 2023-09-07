@@ -4,6 +4,7 @@ import Tasks from './tasks/Tasks'
 import LoginPage from './login/LoginPage'
 import Task from './tasks/Task'
 import EditTask from './tasks/EditTask'
+import Projects from './projects/Projects'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -43,6 +44,10 @@ function App() {
           <Route 
           path="/tasks/:id/edit"
           element={<EditTask />}
+          />
+          <Route 
+          path="/projects"
+          element={<Projects />}
           />
         </Routes>
     </main>
