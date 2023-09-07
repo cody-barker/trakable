@@ -1,40 +1,41 @@
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {useState} from 'react'
 import {updateTask} from '../login/usersSlice'
 
 function EditTask() {
 
-    const dispatch = useDispatch()
-    let {id} = useParams()
-    id = parseInt(id)
-    const tasks  = useSelector((state) => state.users.currentUser.tasks)
-    const task = tasks.filter((task) => task.id === id)[0]
-    console.log(task)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    let {id} = useParams();
+    id = parseInt(id);
+    const tasks  = useSelector((state) => state.users.currentUser.tasks);
+    const task = tasks.filter((task) => task.id === id)[0];
 
     const [inputState, setInputState] = useState({
         name: task.name,
         due_date: task.due_date,
         description: task.description,
         id: task.id
-    })
+    });
 
     const {
         name,
         due_date,
         description,
-    } = inputState
+    } = inputState;
 
     function onInputChange(e){
         setInputState({
             ...inputState,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     function handleSubmit(e) {
-        e.preventDefault()
-        dispatch(updateTask(inputState))
+        e.preventDefault();
+        dispatch(updateTask(inputState));
+        navigate("/")
     }
 
     return(
