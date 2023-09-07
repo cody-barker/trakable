@@ -12,7 +12,7 @@ function Task() {
     } = task
     return (
         <div>
-            {name} {description}
+            {name} {due_date} {description}
         </div>
     )
 }
