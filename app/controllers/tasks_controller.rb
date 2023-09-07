@@ -6,7 +6,14 @@ class TasksController < ApplicationController
     def create
         user = find_user_by_session_id
         tasks = user.tasks.create!(task_params)
-        render json: task, status: :created
+        render json: tasks, status: :created
+    end
+
+    def destroy
+        user = find_user_by_session_id
+        task = user.tasks.find(params[:id])
+        task.destroy
+        render json: task, status: :ok
     end
 
     private

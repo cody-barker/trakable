@@ -8,7 +8,7 @@ function Task() {
     const {
         name,
         description,
-        due_date
+        due_date,
     } = task
     return (
         <div>

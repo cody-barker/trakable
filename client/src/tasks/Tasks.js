@@ -1,5 +1,7 @@
 import {useSelector} from 'react-redux'
 import TaskCard from './TaskCard'
+import {useState} from 'react'
+import TaskForm from './TaskForm'
 
 function Tasks() {
     const tasks = useSelector((state) => state.users.currentUser.tasks)
@@ -7,8 +9,16 @@ function Tasks() {
         return <TaskCard key={task.id} task={task}/>
     })
 
+    const [vis, setVis] = useState(false)
+
+    function handleClick() {
+        setVis(!vis)
+    }
+
     return (
         <div>
+            <button onClick={handleClick}>+ Add task</button>
+            {vis ? <TaskForm /> : null}
             {taskCardComps}
         </div>
     )

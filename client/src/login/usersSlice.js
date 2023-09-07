@@ -30,10 +30,7 @@ export const signupUser = createAsyncThunk("users/signupUser", (payload) => {
 
 export const logoutUser = createAsyncThunk("users/logoutUser", () => {
     return fetch("/logout", {
-        method: "DELETE",
-        headers: {
-            'Content-Type' : "application/json"
-        }
+        method: "DELETE"
     })
     .then((r) => {
         if (!r.ok) {
@@ -41,6 +38,24 @@ export const logoutUser = createAsyncThunk("users/logoutUser", () => {
         }
         return { success: true };
     })
+})
+
+export const createTask = createAsyncThunk("tasks/createTask", (payload) => {
+    return fetch("/tasks", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((r) => r.json())
+})
+
+export const deleteTask = createAsyncThunk("tasks/deleteTask", (payload) => {
+    return fetch(`/tasks/${payload}`, {
+        method: "DELETE"
+    })
+    .then((r) => r.json())
 })
 
 //Reducer
@@ -103,6 +118,24 @@ const usersSlice = createSlice({
         [logoutUser.fulfilled](state) {
             state.status = "idle";
             state.currentUser = null;
+        },
+        //createTask
+        [createTask.pending](state) {
+            state.status = "loading";
+        },
+        [createTask.fulfilled](state, action) {
+            state.status = "idle";
+            state.currentUser.tasks.push(action.payload)
+        },
+        //deleteTask
+        [deleteTask.pending](state) {
+            state.status = "loading";
+        },
+        [deleteTask.fulfilled](state, action) {
+            state.status = "idle";
+            state.currentUser.tasks = state.currentUser.tasks.filter((task) => {
+                return action.payload.id !== task.id
+            })
         },
     },
 });
