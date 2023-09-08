@@ -45,6 +45,7 @@ function SignUp() {
                 password: "",
                 password_confirmation: "",
                 title: "",
+                profile_photo: null
             })
         })
     }
@@ -108,6 +109,17 @@ function SignUp() {
                 type="password"
                 autoComplete="off"
                 value={password_confirmation}
+                onChange={onInputChange}
+                ></input>
+            </label>
+            <label>
+                Profile Photo
+                <input
+                name="password_confirmation"
+                type="file"
+                accept="image/*"
+                autoComplete="off"
+                value={profile_photo}
                 onChange={onInputChange}
                 ></input>
             </label>
