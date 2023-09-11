@@ -1,10 +1,18 @@
 import {useState} from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../login/usersSlice'
 
 function TaskForm() {
 
     const dispatch = useDispatch()
+
+    const allProjects = useSelector((state) => state.projects.entities)
+    const currentUser = useSelector((state) => state.users.currentUser)
+    const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
+    const projectOptions = userProjects.map((project) => {
+        return <option key={project.id} value={project.id}>{project.name}</option>
+    })
+
 
     const [inputState, setInputState] = useState({
         name: "",
@@ -66,6 +74,12 @@ function TaskForm() {
                 value={description}
                 onChange={onInputChange}
                 />
+            </label>
+            <label>
+                Project
+                <select>
+                    {projectOptions}
+                </select>
             </label>
             <button type="submit">Submit</button>
         </form>
