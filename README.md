@@ -30,3 +30,5 @@ Trying to Display Only User Projects with Tasks
 1. When a user creates a task and selects a new project, the new task persists in the db, but frontend state doesn't rerender the new project on the project page under My Projects with Tasks.
 Same happens when a user completes a task, it isn't removed until a refresh.
 
+
+

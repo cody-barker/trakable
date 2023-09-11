@@ -38,12 +38,12 @@ const projectsSlice = createSlice({
             state.status = "idle";
         },
         //createProject
-         [createProject.pending](state) {
+        [createProject.pending](state) {
             state.status = "loading";
         },
         [createProject.fulfilled](state, action) {
             state.status = "idle";
-            state.entities.push(action.payload)
+            state.entities.push(action.payload);
         }
     }
 })

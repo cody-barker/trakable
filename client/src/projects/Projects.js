@@ -32,7 +32,7 @@ function Projects() {
     // const allProjectComps = allProjects.map((project) => {
     //     return <NavLink to={`/projects/${project.id}`} key={project.id}>{project.name}</NavLink>
     // })
-
+    console.log(allProjects)
     //projects the current user has created
     const createdProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const createdProjectComps = createdProjects.map((project) => {

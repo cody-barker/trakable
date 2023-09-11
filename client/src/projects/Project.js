@@ -14,8 +14,16 @@ function Project() {
     id = parseInt(id)
 
     const project = projects.find((project) => project.id === id)
-    const tasks = project.tasks.filter((task) => task.project_id === id)
+    console.log(project)
+    const tasks = currentUser.tasks.filter((task) => task.project_id === id)
+    console.log(tasks)
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
+
+    if (!project) {
+        return <div>"Loading..."</div>
+    }
+
+    //We aren't updating currentUser.projects when we add a project to "/projects"
 
     return(
        <div>
