@@ -10,20 +10,19 @@ function TaskForm() {
     const currentUser = useSelector((state) => state.users.currentUser)
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const projectOptions = userProjects.map((project) => {
-        return <option key={project.id} value={project.id}>{project.name}</option>
+        return <option key={project.id} value={project.id} name={project.name}>{project.name}</option>
     })
-
 
     const [inputState, setInputState] = useState({
         name: "",
         due_date: "",
-        description: ""
+        description: "",
     })
 
     const {
         name,
         due_date,
-        description
+        description,
     } = inputState
 
     function onInputChange(e){
@@ -33,14 +32,29 @@ function TaskForm() {
         })
     }
 
+    const [selectedProjectID, setSelectedProjectID] = useState("")
+
+    function onSelectedProjectChange(e) {
+        setSelectedProjectID(e.target.value)
+        console.log(e.target.value)
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(createTask(inputState))
+        dispatch(createTask(formData))
         setInputState({
             name: "",
             due_date: "",
-            description: ""
+            description: "",
         })
+        setSelectedProjectID("")
+    }
+
+    const formData = {
+        name,
+        due_date,
+        description,
+        project_id: selectedProjectID
     }
 
     return(
@@ -77,7 +91,8 @@ function TaskForm() {
             </label>
             <label>
                 Project
-                <select>
+                <select onChange={onSelectedProjectChange} value={selectedProjectID}>
+                    <option name="" value="">---Select a Project---</option>
                     {projectOptions}
                 </select>
             </label>

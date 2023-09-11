@@ -38,7 +38,6 @@ const projectsSlice = createSlice({
             state.status = "idle";
         },
         //createProject
-         //createProject
          [createProject.pending](state) {
             state.status = "loading";
         },
