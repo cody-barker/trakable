@@ -14,9 +14,7 @@ function Project() {
     id = parseInt(id)
 
     const project = projects.find((project) => project.id === id)
-    console.log(project)
     const tasks = currentUser.tasks.filter((task) => task.project_id === id)
-    console.log(tasks)
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
 
     if (!project) {
@@ -27,7 +25,7 @@ function Project() {
 
     return(
        <div>
-        {project.name}
+        <h4>{project.name}</h4>
         {project.tasks.empty? null : taskComps}
        </div>
     )
