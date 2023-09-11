@@ -22,8 +22,6 @@ function TaskCard({task}) {
         navigate(`/tasks/${id}/edit`)
     }
 
-    console.log(task)
-
     return(
         <div>
             <NavLink to={`/tasks/${id}`}>

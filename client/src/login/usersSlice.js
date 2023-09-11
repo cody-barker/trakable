@@ -69,6 +69,17 @@ export const updateTask = createAsyncThunk("tasks/updateTask", (payload) => {
     .then((r) => r.json())
 })
 
+// export const createProject = createAsyncThunk("projects/createProject", (payload) => {
+//     return fetch("/projects", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(payload)
+//     })
+//     .then((r) => r.json())
+// })
+
 //Reducer
 const usersSlice = createSlice({
     name: "users",

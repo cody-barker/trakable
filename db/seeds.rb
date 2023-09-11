@@ -16,12 +16,14 @@ user2 = User.create!(
 
 project1 = Project.create!(
     name: "Capstone",
-    description: "As part of the Flatiron Software Engineering Flex program curriculum, all students must submit a Capstone project in Phase 5 in order to graduate."
+    description: "As part of the Flatiron Software Engineering Flex program curriculum, all students must submit a Capstone project in Phase 5 in order to graduate.",
+    creator_id: 1
 )
 
 project2 = Project.create!(
     name: "Miscellaneous",
-    description: "Random bits and bobs without a proper home."
+    description: "Random bits and bobs without a proper home.",
+    creator_id: 1
 )
 
 task1 = user1.tasks.create!(

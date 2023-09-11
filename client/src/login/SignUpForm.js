@@ -112,17 +112,6 @@ function SignUp() {
                 onChange={onInputChange}
                 ></input>
             </label>
-            <label>
-                Profile Photo
-                <input
-                name="password_confirmation"
-                type="file"
-                accept="image/*"
-                autoComplete="off"
-                value={profile_photo}
-                onChange={onInputChange}
-                ></input>
-            </label>
 
             <button className="login-btn" type="submit">{isLoading? "Loading..." : "Sign Up"}</button>
       
