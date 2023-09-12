@@ -32,19 +32,19 @@ project3 = Project.create!(
     creator_id: 2
 )
 
-workspace1 = Workspace.create!(
-    name: "School",
+team1 = Team.create!(
+    name: "Flatiron",
     description: "Cody's Flatiron Projects",
     creator_id: 1
 )
 
-workspace2 = Workspace.create!(
-    name: "Personal",
+team2 = Team.create!(
+    name: "Personal Workspace",
     description: "Cody's Personal Projects",
     creator_id: 1
 )
 
-workspace3 = Workspace.create!(
+team3 = Team.create!(
     name: "Work",
     description: "Kelli's Work Projects",
     creator_id: 2
@@ -55,7 +55,7 @@ task1 = user1.tasks.create!(
     due_date: Date.new(2023, 9, 6),
     description: "Wash and vacuum the car",
     project_id: 2,
-    workspace_id: 2
+    team_id: 2
 )
 
 task2 = user1.tasks.create!(
@@ -63,7 +63,7 @@ task2 = user1.tasks.create!(
     due_date: Date.new(2023, 9, 7),
     description: "Create the view page for a single task after clicking on it",
     project_id: 1,
-    workspace_id: 1,
+    team_id: 1
 )
 
 task3 = user2.tasks.create!(
@@ -71,5 +71,5 @@ task3 = user2.tasks.create!(
     due_date: Date.new(2023, 9, 7),
     description: "Finish watching marketing videos",
     project_id: 3,
-    workspace_id: 3,
+    team_id: 3
 )

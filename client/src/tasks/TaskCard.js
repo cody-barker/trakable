@@ -12,7 +12,7 @@ function TaskCard({task}) {
         due_date,
         id,
         project_name,
-        workspace_name
+        team_name
     } = task
 
     function handleComplete() {
@@ -26,7 +26,7 @@ function TaskCard({task}) {
     return(
         <div>
             <NavLink to={`/tasks/${id}`}>
-            {name} {due_date} {project_name} {workspace_name}
+            {name} {due_date} {project_name} {team_name}
             </NavLink>
             <button onClick={handleComplete}>✔</button>
             <button onClick={handleEdit}>edit</button>

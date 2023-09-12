@@ -1,26 +1,26 @@
 import { useParams, NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-function Workspace() {
+function Team() {
 
     let {id} = useParams();
     id = parseInt(id)
-    const allWorkspaces = useSelector((state) => state.workspaces.entities)
-    const workspace = allWorkspaces.find((workspace) => workspace.id === id)
+    const allTeams = useSelector((state) => state.teams.entities)
+    const team = allTeams.find((team) => team.id === id)
     const uniqueProjects = new Set()
-    workspace.projects.forEach((project) => {
+    team.projects.forEach((project) => {
         uniqueProjects.add(project.name)
     })
     console.log(uniqueProjects)
-    //need to create an array of uniq projects from the workspace.projects
+    //need to create an array of uniq projects from the Team.projects
     const projects = Array.from(uniqueProjects).map((projectName) => {
-        const project = workspace.projects.find((project) => project.name === projectName)
+        const project = team.projects.find((project) => project.name === projectName)
         return (<NavLink to={`/projects/${project.id}`} key={project.id}>{project.name}</NavLink>)
     })
 
     return(
         <div>
-            {workspace.name} Workspace
+            {team.name} Team
             <br></br>
             Projects<br></br>
             {projects}
@@ -28,4 +28,4 @@ function Workspace() {
     )
 }
 
-export default Workspace
+export default Team

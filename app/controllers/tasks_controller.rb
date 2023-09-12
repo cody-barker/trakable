@@ -32,7 +32,7 @@ class TasksController < ApplicationController
             :due_date,
             :description,
             :project_id,
-            :workspace_id
+            :team_id
         )
     end
 

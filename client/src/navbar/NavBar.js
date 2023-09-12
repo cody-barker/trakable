@@ -16,7 +16,7 @@ function NavBar() {
         <nav id="navbar">   
             <NavLink className="nav-btn" to="/">My Tasks</NavLink>
             <NavLink className="nav-btn" to="/projects">Projects</NavLink>
-            <NavLink className="nav-btn" to="/workspaces">Workspaces</NavLink>
+            <NavLink className="nav-btn" to="/teams">Teams</NavLink>
             <button className="nav-btn-split" onClick={handleLogout}>
                 Logout
             </button>

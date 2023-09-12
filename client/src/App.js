@@ -6,14 +6,14 @@ import Task from './tasks/Task'
 import EditTask from './tasks/EditTask'
 import Projects from './projects/Projects'
 import Project from './projects/Project'
-import Workspaces from './workspaces/Workspaces'
-import Workspace from './workspaces/Workspace'
+import Teams from './teams/Teams'
+import Team from './teams/Team'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 import { fetchCurrentUser } from './users/usersSlice'
 import { fetchProjects } from './projects/projectsSlice'
-import { fetchWorkspaces } from './workspaces/workspacesSlice'
+import { fetchTeams } from './teams/teamsSlice'
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCurrentUser())
     dispatch(fetchProjects())
-    dispatch(fetchWorkspaces())
+    dispatch(fetchTeams())
     .then(() => setLoading(false))
   }, [dispatch])
 
@@ -63,12 +63,12 @@ function App() {
           element={<Project />}
           />
           <Route 
-          path="/workspaces"
-          element={<Workspaces />}
+          path="/teams"
+          element={<Teams />}
           />
           <Route 
-          path="/workspaces/:id"
-          element={<Workspace />}
+          path="/teams/:id"
+          element={<Team />}
           />
         </Routes>
     </main>

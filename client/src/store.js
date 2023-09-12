@@ -2,13 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import usersReducer from "./users/usersSlice";
 import projectsReducer from "./projects/projectsSlice"
-import workspacesReducer from "./workspaces/workspacesSlice"
+import teamsReducer from "./teams/teamsSlice"
 
 const store = configureStore({
   reducer: {
     users: usersReducer,
     projects: projectsReducer,
-    workspaces: workspacesReducer
+    teams: teamsReducer
   },
 });
 

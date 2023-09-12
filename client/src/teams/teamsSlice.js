@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 //action creators
-export const fetchWorkspaces = createAsyncThunk("workspaces/fetchWorkspaces", () => {
-    return fetch("/workspaces")
+export const fetchTeams = createAsyncThunk("teams/fetchTeams", () => {
+    return fetch("/teams")
     .then((r) => r.json())
 })
 
-export const createWorkspace = createAsyncThunk("projects/createWorkspace", (payload) => {
-    return fetch("/workspaces", {
+export const createTeam = createAsyncThunk("teams/createTeam", (payload) => {
+    return fetch("/teams", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -19,8 +19,8 @@ export const createWorkspace = createAsyncThunk("projects/createWorkspace", (pay
 
 
 //reducer
-const workspacesSlice = createSlice({
-    name: "workspaces",
+const teamsSlice = createSlice({
+    name: "teams",
     initialState: {
         status: "idle",
         entities: [],
@@ -29,19 +29,19 @@ const workspacesSlice = createSlice({
 
     },
     extraReducers: {
-        //fetchworkspaces
-        [fetchWorkspaces.pending](state) {
+        //fetchteams
+        [fetchTeams.pending](state) {
             state.status = "loading";
         },
-        [fetchWorkspaces.fulfilled](state, action) {
+        [fetchTeams.fulfilled](state, action) {
             state.entities = action.payload;
             state.status = "idle";
         },
         //createProject
-        [createWorkspace.pending](state) {
+        [createTeam.pending](state) {
             state.status = "loading";
         },
-        [createWorkspace.fulfilled](state, action) {
+        [createTeam.fulfilled](state, action) {
             state.status = "idle";
             state.entities.push(action.payload);
         }
@@ -49,4 +49,4 @@ const workspacesSlice = createSlice({
 })
 
 
-export default workspacesSlice.reducer;
+export default teamsSlice.reducer;

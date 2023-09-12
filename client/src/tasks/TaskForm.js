@@ -10,14 +10,14 @@ function TaskForm({vis, setVis}) {
 
     const allProjects = useSelector((state) => state.projects.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
-    const allWorkspaces = useSelector((state) => state.workspaces.entities)
+    const allTeams = useSelector((state) => state.teams.entities)
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const projectOptions = userProjects.map((project) => {
         return <option key={project.id} value={project.id} name={project.name}>{project.name}</option>
     })
-    const userWorkspaces = allWorkspaces.filter((workspace) => workspace.creator_id === currentUser.id)
-    const workspaceOptions = userWorkspaces.map((workspace) => {
-        return <option key={workspace.id} value={workspace.id} name={workspace.name}>{workspace.name}</option>
+    const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
+    const teamOptions = userTeams.map((team) => {
+        return <option key={team.id} value={team.id} name={team.name}>{team.name}</option>
     })
 
     const [inputState, setInputState] = useState({
@@ -40,14 +40,14 @@ function TaskForm({vis, setVis}) {
     }
 
     const [projectID, setProjectID] = useState("")
-    const [workspaceID, setWorkspaceID] = useState("")
+    const [teamID, setTeamID] = useState("")
 
     function onProjectChange(e) {
         setProjectID(e.target.value)
     }
 
-    function onWorkspaceChange(e) {
-        setWorkspaceID(e.target.value)
+    function onTeamChange(e) {
+        setTeamID(e.target.value)
     }
 
     function handleSubmit(e) {
@@ -67,7 +67,7 @@ function TaskForm({vis, setVis}) {
         due_date,
         description,
         project_id: projectID,
-        workspace_id: workspaceID,
+        team_id: teamID,
     }
 
     return(
@@ -103,10 +103,10 @@ function TaskForm({vis, setVis}) {
                 />
             </label>
             <label>
-                Workspace
-                <select onChange={onWorkspaceChange} value={workspaceID}>
-                    <option name="" value="">---Select a Workspace---</option>
-                    {workspaceOptions}
+                Team
+                <select onChange={onTeamChange} value={teamID}>
+                    <option name="" value="">---Select a Team---</option>
+                    {teamOptions}
                 </select>
             </label>
             <label>
