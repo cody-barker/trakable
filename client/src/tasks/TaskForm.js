@@ -8,9 +8,14 @@ function TaskForm({vis, setVis}) {
 
     const allProjects = useSelector((state) => state.projects.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
+    const allWorkspaces = useSelector((state) => state.workspaces.entities)
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const projectOptions = userProjects.map((project) => {
         return <option key={project.id} value={project.id} name={project.name}>{project.name}</option>
+    })
+    const userWorkspaces = allWorkspaces.filter((workspace) => workspace.creator_id === currentUser.id)
+    const workspaceOptions = userWorkspaces.map((workspace) => {
+        return <option key={workspace.id} value={workspace.id} name={workspace.name}>{workspace.name}</option>
     })
 
     const [inputState, setInputState] = useState({
@@ -32,11 +37,15 @@ function TaskForm({vis, setVis}) {
         })
     }
 
-    const [selectedProjectID, setSelectedProjectID] = useState("")
+    const [projectID, setProjectID] = useState("")
+    const [workspaceID, setWorkspaceID] = useState("")
 
-    function onSelectedProjectChange(e) {
-        setSelectedProjectID(e.target.value)
-        console.log(e.target.value)
+    function onProjectChange(e) {
+        setProjectID(e.target.value)
+    }
+
+    function onWorkspaceChange(e) {
+        setWorkspaceID(e.target.value)
     }
 
     function handleSubmit(e) {
@@ -47,7 +56,7 @@ function TaskForm({vis, setVis}) {
             due_date: "",
             description: "",
         })
-        setSelectedProjectID("")
+        setProjectID("")
         setVis(!vis)
     }
 
@@ -55,7 +64,8 @@ function TaskForm({vis, setVis}) {
         name,
         due_date,
         description,
-        project_id: selectedProjectID
+        project_id: projectID,
+        workspace_id: workspaceID,
     }
 
     return(
@@ -91,8 +101,15 @@ function TaskForm({vis, setVis}) {
                 />
             </label>
             <label>
+                Workspace
+                <select onChange={onWorkspaceChange} value={workspaceID}>
+                    <option name="" value="">---Select a Workspace---</option>
+                    {workspaceOptions}
+                </select>
+            </label>
+            <label>
                 Project
-                <select onChange={onSelectedProjectChange} value={selectedProjectID}>
+                <select onChange={onProjectChange} value={projectID}>
                     <option name="" value="">---Select a Project---</option>
                     {projectOptions}
                 </select>
