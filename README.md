@@ -31,4 +31,8 @@ Trying to Display Only User Projects with Tasks
 Same happens when a user completes a task, it isn't removed until a refresh.
 
 
+When a task is created with a project the team has not used yet, and navigating to a Team's page of projects, it won't display the new project until refreshed.
+- When the task is submitted, team state isn't updated
+- When a task is submitted, update currentUser.tasks, and also ensure that the project is added to the teams state
+
 

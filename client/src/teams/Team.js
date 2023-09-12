@@ -6,7 +6,9 @@ function Team() {
     let {id} = useParams();
     id = parseInt(id)
     const allTeams = useSelector((state) => state.teams.entities)
+    const currentUser = useSelector((state) => state.users.currentUsers)
     const team = allTeams.find((team) => team.id === id)
+    console.log(team)
     const uniqueProjects = new Set()
     team.projects.forEach((project) => {
         uniqueProjects.add(project.name)
