@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { createProject } from '../projects/projectsSlice'
 
 //Action Creators
 export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () => {
