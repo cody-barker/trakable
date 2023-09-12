@@ -18,7 +18,7 @@ function Tasks() {
     return (
         <div>
             <button onClick={handleClick}>+ Add task</button>
-            {vis ? <TaskForm /> : null}
+            {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             {taskCardComps}
         </div>
     )

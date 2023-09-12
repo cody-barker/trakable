@@ -48,7 +48,7 @@ function Projects() {
     return (
         <div>
             <button onClick={handleClick}>+ Add Project</button>
-            {vis ? <ProjectForm /> : null}
+            {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
             {/* <h4>My Projects with Tasks</h4>
             {userProjectComps} */}
             <h4>Projects I've Created</h4>

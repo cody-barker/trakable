@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createProject} from '../projects/projectsSlice'
 
-function ProjectForm() {
+function ProjectForm({vis, setVis}) {
 
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.users.currentUser)
@@ -32,6 +32,7 @@ function ProjectForm() {
             name: "",
             description: ""
         })
+        setVis(!vis)
     }
 
     return(

@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../login/usersSlice'
 
-function TaskForm() {
+function TaskForm({vis, setVis}) {
 
     const dispatch = useDispatch()
 
@@ -48,6 +48,7 @@ function TaskForm() {
             description: "",
         })
         setSelectedProjectID("")
+        setVis(!vis)
     }
 
     const formData = {
