@@ -37,7 +37,7 @@ const teamsSlice = createSlice({
             state.entities = action.payload;
             state.status = "idle";
         },
-        //createProject
+        //createTeam
         [createTeam.pending](state) {
             state.status = "loading";
         },

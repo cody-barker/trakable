@@ -11,7 +11,6 @@ function Team() {
     team.projects.forEach((project) => {
         uniqueProjects.add(project.name)
     })
-    console.log(uniqueProjects)
     //need to create an array of uniq projects from the Team.projects
     const projects = Array.from(uniqueProjects).map((projectName) => {
         const project = team.projects.find((project) => project.name === projectName)

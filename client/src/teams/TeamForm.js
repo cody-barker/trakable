@@ -1,8 +1,8 @@
-import {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {createProject} from './projectsSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { createTeam } from './teamsSlice'
+import { useState } from 'react'
 
-function ProjectForm({vis, setVis}) {
+function TeamForm({vis, setVis}) {
 
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.users.currentUser)
@@ -27,7 +27,7 @@ function ProjectForm({vis, setVis}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(createProject(inputState))
+        dispatch(createTeam(inputState))
         setInputState({
             name: "",
             description: ""
@@ -39,7 +39,7 @@ function ProjectForm({vis, setVis}) {
         <div>
             <form onSubmit={handleSubmit}>
             <label>
-                Project Name
+                Team Name
                 <input
                 name="name"
                 type="text"
@@ -64,4 +64,4 @@ function ProjectForm({vis, setVis}) {
     )
 }
 
-export default ProjectForm
+export default TeamForm
