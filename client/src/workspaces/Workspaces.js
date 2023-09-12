@@ -15,6 +15,7 @@ function Workspaces() {
     return(
         <div>
             Workspaces
+            <br></br>
             {userWorkspacesComps}
         </div>
     )

@@ -2,6 +2,8 @@ import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../users/usersSlice'
 
+//need to decide how to route around in order to create new tasks and projects that are appropriately associated
+
 function TaskForm({vis, setVis}) {
 
     const dispatch = useDispatch()
