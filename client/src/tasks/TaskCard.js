@@ -1,6 +1,6 @@
 import {NavLink, useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
-import {deleteTask} from '../login/usersSlice'
+import {deleteTask} from '../users/usersSlice'
 
 function TaskCard({task}) {
 

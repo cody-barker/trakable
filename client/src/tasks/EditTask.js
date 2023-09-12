@@ -1,7 +1,7 @@
 import {useParams, useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {useState} from 'react'
-import {updateTask} from '../login/usersSlice'
+import {updateTask} from '../users/usersSlice'
 
 function EditTask() {
 
