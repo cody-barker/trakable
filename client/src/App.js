@@ -27,17 +27,19 @@ function App() {
     .then(() => setLoading(false))
   }, [dispatch])
 
-
-
   const currentUser = useSelector((state) => state.users.currentUser)
 
   if (loading) {
     return null
   }
 
-  if (!currentUser) {
+  if (currentUser.errors) {
     return <LoginPage />
   }
+ 
+  // if (!loading) {
+  //   return <LoginPage />
+  // }
 
   return (
     <main>
