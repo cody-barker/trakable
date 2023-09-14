@@ -61,7 +61,7 @@ function TaskForm({vis, setVis}) {
         })
         setProjectID("")
         setTeamID("")
-        setVis(!vis)
+        // setVis(!vis)
     }
 
     const formData = {

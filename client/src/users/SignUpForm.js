@@ -38,15 +38,6 @@ function SignUp() {
         dispatch(signupUser(inputState))
         .then(() => {
             setisLoading(false)
-            setInputState({
-                first_name: "",
-                last_name: "",
-                email: "",
-                password: "",
-                password_confirmation: "",
-                title: "",
-                profile_photo: null
-            })
         })
     }
 
