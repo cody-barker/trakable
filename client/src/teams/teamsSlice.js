@@ -26,6 +26,10 @@ const teamsSlice = createSlice({
         errors: []
     },
     reducers: {
+        // addTaskToTeam(state, action) {
+        //     const team = state.entities.find((team) => team.id === action.payload.team_id);
+        //     team.tasks.push(action.payload)
+        // }
     },
     extraReducers: {
         //fetchteams
@@ -42,11 +46,16 @@ const teamsSlice = createSlice({
         },
         [createTeam.fulfilled](state, action) {
             state.status = "idle";
-            state.entities.push(action.payload);
-        }
+            if ('errors' in action.payload) {
+                state.errors = [];
+                state.errors.push(action.payload)
+            } else {
+                state.entities.push(action.payload);
+            }
+    }
     }
 })
 
-export const { updateTeamTask } = teamsSlice.actions
+export const { addTaskToTeam } = teamsSlice.actions
 
 export default teamsSlice.reducer;

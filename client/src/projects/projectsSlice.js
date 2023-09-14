@@ -43,8 +43,13 @@ const projectsSlice = createSlice({
             state.status = "loading";
         },
         [createProject.fulfilled](state, action) {
+            if ('errors' in action.payload) {
+                state.errors = [];
+                state.errors.push(action.payload);
+            } else {
+                state.entities.push(action.payload);
+            }
             state.status = "idle";
-            state.entities.push(action.payload);
         }
     }
 })

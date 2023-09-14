@@ -74,7 +74,7 @@ const usersSlice = createSlice({
     name: "users",
     initialState: {
         status: "idle",
-        currentUser: null,
+        currentUser: {},
         errors: []
     },
     reducers: {
@@ -135,8 +135,14 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [createTask.fulfilled](state, action) {
+            if ('errors' in action.payload) {
+                state.errors = [];
+                state.errors.push(action.payload);
+            } else {
+                state.currentUser.tasks.push(action.payload);
+                state.errors = [];
+            }
             state.status = "idle";
-            state.currentUser.tasks.push(action.payload);
         },
         //deleteTask
         [deleteTask.pending](state) {

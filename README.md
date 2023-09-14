@@ -37,3 +37,9 @@ When a task is created with a project the team has not used yet, and navigating 
 
 When a task is submitted:
 1. 
+
+
+Standing Questions
+1. How do I update other pieces of state like teams and projects, when a task is created?
+2. How do I fetch projects and users after a user is authorized? Currently I need to skip authorize action in order to get them.
+3. Do I separate tasks and users slice?

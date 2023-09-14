@@ -6,6 +6,14 @@ function ProjectForm({vis, setVis}) {
 
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.users.currentUser)
+    const errors = useSelector((state) => state.projects.errors)
+    const errorComps = errors.map((userErrors, userIndex) => (
+        <ul key={userIndex}>
+          {userErrors.errors.map((error, index) => (
+            <li className="error" key={index}>{error}</li>
+          ))}
+        </ul>
+      ));
 
     const [inputState, setInputState] = useState({
         name: "",
@@ -15,7 +23,8 @@ function ProjectForm({vis, setVis}) {
 
     const {
         name,
-        description
+        description,
+        creator_id
     } = inputState
 
     function onInputChange(e){
@@ -30,14 +39,16 @@ function ProjectForm({vis, setVis}) {
         dispatch(createProject(inputState))
         setInputState({
             name: "",
-            description: ""
+            description: "",
+            creator_id: currentUser.id
         })
-        setVis(!vis)
+        // setVis(!vis)
     }
 
     return(
         <div>
             <form onSubmit={handleSubmit}>
+                {errorComps}
             <label>
                 Project Name
                 <input

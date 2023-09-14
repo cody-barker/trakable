@@ -1,15 +1,14 @@
 import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../users/usersSlice'
-import { updateTeamTask } from '../teams/teamsSlice'
-
-//need to decide how to route around in order to create new tasks and projects that are appropriately associated
+// import {addTaskToTeam} from '../teams/teamsSlice'
 
 function TaskForm({vis, setVis}) {
 
     const dispatch = useDispatch()
 
     const currentUser = useSelector((state) => state.users.currentUser)
+    const errors = useSelector((state) => state.users.errors)
     const allProjects = useSelector((state) => state.projects.entities)
     const allTeams = useSelector((state) => state.teams.entities)
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
@@ -20,6 +19,14 @@ function TaskForm({vis, setVis}) {
     const teamOptions = userTeams.map((team) => {
         return <option key={team.id} value={team.id} name={team.name}>{team.name}</option>
     })
+
+    const errorComps = errors.map((userErrors, userIndex) => (
+        <ul key={userIndex}>
+          {userErrors.errors.map((error, index) => (
+            <li className="error" key={index}>{error}</li>
+          ))}
+        </ul>
+      ));
 
     const [inputState, setInputState] = useState({
         name: "",
@@ -44,16 +51,18 @@ function TaskForm({vis, setVis}) {
     const [teamID, setTeamID] = useState("")
 
     function onProjectChange(e) {
-        setProjectID(e.target.value)
+        setProjectID(parseInt(e.target.value))
     }
 
     function onTeamChange(e) {
-        setTeamID(e.target.value)
+        setTeamID(parseInt(e.target.value))
     }
 
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createTask(formData))
+        //addTaskToTeam adds the task to the teams.tasks state but without the task.id since it's not a returned payload
+        // dispatch(addTaskToTeam(formData))
         setInputState({
             name: "",
             due_date: "",
@@ -70,10 +79,14 @@ function TaskForm({vis, setVis}) {
         description,
         project_id: projectID,
         team_id: teamID,
+        user_id: currentUser.id
     }
+
+
 
     return(
         <form onSubmit={handleSubmit}>
+            {errorComps}
             <label>
                 Task Name
                 <input
