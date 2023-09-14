@@ -8,12 +8,12 @@ function TaskForm({vis, setVis}) {
 
     const dispatch = useDispatch()
 
-    const allProjects = useSelector((state) => state.projects.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
+    const allProjects = useSelector((state) => state.projects.entities)
     const allTeams = useSelector((state) => state.teams.entities)
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const projectOptions = userProjects.map((project) => {
-        return <option key={project.id} value={project.id} name={project.name}>{project.name}</option>
+        return <option key={project.id} value={project.id}>{project.name}</option>
     })
     const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
     const teamOptions = userTeams.map((team) => {
