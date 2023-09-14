@@ -24,6 +24,7 @@ const projectsSlice = createSlice({
     initialState: {
         status: "idle",
         entities: [],
+        errors: []
     },
     reducers: {
 

@@ -136,7 +136,7 @@ const usersSlice = createSlice({
         },
         [createTask.fulfilled](state, action) {
             state.status = "idle";
-            state.currentUser.tasks.push(action.payload)
+            state.currentUser.tasks.push(action.payload);
         },
         //deleteTask
         [deleteTask.pending](state) {

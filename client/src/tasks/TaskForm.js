@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../users/usersSlice'
+import { updateTeamTask } from '../teams/teamsSlice'
 
 //need to decide how to route around in order to create new tasks and projects that are appropriately associated
 
@@ -59,6 +60,7 @@ function TaskForm({vis, setVis}) {
             description: "",
         })
         setProjectID("")
+        setTeamID("")
         setVis(!vis)
     }
 

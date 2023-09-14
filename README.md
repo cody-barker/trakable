@@ -35,4 +35,5 @@ When a task is created with a project the team has not used yet, and navigating 
 - When the task is submitted, team state isn't updated
 - When a task is submitted, update currentUser.tasks, and also ensure that the project is added to the teams state
 
-
+When a task is submitted:
+1. 

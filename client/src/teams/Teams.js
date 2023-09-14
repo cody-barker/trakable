@@ -22,7 +22,7 @@ function Teams() {
             <button onClick={handleVis}>+ Add Team</button>
             {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
             <br></br>
-            Teams
+            <h4>Teams I've Created</h4>
             <br></br>
             {userTeamsComps}
         </div>

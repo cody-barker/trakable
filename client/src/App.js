@@ -30,13 +30,13 @@ function App() {
   const currentUser = useSelector((state) => state.users.currentUser)
 
   if (loading) {
-    return null
+    return <div></div>
   }
 
-  if (currentUser.errors) {
+  if (currentUser === null || currentUser.errors) {
     return <LoginPage />
   }
- 
+
   // if (!loading) {
   //   return <LoginPage />
   // }

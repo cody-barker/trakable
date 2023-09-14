@@ -17,16 +17,15 @@ export const createTeam = createAsyncThunk("teams/createTeam", (payload) => {
     .then((r) => r.json())
 })
 
-
 //reducer
 const teamsSlice = createSlice({
     name: "teams",
     initialState: {
         status: "idle",
         entities: [],
+        errors: []
     },
     reducers: {
-
     },
     extraReducers: {
         //fetchteams
@@ -48,5 +47,6 @@ const teamsSlice = createSlice({
     }
 })
 
+export const { updateTeamTask } = teamsSlice.actions
 
 export default teamsSlice.reducer;
