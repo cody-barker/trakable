@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
-function Home() {
+function LoginPage() {
     const [showLogin, setShowLogin] = useState(true)
     const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.users.errors)
@@ -53,4 +53,4 @@ function Home() {
     )
 }
 
-export default Home
+export default LoginPage
