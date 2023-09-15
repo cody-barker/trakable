@@ -5,14 +5,15 @@ import TaskForm from './TaskForm'
 
 function Tasks() {
     const projects = useSelector((state) => state.users.currentUser.projects)
+    console.log(projects)
     const tasks = projects.map((project) => project.tasks)
     const flattenedTasks = tasks.flat()
+    console.log(flattenedTasks)
     const taskCardComps = flattenedTasks.map((task) => {
         return <TaskCard key={task.id} task={task}/>
     })
 
     const [vis, setVis] = useState(false)
-
     function handleClick() {
         setVis(!vis)
     }
@@ -21,7 +22,8 @@ function Tasks() {
         <div>
             <button onClick={handleClick}>+ Add task</button>
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
-            {taskCardComps}
+            <br></br>
+            {taskCardComps ? taskCardComps : null}
         </div>
     )
 }

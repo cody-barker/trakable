@@ -1,13 +1,9 @@
-//Render all tasks for a single project
-import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import TaskCard from '../tasks/TaskCard'
-import { fetchProjects } from './projectsSlice'
 
 function Project() {
 
-    const dispatch = useDispatch()
     let {id} = useParams()
     id = parseInt(id)
     const projects = useSelector((state) => state.users.currentUser.projects)

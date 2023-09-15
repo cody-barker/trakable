@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(id: session[:user_id])
-        render json: user, status: :created, include: ['projects', 'projects.tasks', 'teams', 'teams.tasks']
+        render json: user, status: :created
     end
 
     def create

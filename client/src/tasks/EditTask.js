@@ -14,7 +14,6 @@ function EditTask() {
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
 
-
     const [inputState, setInputState] = useState({
         name: task.name,
         due_date: task.due_date,

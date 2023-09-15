@@ -20,8 +20,6 @@ function App() {
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(true)
 
-  //seeded projects and teams aren't show after signing in for the first time after a dbreset
-
   useEffect(() => {
     dispatch(fetchCurrentUser())
     dispatch(fetchProjects())

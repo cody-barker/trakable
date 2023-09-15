@@ -50,14 +50,6 @@ team3 = Team.create!(
     creator_id: 2
 )
 
-task1 = user1.tasks.create!(
-    name: "Wash the car",
-    due_date: Date.new(2023, 9, 6),
-    description: "Wash and vacuum the car",
-    project_id: 2,
-    team_id: 2
-)
-
 task2 = user1.tasks.create!(
     name: "Create the detail page for single tasks",
     due_date: Date.new(2023, 9, 7),
