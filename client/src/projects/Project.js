@@ -22,7 +22,7 @@ function Project() {
     return(
        <div>
         <h4>{project.name}</h4>
-        {project.tasks.empty? null : taskComps}
+        {project.tasks.empty ? null : taskComps}
        </div>
     )
 }

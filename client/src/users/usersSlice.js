@@ -163,9 +163,10 @@ const usersSlice = createSlice({
         },
         [deleteTask.fulfilled](state, action) {
             state.status = "idle";
-            state.currentUser.tasks = state.currentUser.tasks.filter((task) => {
-                return action.payload.id !== task.id
-            })
+            const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
+            const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
+            project.tasks = project.tasks.filter((t) => t.id !== action.payload.id)
+            team.tasks = team.tasks.filter((t) => t.id !== action.payload.id)
         },
         //updateTask
         [updateTask.pending](state) {
