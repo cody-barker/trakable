@@ -8,14 +8,7 @@ function Team() {
     id = parseInt(id)
     const allTeams = useSelector((state) => state.teams.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
-    console.log(currentUser)
-
-    //add the new task to teams.tasks or teams.projects
-
     const team = allTeams.find((team) => team.id === id)
-    console.log(team)
-    console.log(currentUser)
-
     const teamTasks = currentUser.tasks.filter((task) => task.team_id === id)
     const teamTaskComps = teamTasks.map((task) => <TaskCard key={task.id} task={task}/>)
 

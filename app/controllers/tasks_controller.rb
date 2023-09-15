@@ -5,8 +5,8 @@ class TasksController < ApplicationController
 
     def create
         user = find_user_by_session_id
-        tasks = user.tasks.create!(task_params)
-        render json: tasks, status: :created
+        task = user.tasks.create!(task_params)
+        render json: task, status: :created
     end
 
     def update
