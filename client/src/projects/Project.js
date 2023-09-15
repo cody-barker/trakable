@@ -14,19 +14,7 @@ function Project() {
     const project = projects.find((p) => p.id === id)
     const tasks = project ? project.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        dispatch(fetchProjects())
-        .then(() => {
-            setLoading(false)
-        })
-    }, [dispatch, id])
-
-    if (loading) {
-        return <div>"Loading..."</div>
-    }
-
+   
     if (!project) {
         return <div>Please add your first task to this project.</div>
     }
