@@ -4,7 +4,10 @@ import { useParams } from 'react-router-dom'
 function Task() {
     let {id} = useParams()
     id = parseInt(id)
-    const task = useSelector((state) => state.users.currentUser.tasks.find((t) => t.id === id))
+    const projects = useSelector((state) => state.users.currentUser.projects)
+    const tasks = projects.map((project) => project.tasks)
+    const flattenedTasks = tasks.flat()
+    const task = flattenedTasks.find((t) => t.id === id)
     const {
         name,
         description,
