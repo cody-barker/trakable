@@ -3,7 +3,7 @@ Standing Questions
 
 For example:
 
-If I create a new task by masking a Post request to /users, and use user.tasks.create!, I can update currentUser.tasks with that payload. How do I then ensure the rest of my frontend state is appropriately updated? ie projects.tasks and teams.tasks should have this new task as well, right? Do I also need to update projects.users, projects.teams, teams.projects, and teams.users?
+If I create a new task by making a Post request to /tasks, and use user.tasks.create!, I can update currentUser.tasks with that payload. How do I then ensure the rest of my frontend state is appropriately updated? ie projects.tasks and teams.tasks should have this new task as well, right? Do I also need to update projects.users, projects.teams, teams.projects, and teams.users?
 
 I don't believe I'm ever really calling on the full has_many relationship, ie user.projects
 
