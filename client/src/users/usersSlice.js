@@ -77,8 +77,6 @@ const usersSlice = createSlice({
         currentUser: {
             projects: [],
             teams: []
-            //projects would have nested tasks, instead of currentUser.tasks
-            //teams would also have nested tasks
             //might need custom serializers for handling the nested tasks
             //unlikely to ever want to see just user.tasks, better to have them nested in projects and teams
             //login as somebody else and make some tasks, filter to find tasks that are mine
@@ -147,8 +145,6 @@ const usersSlice = createSlice({
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
-                // state.currentUser.tasks.push(action.payload);
-                //IMPLEMENT
                 const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
                 const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
                 project.tasks.push(action.payload)
@@ -174,13 +170,6 @@ const usersSlice = createSlice({
         },
         [updateTask.fulfilled](state, action) {
             state.status = "idle";
-            // state.currentUser.tasks = state.currentUser.tasks.map((task) => {
-            //     if (task.id === action.payload.id) {
-            //         return action.payload
-            //     } else {
-            //         return task
-            //     }
-            // })
             const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
             project.tasks = project.tasks.map((t) => {
                 if (t.id === action.payload.id) {

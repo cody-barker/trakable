@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 export const fetchProjects = createAsyncThunk("users/fetchProjects", () => {
     return fetch("/projects")
     .then((r) => r.json())
-    //.then((r) => dispatch(addTaskToTeam(r)))???
 })
 
 export const createProject = createAsyncThunk("projects/createProject", (payload) => {

@@ -23,7 +23,6 @@ function Teams() {
             {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
             <br></br>
             <h4>Teams I've Created</h4>
-            <br></br>
             {userTeamsComps}
         </div>
     )

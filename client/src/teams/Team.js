@@ -1,4 +1,4 @@
-import { useParams, NavLink } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import TaskCard from "../tasks/TaskCard"
 
