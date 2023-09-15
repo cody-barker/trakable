@@ -4,8 +4,10 @@ import {useState} from 'react'
 import TaskForm from './TaskForm'
 
 function Tasks() {
-    const tasks = useSelector((state) => state.users.currentUser.tasks)
-    const taskCardComps = tasks.map((task) => {
+    const projects = useSelector((state) => state.users.currentUser.projects)
+    const tasks = projects.map((project) => project.tasks)
+    const flattenedTasks = tasks.flat()
+    const taskCardComps = flattenedTasks.map((task) => {
         return <TaskCard key={task.id} task={task}/>
     })
 
