@@ -14,3 +14,58 @@ I don't believe I'm ever really calling on the full has_many relationship, ie us
 2. How do I fetch projects and users after a user is authorized? Currently I need to skip authorize action in order to get them.
 
 3. Do I separate tasks and users slice?
+
+
+
+
+Creating Teams
+*make an initial fetch request for all users when app mounts
+*when a team is created, pass the currentUser.id as a param and add it to the team.auth_users array
+
+1. add_column :teams, :auth_users, :id, array: true, default: []
+2. create a "team invite button" on any team you've created
+3. when clicked, that button opens a form asking for a users email
+4. email input and team id are controlled. the team id is grabbed from params
+        
+        let id = useParams()
+        id = parseInt(id)        //this is the team id
+        const [email, setEmail] = useState(")
+        const teams = useSelector((state) => state.teams.entities)
+        const [team, setTeam] = useState(null)
+        const users = useSelector((state) => state.users.entities)
+        let user = users.find((u) => u.email === email)
+
+        handleSubmit(e){
+            e.preventDefault()
+            setTeam(teams.find((t) => t.id === id))
+            const updatedTeam = {
+                ...team,
+                auth_users: [...team.auth_users, user.id]
+            }
+            setTeam(updatedTeam)
+            dispatch(inviteUser(updatedTeam))
+        }
+
+5. in the teamsSlice, create an async action creator:
+
+        export const inviteUser = createAsyncThunk("teams/inviteUser", (payload) => {
+            return fetch(`/teams/${payload.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then((r) => r.json())
+        })
+
+6. in the teams reducer:
+
+    [inviteUser.pending](state) {
+        state.status = "loading";
+        },
+    [inviteUser.fulfilled](state, action) {
+        state.status = "idle";
+        const team = state.entities.find((t) => t.id === action.payload.id)
+        const team = action.payload
+        }
