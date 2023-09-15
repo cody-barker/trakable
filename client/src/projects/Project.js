@@ -28,7 +28,7 @@ function Project() {
     }
 
     if (!project) {
-        return <div>Please add a task to this project.</div>
+        return <div>Please add your first task to this project.</div>
     }
 
     return(
