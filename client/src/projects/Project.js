@@ -5,23 +5,19 @@ import TaskCard from '../tasks/TaskCard'
 
 function Project() {
 
-    //state
-    const projects = useSelector((state) => state.projects.entities)
-    const currentUser = useSelector((state) => state.users.currentUser)
-
-    //project id
     let {id} = useParams()
     id = parseInt(id)
+    const projects = useSelector((state) => state.users.currentUser.projects)
+    console.log(projects)
+    const project = projects.find((p) => p.id === id)
+    console.log(project)
+    const tasks = project.tasks.map((t) => t)
 
-    const project = projects.find((project) => project.id === id)
-    const tasks = currentUser.tasks.filter((task) => task.project_id === id)
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
 
     if (!project) {
         return <div>"Loading..."</div>
     }
-
-    //We aren't updating currentUser.projects when we add a project to "/projects"
 
     return(
        <div>
