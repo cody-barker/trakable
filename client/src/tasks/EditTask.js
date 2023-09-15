@@ -9,8 +9,11 @@ function EditTask() {
     const navigate = useNavigate();
     let {id} = useParams();
     id = parseInt(id);
-    const tasks  = useSelector((state) => state.users.currentUser.tasks);
-    const task = tasks.filter((task) => task.id === id)[0];
+    const projects = useSelector((state) => state.users.currentUser.projects)
+    const tasks = projects.map((project) => project.tasks)
+    const flattenedTasks = tasks.flat()
+    const task = flattenedTasks.find((t) => t.id === id)
+
 
     const [inputState, setInputState] = useState({
         name: task.name,

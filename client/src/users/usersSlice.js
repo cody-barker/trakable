@@ -173,11 +173,27 @@ const usersSlice = createSlice({
         },
         [updateTask.fulfilled](state, action) {
             state.status = "idle";
-            state.currentUser.tasks = state.currentUser.tasks.map((task) => {
-                if (task.id === action.payload.id) {
+            // state.currentUser.tasks = state.currentUser.tasks.map((task) => {
+            //     if (task.id === action.payload.id) {
+            //         return action.payload
+            //     } else {
+            //         return task
+            //     }
+            // })
+            const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
+            project.tasks = project.tasks.map((t) => {
+                if (t.id === action.payload.id) {
                     return action.payload
                 } else {
-                    return task
+                    return t
+                }
+            })
+            const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
+            team.tasks = team.tasks.map((t) => {
+                if (t.id === action.payload.id) {
+                    return action.payload
+                } else {
+                    return t
                 }
             })
         },
