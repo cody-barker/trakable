@@ -76,3 +76,4 @@ Handling undefined projects and teams when updating state with new tasks
 1. Pass the project and the team as an object in the params object, alongside project_id and team_id.
 2. Do this by setting state changes when an option changes, which in the background also updates two more params which get set to the object and not just the id.
 2. This way, you have the project_id and the team_id for creating the task, you also have the objects in the payload so if they aren't currently associated, you can push them into user.projects and user.teams and then add the tasks to each of those
+3. Check if the project and team are already passed back in the payload
