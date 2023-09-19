@@ -145,8 +145,8 @@ const usersSlice = createSlice({
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
-                const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
-                const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
+                const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
+                const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
                 project.tasks.push(action.payload)
                 team.tasks.push(action.payload)
                 state.errors = [];

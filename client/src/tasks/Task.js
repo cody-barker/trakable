@@ -16,7 +16,7 @@ function Task() {
     } = task
     return (
         <div>
-            {name} {due_date} {project_name}
+            {name} {due_date}
             <br></br>
             {description} 
             <hr></hr>
