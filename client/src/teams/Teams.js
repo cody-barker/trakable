@@ -5,14 +5,15 @@ import TeamForm from './TeamForm'
 
 function Teams() {
 
-    const [vis, setVis] = useState(false)
     const currentUser = useSelector((state) => state.users.currentUser)
     const allTeams = useSelector((state) => state.teams.entities)
+    
     const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
     const userTeamsComps = userTeams.map((team) => {
         return <NavLink to={`/teams/${team.id}`} key={team.id}>{team.name}</NavLink>
     })
 
+    const [vis, setVis] = useState(false)
     function handleVis() {
         setVis(!vis)
     }

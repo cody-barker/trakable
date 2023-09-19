@@ -5,9 +5,12 @@ import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 function LoginPage() {
-    const [showLogin, setShowLogin] = useState(true)
+
     const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.users.errors)
+
+    const [showLogin, setShowLogin] = useState(true)
+    
     const errorComps = errors.map((e, index) => (
         <ul key={index}>
             {e.errors.map((errorMessage, i) => (

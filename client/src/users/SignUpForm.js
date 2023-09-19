@@ -4,8 +4,9 @@ import { useDispatch } from 'react-redux'
 
 function SignUp() {
 
-    const [isLoading, setisLoading] = useState(false);
     const dispatch = useDispatch()
+
+    const [isLoading, setisLoading] = useState(false);
 
     const [inputState, setInputState] = useState({
         first_name: "",

@@ -18,7 +18,7 @@ function TaskCard({task}) {
     const currentUser = useSelector((state) => state.users.currentUser)
     const project = currentUser.projects.find((p) => p.id === project_id)
     const team = currentUser.teams.find((t) => t.id === team_id)
-    console.log(project)
+
     function handleComplete() {
         dispatch(deleteTask(id))
     }

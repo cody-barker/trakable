@@ -5,10 +5,11 @@ import {updateTask} from '../users/usersSlice'
 
 function EditTask() {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
     let {id} = useParams();
     id = parseInt(id);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const projects = useSelector((state) => state.users.currentUser.projects)
     const tasks = projects.map((project) => project.tasks)
     const flattenedTasks = tasks.flat()

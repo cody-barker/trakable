@@ -4,17 +4,19 @@ import {createTask} from '../users/usersSlice'
 // import {addTaskToTeam} from '../teams/teamsSlice'
 
 function TaskForm({vis, setVis}) {
-
+    
     const dispatch = useDispatch()
 
     const currentUser = useSelector((state) => state.users.currentUser)
-    const errors = useSelector((state) => state.users.errors)
     const allProjects = useSelector((state) => state.projects.entities)
     const allTeams = useSelector((state) => state.teams.entities)
+    const errors = useSelector((state) => state.users.errors)
+
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const projectOptions = userProjects.map((project) => {
         return <option key={project.id} value={project.id}>{project.name}</option>
     })
+
     const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
     const teamOptions = userTeams.map((team) => {
         return <option key={team.id} value={team.id} name={team.name}>{team.name}</option>
@@ -50,6 +52,15 @@ function TaskForm({vis, setVis}) {
     const [projectID, setProjectID] = useState("")
     const [teamID, setTeamID] = useState("")
 
+    const formData = {
+        name,
+        due_date,
+        description,
+        project_id: projectID,
+        team_id: teamID,
+        user_id: currentUser.id
+    }
+
     function onProjectChange(e) {
         setProjectID(parseInt(e.target.value))
     }
@@ -61,8 +72,6 @@ function TaskForm({vis, setVis}) {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createTask(formData))
-        //addTaskToTeam adds the task to the teams.tasks state but without the task.id since it's not a returned payload
-        // dispatch(addTaskToTeam(formData))
         setInputState({
             name: "",
             due_date: "",
@@ -70,19 +79,7 @@ function TaskForm({vis, setVis}) {
         })
         setProjectID("")
         setTeamID("")
-        // setVis(!vis)
     }
-
-    const formData = {
-        name,
-        due_date,
-        description,
-        project_id: projectID,
-        team_id: teamID,
-        user_id: currentUser.id
-    }
-
-
 
     return(
         <form onSubmit={handleSubmit}>

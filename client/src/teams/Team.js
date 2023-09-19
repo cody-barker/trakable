@@ -6,6 +6,7 @@ function Team() {
 
     let {id} = useParams();
     id = parseInt(id)
+    
     const teams = useSelector((state) => state.users.currentUser.teams)
     const team = teams.find((p) => p.id === id)
     const tasks = team ? team.tasks.map((t) => t) : []

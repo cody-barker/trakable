@@ -2,10 +2,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createTeam } from './teamsSlice'
 import { useState } from 'react'
 
-function TeamForm({vis, setVis}) {
+function TeamForm() {
 
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.users.currentUser)
+
     const errors = useSelector((state) => state.teams.errors)
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
@@ -42,7 +43,6 @@ function TeamForm({vis, setVis}) {
             description: "",
             creator_id: currentUser.id
         })
-        // setVis(!vis)
     }
 
     return(

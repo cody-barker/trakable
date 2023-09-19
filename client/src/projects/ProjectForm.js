@@ -2,10 +2,12 @@ import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createProject} from './projectsSlice'
 
-function ProjectForm({vis, setVis}) {
+function ProjectForm() {
 
     const dispatch = useDispatch()
+
     const currentUser = useSelector((state) => state.users.currentUser)
+
     const errors = useSelector((state) => state.projects.errors)
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
@@ -42,7 +44,6 @@ function ProjectForm({vis, setVis}) {
             description: "",
             creator_id: currentUser.id
         })
-        // setVis(!vis)
     }
 
     return(

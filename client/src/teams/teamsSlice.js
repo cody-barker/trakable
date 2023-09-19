@@ -26,10 +26,6 @@ const teamsSlice = createSlice({
         errors: []
     },
     reducers: {
-        // addTaskToTeam(state, action) {
-        //     const team = state.entities.find((team) => team.id === action.payload.team_id);
-        //     team.tasks.push(action.payload)
-        // }
     },
     extraReducers: {
         //fetchteams
@@ -55,7 +51,5 @@ const teamsSlice = createSlice({
     }
     }
 })
-
-export const { addTaskToTeam } = teamsSlice.actions
 
 export default teamsSlice.reducer;

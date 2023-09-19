@@ -6,6 +6,7 @@ function Project() {
 
     let {id} = useParams()
     id = parseInt(id)
+    
     const projects = useSelector((state) => state.users.currentUser.projects)
     const project = projects.find((p) => p.id === id)
     const tasks = project ? project.tasks.map((t) => t) : []
