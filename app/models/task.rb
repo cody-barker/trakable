@@ -8,4 +8,5 @@ class Task < ApplicationRecord
     validates :project_id, presence: true
     validates :team_id, numericality: {only_integer: true}
     validates :project_id, numericality: {only_integer: true}
+
 end

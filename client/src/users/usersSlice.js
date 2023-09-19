@@ -145,21 +145,25 @@ const usersSlice = createSlice({
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
-                let project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
-                let team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
+                const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id);
+                const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id);
+        
                 if (project) {
                     project.tasks.push(action.payload);
                 }
+        
                 if (team) {
                     team.tasks.push(action.payload);
                 }
-                if(!project) {
-                    project = action.payload.project;
-                    state.currentUser.projects.push(project);
+        
+                if (!project) {
+                    // Create a new copy of the projects array
+                    state.currentUser.projects = [...state.currentUser.projects, action.payload.project];
                 }
+        
                 if (!team) {
-                    team = action.payload.team;
-                    state.currentUser.teams.push(team);
+                    // Create a new copy of the teams array
+                    state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
                 }
             }
             state.status = "idle";

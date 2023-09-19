@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     def create
         user = find_user_by_session_id
         task = user.tasks.create!(task_params)
-        render json: task, status: :created
+        render json: task, method: [:project_name, :team_name], status: :created
     end
 
     def update
@@ -36,5 +36,4 @@ class TasksController < ApplicationController
             :user_id
         )
     end
-
 end
