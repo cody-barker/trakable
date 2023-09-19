@@ -7,6 +7,7 @@ function Tasks() {
     const projects = useSelector((state) => state.users.currentUser.projects)
     console.log(projects)
     const tasks = projects.map((project) => project.tasks)
+    console.log(tasks)
     const flattenedTasks = tasks.flat()
     console.log(flattenedTasks)
     const taskCardComps = flattenedTasks.map((task) => {

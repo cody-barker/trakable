@@ -141,15 +141,22 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [createTask.fulfilled](state, action) {
-            if ('errors' in action.payload) {
+            if (action.payload?.errors) {
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
-                const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
-                const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
-                project.tasks.push(action.payload)
-                team.tasks.push(action.payload)
-                state.errors = [];
+                let project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
+                let team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
+                if(!project) {
+                    project = action.payload.project;
+                    state.currentUser.projects.push(project);
+                    project = state.currentUser.projects.find((p) => p.id === project.id);
+                }
+                if (!team) {
+                    team = action.payload.team;
+                    state.currentUser.teams.push(team);
+                    team = state.currentUser.teams.find((t) => t.id === team.id);
+                }
             }
             state.status = "idle";
         },
