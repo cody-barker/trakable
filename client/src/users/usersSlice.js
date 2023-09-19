@@ -147,9 +147,11 @@ const usersSlice = createSlice({
             } else {
                 let project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
                 let team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
-                if (team && project) {
-                    team.tasks.push(action.payload);
+                if (project) {
                     project.tasks.push(action.payload);
+                }
+                if (team) {
+                    team.tasks.push(action.payload);
                 }
                 if(!project) {
                     project = action.payload.project;
@@ -168,8 +170,8 @@ const usersSlice = createSlice({
         },
         [deleteTask.fulfilled](state, action) {
             state.status = "idle";
-            const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
-            const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
+            const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
+            const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
             project.tasks = project.tasks.filter((t) => t.id !== action.payload.id)
             team.tasks = team.tasks.filter((t) => t.id !== action.payload.id)
             if(!project.tasks) {
