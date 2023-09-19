@@ -147,15 +147,17 @@ const usersSlice = createSlice({
             } else {
                 let project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
                 let team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
+                if (team && project) {
+                    team.tasks.push(action.payload);
+                    project.tasks.push(action.payload);
+                }
                 if(!project) {
                     project = action.payload.project;
                     state.currentUser.projects.push(project);
-                    project = state.currentUser.projects.find((p) => p.id === project.id);
                 }
                 if (!team) {
                     team = action.payload.team;
                     state.currentUser.teams.push(team);
-                    team = state.currentUser.teams.find((t) => t.id === team.id);
                 }
             }
             state.status = "idle";
@@ -170,6 +172,12 @@ const usersSlice = createSlice({
             const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
             project.tasks = project.tasks.filter((t) => t.id !== action.payload.id)
             team.tasks = team.tasks.filter((t) => t.id !== action.payload.id)
+            if(!project.tasks) {
+                project.tasks = []
+            }
+            if(!team.tasks) {
+                team.tasks = []
+            }
         },
         //updateTask
         [updateTask.pending](state) {
