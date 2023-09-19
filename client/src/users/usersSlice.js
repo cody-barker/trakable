@@ -190,23 +190,29 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [updateTask.fulfilled](state, action) {
-            state.status = "idle";
-            const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
-            project.tasks = project.tasks.map((t) => {
-                if (t.id === action.payload.id) {
-                    return action.payload
-                } else {
-                    return t
-                }
-            })
-            const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
-            team.tasks = team.tasks.map((t) => {
-                if (t.id === action.payload.id) {
-                    return action.payload
-                } else {
-                    return t
-                }
-            })
+            if (action.payload?.errors) {
+                state.errors = [];
+                state.errors.push(action.payload);
+            } else {
+                state.status = "idle";
+                state.errors = [];
+                const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
+                project.tasks = project.tasks.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
+                const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
+                team.tasks = team.tasks.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
+            }
         },
     },
 });

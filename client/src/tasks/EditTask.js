@@ -14,6 +14,7 @@ function EditTask() {
     const tasks = projects.map((project) => project.tasks)
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
+    const errors = useSelector((state) => state.users.errors)
 
     const [inputState, setInputState] = useState({
         name: task.name,
@@ -38,13 +39,22 @@ function EditTask() {
     function handleSubmit(e) {
         e.preventDefault();
         dispatch(updateTask(inputState));
-        navigate("/")
+        // navigate("/")
     }
+
+    const errorComps = errors.map((userErrors, userIndex) => (
+        <ul key={userIndex}>
+          {userErrors.errors.map((error, index) => (
+            <li className="error" key={index}>{error}</li>
+          ))}
+        </ul>
+      ));
 
     return(
         <div>
             {task.name} {task.due_date} {task.description}
             <form onSubmit={handleSubmit}>
+                {errorComps}
             <label>
                 Task Name
                 <input
