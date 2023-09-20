@@ -19,7 +19,7 @@ class TeamsController < ApplicationController
         params.permit(
             :name,
             :description,
-            :creator_id
+            :creator_id,
             auth_users: []
         )
     end
