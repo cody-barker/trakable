@@ -233,7 +233,6 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [updateTask.fulfilled](state, action) {
-            //update on first task of new project failed to update in state but did on the backend
             if (action.payload?.errors) {
                 state.errors = [];
                 state.errors.push(action.payload);

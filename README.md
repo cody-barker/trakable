@@ -15,9 +15,7 @@ How to View Team Tasks
 
 Outstanding issues:
 1. Might need to find a way to validate that only a users projects need to have unique names
-2. Errors persist on the page when a user invites a teammate
-3. App doesn't refetch when new user signs in
-4. How do I fetch projects, teams and users after a user is authorized? Currently I need to skip authorize action in order to get them.
-5. Ensure session user can only edit/delete things that belong to them
-6. Team tasks have links that won't render properly because they're undefined
-7. Deleting or editing personal tasks does not update them on the Team page
+2. App doesn't refetch when new user signs in
+3. How do I fetch projects, teams and users after a user is authorized? Currently I need to skip authorize action in order to get them.
+4. Ensure session user can only edit/delete things that belong to them
+5. Editing personal tasks does not update them on the Team page. Editing Team task updates personal task but doesn't update state on the Team page.

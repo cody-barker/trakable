@@ -6,10 +6,16 @@ function Task() {
     let {id} = useParams()
     id = parseInt(id)
 
-    const projects = useSelector((state) => state.users.currentUser.projects)
-    const tasks = projects.map((project) => project.tasks)
+    const users = useSelector((state) => state.users.entities)
+    const currentUser = useSelector((state) => state.users.currentUser)
+    const user = users.find((u) => u.id === currentUser.id)
+    // const projects = useSelector((state) => state.users.currentUser.projects)
+    const teams = user.teams
+    const tasks = teams.map((team) => team.tasks)
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
+    console.log(flattenedTasks)
+    console.log(task)
 
     const {
         name,
