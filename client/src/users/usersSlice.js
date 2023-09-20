@@ -160,25 +160,42 @@ const usersSlice = createSlice({
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
-                const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id);
-                const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id);
-                state.errors = [];
-                if (project) {
-                    project.tasks.push(action.payload);
+                //we need to update state.entities so that the user.team.tasks has the new task
+                //update currentUser
+                const cUproject = state.currentUser.projects.find((p) => p.id === action.payload.project_id);
+                const cUteam = state.currentUser.teams.find((t) => t.id === action.payload.team_id);
+                if (cUproject) {
+                    cUproject.tasks.push(action.payload);
                 }
-                if (team) {
-                    team.tasks.push(action.payload);
+                if (cUteam) {
+                    cUteam.tasks.push(action.payload);
                 }
-                if (!project) {
-                    // Create a new copy of the projects array
+                if (!cUproject) {
                     state.currentUser.projects = [...state.currentUser.projects, action.payload.project];
                 }
-                if (!team) {
-                    // Create a new copy of the teams array
+                if (!cUteam) {
                     state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
                 }
+                //update user in entities
+                const userEntity = state.entities.find((u) => u.id === state.currentUser.id)
+                const entityProject = userEntity.projects.find((p) => p.id === action.payload.project_id);
+                const entityTeam = userEntity.teams.find((t) => t.id === action.payload.team_id);
+                if (entityProject) {
+                    entityProject.tasks.push(action.payload);
+                }
+                if (entityTeam) {
+                    entityTeam.tasks.push(action.payload);
+                }
+                if (!entityProject) {
+                    state.currentUser.projects = [...state.currentUser.projects, action.payload.project];
+                }
+                if (!entityTeam) {
+                    state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
+                }
+                state.errors = [];
             }
             state.status = "idle";
+
         },
         //deleteTask
         [deleteTask.pending](state) {
