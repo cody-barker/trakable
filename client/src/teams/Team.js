@@ -45,9 +45,9 @@ function Team() {
     id = parseInt(id);
     const [vis, setVis] = useState(false);
     const users = useSelector((state) => state.users.entities);
-    const teams = useSelector((state) => state.teams.entities);
+    // const teams = useSelector((state) => state.teams.entities);
     const currentUser = useSelector((state) => state.users.currentUser);
-    const team = teams.find((t) => t.id === id);
+    const team = currentUser.teams.find((t) => t.id === id);
     const tasksCreatedByTeamMembers = team.tasks
 
     //Find the team members

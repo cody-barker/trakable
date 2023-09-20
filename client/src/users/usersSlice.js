@@ -203,6 +203,7 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [deleteTask.fulfilled](state, action) {
+            //update currentUser
             state.status = "idle";
             const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
             const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
@@ -213,6 +214,18 @@ const usersSlice = createSlice({
             }
             if(!team.tasks) {
                 team.tasks = []
+            }
+            //update user entity
+            const user = state.entities.find((u) => u.id === action.payload.user_id)
+            const userProject = user.projects.find((p) => p.id === action.payload.project_id)
+            const userTeam = user.teams.find((t) => t.id === action.payload.team_id)
+            userProject.tasks.filter((t) => t.id !== action.payload.id)
+            userTeam.tasks = userTeam.tasks.filter((t) => t.id !== action.payload.id)
+            if(!userProject.tasks) {
+                userProject.tasks = []
+            }
+            if(!userTeam.tasks) {
+                userTeam.tasks = []
             }
         },
         //updateTask
