@@ -60,7 +60,27 @@ const teamsSlice = createSlice({
                 state.entities.push(action.payload);
                 state.errors = [];
             }
-    }
+        },
+        //updateTeam
+        [updateTeam.pending](state) {
+            state.status = "loading"
+        },
+        [updateTeam.fulfilled](state, action) {
+            state.status = "idle"
+            if ('errors' in action.payload) {
+                state.errors = [];
+                state.errors.push(action.payload)
+            } else {
+                state.entities = state.entities.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
+                state.errors = [];
+            }
+        },
     }
 })
 
