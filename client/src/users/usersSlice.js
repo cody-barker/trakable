@@ -6,6 +6,11 @@ export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () =>
     .then((r) => r.json())
 })
 
+export const fetchUsers = createAsyncThunk("users/fetchUsers", () => {
+    return fetch("/users")
+    .then((r) =>r.json())
+})
+
 export const loginUser = createAsyncThunk("users/loginUser", (payload) => {
     return fetch("/login", {
         method: "POST",
@@ -74,6 +79,7 @@ const usersSlice = createSlice({
     name: "users",
     initialState: {
         status: "idle",
+        entities: [],
         currentUser: {
             projects: [],
             teams: []
@@ -94,7 +100,16 @@ const usersSlice = createSlice({
         [fetchCurrentUser.fulfilled](state, action) {
             state.currentUser = action.payload;
             state.status = "idle";
-            state.errors = []
+            state.errors = [];
+        },
+        //fetchUsers
+        [fetchUsers.pending](state) {
+            state.status = "loading";
+        },
+        [fetchUsers.fulfilled] (state, action) {
+            state.users.entities = action.payload;
+            state.status = "idle";
+            state.errors = [];
         },
         //loginUser
         [loginUser.pending](state) {

@@ -11,7 +11,7 @@ import Team from './teams/Team'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
-import { fetchCurrentUser } from './users/usersSlice'
+import { fetchCurrentUser, fetchUsers } from './users/usersSlice'
 import { fetchProjects } from './projects/projectsSlice'
 import { fetchTeams } from './teams/teamsSlice'
 
@@ -22,6 +22,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCurrentUser())
+    dispatch(fetchUsers())
     dispatch(fetchProjects())
     dispatch(fetchTeams())
     .then(() => setLoading(false))
