@@ -63,3 +63,8 @@ How to View Team Tasks
 4. Find all the users by their ids in the auth_users array
 5. For each user, filter their tasks where the task.team_id === team.id and render those to the page
 6. Ensure the team tasks include the user's name
+
+
+
+Outstanding issues:
+1. Might need to find a way to validate that only a users projects need to have unique names
