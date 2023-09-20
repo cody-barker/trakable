@@ -107,7 +107,7 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [fetchUsers.fulfilled] (state, action) {
-            state.users.entities = action.payload;
+            state.entities = action.payload;
             state.status = "idle";
             state.errors = [];
         },
