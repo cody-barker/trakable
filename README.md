@@ -19,3 +19,4 @@ Outstanding issues:
 3. How do I fetch projects, teams and users after a user is authorized? Currently I need to skip authorize action in order to get them.
 4. Ensure session user can only edit/delete things that belong to them
 5. Editing personal tasks does not update them on the Team page. Editing Team task updates personal task but doesn't update state on the Team page.
+6. Deleting a task in teams doesn't delete it from state
