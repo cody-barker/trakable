@@ -12,13 +12,18 @@ function TaskCard({task}) {
         due_date,
         id,
         project_id,
-        team_id
+        team_id,
+        user_id
     } = task
 
-    const currentUser = useSelector((state) => state.users.currentUser)
-    const project = currentUser.projects.find((p) => p.id === project_id)
-    const team = currentUser.teams.find((t) => t.id === team_id)
-
+    // const currentUser = useSelector((state) => state.users.currentUser)
+    // const project = currentUser.projects.find((p) => p.id === project_id)
+    // const team = currentUser.teams.find((t) => t.id === team_id)
+    
+    const users = useSelector((state) => state.users.entities)
+    const user = users.find((u) => u.id === user_id)
+    const project = user.projects.find((p) => p.id === project_id)
+    const team = user.teams.find((t) => t.id === team_id)
     function handleComplete() {
         dispatch(deleteTask(id))
     }
@@ -30,7 +35,8 @@ function TaskCard({task}) {
     return(
         <div>
             <NavLink to={`/tasks/${id}`}>
-            {name} {due_date} {project.name} {team.name}
+            {user.username} {name} {due_date} {project.name} {team.name}
+            
             </NavLink>
             <button onClick={handleComplete}>✔</button>
             <button onClick={handleEdit}>edit</button>

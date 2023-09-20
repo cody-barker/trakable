@@ -177,6 +177,7 @@ const usersSlice = createSlice({
                     state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
                 }
                 //update user in entities
+                //this isn't working for other users once they sign in to look at the task
                 const userEntity = state.entities.find((u) => u.id === state.currentUser.id)
                 const entityProject = userEntity.projects.find((p) => p.id === action.payload.project_id);
                 const entityTeam = userEntity.teams.find((t) => t.id === action.payload.team_id);
