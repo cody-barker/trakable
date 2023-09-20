@@ -4,7 +4,7 @@ import {useState} from 'react'
 import TaskForm from './TaskForm'
 
 function Tasks() {
-    
+
     const projects = useSelector((state) => state.users.currentUser.projects)
     const tasks = projects.map((project) => project.tasks)
     const flattenedTasks = tasks.flat()
@@ -19,7 +19,7 @@ function Tasks() {
 
     return (
         <div>
-            <button onClick={handleClick}>+ Add task</button>
+            <button onClick={handleClick}>+ Add Task</button>
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             <br></br>
             {taskCardComps ? taskCardComps : null}

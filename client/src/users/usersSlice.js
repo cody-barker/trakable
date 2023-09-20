@@ -147,20 +147,17 @@ const usersSlice = createSlice({
             } else {
                 const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id);
                 const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id);
-        
+                state.errors = [];
                 if (project) {
                     project.tasks.push(action.payload);
                 }
-        
                 if (team) {
                     team.tasks.push(action.payload);
                 }
-        
                 if (!project) {
                     // Create a new copy of the projects array
                     state.currentUser.projects = [...state.currentUser.projects, action.payload.project];
                 }
-        
                 if (!team) {
                     // Create a new copy of the teams array
                     state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
@@ -190,13 +187,14 @@ const usersSlice = createSlice({
             state.status = "loading";
         },
         [updateTask.fulfilled](state, action) {
+            //update on first task of new project failed to update in state but did on the backend
             if (action.payload?.errors) {
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
                 state.status = "idle";
                 state.errors = [];
-                const project = state.currentUser.projects.find((p) => p.id = action.payload.project_id)
+                const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
                 project.tasks = project.tasks.map((t) => {
                     if (t.id === action.payload.id) {
                         return action.payload
@@ -204,7 +202,7 @@ const usersSlice = createSlice({
                         return t
                     }
                 })
-                const team = state.currentUser.teams.find((t) => t.id = action.payload.team_id)
+                const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
                 team.tasks = team.tasks.map((t) => {
                     if (t.id === action.payload.id) {
                         return action.payload
