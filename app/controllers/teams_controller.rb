@@ -13,6 +13,9 @@ class TeamsController < ApplicationController
         render json: team, status: :created
     end
 
+    def update
+    end
+
     private
 
     def team_params
