@@ -7,7 +7,10 @@ class TeamsController < ApplicationController
 
     def create
         team = Team.create!(team_params)
-        render json: team, status: :accepted
+        team.auth_users = [session[:user_id]]
+        team.creator_id = session[:user_id]
+        team.save
+        render json: team, status: :created
     end
 
     private
@@ -17,6 +20,7 @@ class TeamsController < ApplicationController
             :name,
             :description,
             :creator_id
+            auth_users: []
         )
     end
 end
