@@ -188,10 +188,10 @@ const usersSlice = createSlice({
                     entityTeam.tasks.push(action.payload);
                 }
                 if (!entityProject) {
-                    state.currentUser.projects = [...state.currentUser.projects, action.payload.project];
+                    state.userEntity.projects = [...state.userEntity.projects, action.payload.project];
                 }
                 if (!entityTeam) {
-                    state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
+                    state.userEntity.teams = [...state.userEntity.teams, action.payload.team];
                 }
                 state.errors = [];
             }

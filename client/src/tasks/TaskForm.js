@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../users/usersSlice'
 // import {addTaskToTeam} from '../teams/teamsSlice'
 
-function TaskForm({vis, setVis}) {
+function TaskForm() {
     
     const dispatch = useDispatch()
 
@@ -17,7 +17,8 @@ function TaskForm({vis, setVis}) {
         return <option key={project.id} value={project.id}>{project.name}</option>
     })
 
-    const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
+    // const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
+    const userTeams = allTeams.filter((t) => t.auth_users.includes(currentUser.id))
     const teamOptions = userTeams.map((team) => {
         return <option key={team.id} value={team.id} name={team.name}>{team.name}</option>
     })
