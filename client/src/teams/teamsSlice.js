@@ -17,6 +17,17 @@ export const createTeam = createAsyncThunk("teams/createTeam", (payload) => {
     .then((r) => r.json())
 })
 
+export const updateTeam = createAsyncThunk("teams/updateTeam", (payload) => {
+    return fetch(`/teams/${payload.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then((r) => r.json())
+})
+
 //reducer
 const teamsSlice = createSlice({
     name: "teams",
