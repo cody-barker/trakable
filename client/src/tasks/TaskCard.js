@@ -21,6 +21,7 @@ function TaskCard({task}) {
     // const team = currentUser.teams.find((t) => t.id === team_id)
     
     const users = useSelector((state) => state.users.entities)
+    const currentUser = useSelector((state) => state.users.currentUser)
     const user = users.find((u) => u.id === user_id)
     const project = user.projects.find((p) => p.id === project_id)
     const team = user.teams.find((t) => t.id === team_id)
@@ -38,8 +39,8 @@ function TaskCard({task}) {
             {user.username} {name} {due_date} {project.name} {team.name}
             
             </NavLink>
-            <button onClick={handleComplete}>✔</button>
-            <button onClick={handleEdit}>edit</button>
+            {currentUser.id === user_id ? <button onClick={handleComplete}>✔</button> : null}
+            {currentUser.id === user_id ? <button onClick={handleEdit}>edit</button> : null}
         </div>
     )
 }

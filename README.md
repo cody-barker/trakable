@@ -18,4 +18,5 @@ Outstanding issues:
 2. Errors persist on the page when a user invites a teammate
 3. App doesn't refetch when new user signs in
 4. How do I fetch projects, teams and users after a user is authorized? Currently I need to skip authorize action in order to get them.
-5. Only show invite button form if the currentUser.id === team.creator_id
+5. Ensure session user can only edit/delete things that belong to them
+6. Team tasks have links that won't render properly because they're undefined
