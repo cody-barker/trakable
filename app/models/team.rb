@@ -4,6 +4,7 @@ class Team < ApplicationRecord
     has_many :projects, -> { distinct }, through: :tasks
 
     validates :name, presence: true
+    validates :name, uniqueness: true
     validates :name, length: {maximum: 30}
     validates :description, length: {maximum: 200}
 end
