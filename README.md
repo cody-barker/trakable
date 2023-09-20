@@ -18,4 +18,4 @@ Outstanding issues:
 2. Errors persist on the page when a user invites a teammate
 3. App doesn't refetch when new user signs in
 4. How do I fetch projects, teams and users after a user is authorized? Currently I need to skip authorize action in order to get them.
-5. How to see Team you are apart of on the Teams page
+5. Only show invite button form if the currentUser.id === team.creator_id

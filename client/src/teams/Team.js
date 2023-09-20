@@ -44,28 +44,14 @@ function Team() {
     let { id } = useParams();
     id = parseInt(id);
     const [vis, setVis] = useState(false);
-    const teams = useSelector((state) => state.teams.entities);
     const users = useSelector((state) => state.users.entities);
-
-    // Find the team by id
+    const teams = useSelector((state) => state.teams.entities);
+    const currentUser = useSelector((state) => state.users.currentUser);
     const team = teams.find((t) => t.id === id);
+    const tasksCreatedByTeamMembers = team.tasks
 
-    if (!team || !teams) {
-        return <div>Please add a task to this team.</div>;
-    }
-
-    // Find the team members
+    //Find the team members
     const teamMembers = users.filter((u) => team.auth_users.includes(u.id));
-    console.log(teamMembers)
-
-    // Map tasks created by team members
-    const tasksCreatedByTeamMembers = teamMembers.flatMap((member) => 
-        member.teams // Access the 'teams' property
-            .filter((userTeam) => userTeam.id === id) // Filter the teams to match the current team id
-            .flatMap((userTeam) => userTeam.tasks) // Flatten the tasks
-    );
-
-    console.log(tasksCreatedByTeamMembers)
 
     // Map tasks to TaskCard components
     const taskComps = tasksCreatedByTeamMembers.map((task) => (
@@ -76,11 +62,15 @@ function Team() {
         setVis(!vis);
     }
 
+    if (!team) {
+        return <div>Please add a task to this team.</div>;
+    }
+
     return (
         <div>
             <h4>{team.name}</h4>
             <h4>Team Members {teamMembers.map((u) => <li key={u.id}>{u.username}</li>)}</h4>
-            <button onClick={handleVis}>Invite a Team Member</button>
+            {currentUser.id === team.creator_id ? <button onClick={handleVis}>Invite a Team Member</button> : null}
             {vis ? <InviteForm /> : null}
             <br />
             {taskComps.length === 0 ? null : taskComps}
