@@ -12,7 +12,8 @@ function Team() {
     const users = useSelector((state) => state.users.entities);
     const currentUser = useSelector((state) => state.users.currentUser);
     const teams = useSelector((state) => state.users.currentUser.teams)
-    const team = teams.find((p) => p.id === id)
+    const allTeams = useSelector((state) => state.teams.entities)
+    const team = teams.find((t) => t.id === id)
     const tasks = team ? team.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
     if (!team) {
@@ -20,7 +21,10 @@ function Team() {
     }
 
     // Find the team members
-    const teamMembers = users.filter((u) => team.auth_users.includes(u.id));
+    const memberTeam = allTeams.find((t) => t.id === id)
+    console.log(memberTeam)
+    const teamMembers = users.filter((u) => memberTeam.auth_users.includes(u.id));
+    // const teamMembers = users.filter((u) => team.auth_users.includes(u.id));
 
     function handleVis() {
         setVis(!vis)
