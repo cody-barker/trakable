@@ -48,6 +48,7 @@ const projectsSlice = createSlice({
                 state.errors.push(action.payload);
             } else {
                 state.entities.push(action.payload);
+                state.errors = [];
             }
             state.status = "idle";
         }
