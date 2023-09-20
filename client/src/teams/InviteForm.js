@@ -29,7 +29,7 @@ function InviteForm() {
                 auth_users: [...team.auth_users, user.id]
             }
             dispatch(updateTeam(updatedTeam))
-            //setEmailNotFoundError(false)
+            setEmailNotFoundError(false)
         } else {
             setEmailNotFoundError(true)
         }

@@ -68,3 +68,6 @@ How to View Team Tasks
 
 Outstanding issues:
 1. Might need to find a way to validate that only a users projects need to have unique names
+2. Users can now invite members to teams, but need to render the user names and tasks to the page
+3. Errors persist on the page when a user invites a teammate
+4. App doesn't refetch when new user signs in
