@@ -14,6 +14,9 @@ class TeamsController < ApplicationController
     end
 
     def update
+        team = Team.find(params[:id])
+        team.update!(team_params)
+        render json: team, status: :accepted
     end
 
     private
