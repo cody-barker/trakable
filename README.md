@@ -19,3 +19,4 @@ Outstanding issues:
 3. How do I fetch projects, teams and users after a user is authorized? Currently I need to skip authorize action in order to get them.
 4. Ensure session user can only edit/delete things that belong to them
 5. On page refresh, Team page is dependent on currentUser, so if there are no teams on currentUser, it renders "please add a task to this team" in order to see their tasks
+6. Do we want to link projects or keep them specific to each user?
