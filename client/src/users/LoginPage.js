@@ -18,7 +18,6 @@ function LoginPage() {
             ))}
         </div>
     ));
-    
 
     return(
         <div className="parent">
