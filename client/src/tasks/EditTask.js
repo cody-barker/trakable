@@ -1,4 +1,4 @@
-import {useParams, useNavigate} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {useState} from 'react'
 import {updateTask} from '../users/usersSlice'
@@ -8,7 +8,6 @@ function EditTask() {
     let {id} = useParams();
     id = parseInt(id);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const projects = useSelector((state) => state.users.currentUser.projects)
     const tasks = projects.map((project) => project.tasks)

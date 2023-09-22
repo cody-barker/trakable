@@ -22,19 +22,23 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCurrentUser())
-    dispatch(fetchUsers())
-    dispatch(fetchProjects())
-    dispatch(fetchTeams())
     .then(() => setLoading(false))
   }, [dispatch])
 
   const currentUser = useSelector((state) => state.users.currentUser)
 
+  useEffect(() => {
+      dispatch(fetchUsers())
+      dispatch(fetchProjects())
+      dispatch(fetchTeams())
+      .then(() => setLoading(false))
+    }, [dispatch])
+
   if (loading) {
     return <div></div>
   }
 
-  if (currentUser === null || currentUser.errors) {
+  if (!currentUser || currentUser.errors) {
     return <LoginPage />
   }
 

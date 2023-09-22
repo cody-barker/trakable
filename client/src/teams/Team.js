@@ -9,8 +9,8 @@ function Team() {
     let {id} = useParams();
     id = parseInt(id)
     const [vis, setVis] = useState(false)
+    
     const users = useSelector((state) => state.users.entities);
-    const currentUser = useSelector((state) => state.users.currentUser);
     const teams = useSelector((state) => state.users.currentUser.teams)
     const allTeams = useSelector((state) => state.teams.entities)
     const team = teams.find((t) => t.id === id)
@@ -30,8 +30,6 @@ function Team() {
         setVis(!vis)
     }
    
-    
-
     return(
         <div>   
             <h4>{team.name}</h4>

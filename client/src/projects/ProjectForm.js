@@ -25,8 +25,7 @@ function ProjectForm() {
 
     const {
         name,
-        description,
-        creator_id
+        description
     } = inputState
 
     function onInputChange(e){
