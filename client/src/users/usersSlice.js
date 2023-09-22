@@ -83,9 +83,6 @@ const usersSlice = createSlice({
         currentUser: {
             projects: [],
             teams: []
-            //might need custom serializers for handling the nested tasks
-            //unlikely to ever want to see just user.tasks, better to have them nested in projects and teams
-            //login as somebody else and make some tasks, filter to find tasks that are mine
         },
         errors: []
     },

@@ -16,23 +16,31 @@ import { fetchProjects } from './projects/projectsSlice'
 import { fetchTeams } from './teams/teamsSlice'
 
 function App() {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  const currentUser = useSelector((state) => state.users.currentUser);
+  console.log(currentUser);
 
-  const dispatch = useDispatch()
-  const [loading, setLoading] = useState(true)
+  // Initialize previousUserId to null
+  const [previousUserId, setPreviousUserId] = useState(null);
 
   useEffect(() => {
     dispatch(fetchCurrentUser())
-    .then(() => setLoading(false))
-  }, [dispatch])
-
-  const currentUser = useSelector((state) => state.users.currentUser)
+      .then(() => setLoading(false))
+  }, [dispatch]);
 
   useEffect(() => {
-      dispatch(fetchUsers())
-      dispatch(fetchProjects())
-      dispatch(fetchTeams())
-      .then(() => setLoading(false))
-    }, [dispatch])
+    // Check if the user has changed (new user login)
+    if (currentUser && currentUser.id !== previousUserId) {
+      // Dispatch fetch actions when a new user logs in
+      dispatch(fetchUsers());
+      dispatch(fetchProjects());
+      dispatch(fetchTeams());
+
+      // Update previousUserId to the current user's ID
+      setPreviousUserId(currentUser.id);
+    }
+  }, [dispatch, currentUser, previousUserId]);
 
   if (loading) {
     return <div></div>

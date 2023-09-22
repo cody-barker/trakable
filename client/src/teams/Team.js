@@ -10,19 +10,23 @@ function Team() {
     id = parseInt(id)
     const [vis, setVis] = useState(false)
     
-    const users = useSelector((state) => state.users.entities);
+    const users = useSelector((state) => state.users.entities)
     const teams = useSelector((state) => state.users.currentUser.teams)
     const allTeams = useSelector((state) => state.teams.entities)
+    //iterate over each users teams and find a team that matches the team
     const team = teams.find((t) => t.id === id)
     const tasks = team ? team.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
+
     if (!team) {
         return <div>Please add a task to this team.</div>
     }
-
     // Find the team members
     const memberTeam = allTeams.find((t) => t.id === id)
-    console.log(memberTeam)
+    if (!memberTeam) {
+        return <div>"Loading..."</div>
+    }
+
     const teamMembers = users.filter((u) => memberTeam.auth_users.includes(u.id));
     // const teamMembers = users.filter((u) => team.auth_users.includes(u.id));
 
