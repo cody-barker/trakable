@@ -49,7 +49,7 @@ function LoginForm () {
                 onChange={(e) => setPassword(e.target.value)}
                 ></input>
             </label>
-            <button className="login-btn" type="submit">{isLoading? "Loading..." : "Login"}</button>
+            <button className="login-btn" type="submit">{isLoading? "Loading..." : "Sign In"}</button>
         </form>
     )
 }

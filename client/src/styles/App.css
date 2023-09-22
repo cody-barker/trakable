@@ -1,18 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .header {
   position: absolute;
   left: 3%;
@@ -31,7 +16,16 @@
 .form-label {
   color: rgb(77, 77, 77);
   font-size: 12px;
-  text-align: left;
+}
+
+label {
+  color: rgb(77, 77, 77);
+  font-size: 12px;
+}
+
+input {
+  display: block;
+  width: 100%;
 }
 
 /* .App-header {
@@ -45,33 +39,25 @@
   color: white;
 } */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .large-font {
   font-size: 24px;
 }
 
 .errors {
   color: red;
+  font-size: 12px;
+  padding: 2px;
+  border: 2px;
+  margin: 2px;
 }
 
 .login-btn {
   background-color: rgb(53, 83, 255);
   color: white;
-  padding: 10px;
+  padding: 3px;
   margin: 10px;
-  width: 100%;
+  margin-top: 20px;
+  width: 90%;
   border-radius: 7.5px;
   border-width: 0.5px;
   cursor: pointer;
@@ -80,14 +66,10 @@
 
 form {
   padding: 10px;
-  width: 200px;
+  width: 85%;
   border: 10px;
   margin: 10px;
   color: rgb(27, 49, 15);
-}
-
-.error {
-  color: red
 }
 
 .nav-btn-split {

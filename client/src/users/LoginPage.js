@@ -18,6 +18,7 @@ function LoginPage() {
             ))}
         </div>
     ));
+    
 
     return(
         <div className="parent">
@@ -39,7 +40,7 @@ function LoginPage() {
                     </p>
                     </div>
             ) : (
-                <>
+                    <div className="login-form-container">
                     <SignUpForm />
                     <hr></hr>
                     <p>
@@ -49,7 +50,7 @@ function LoginPage() {
                          Log In
                         </button>
                     </p>
-                </>
+                    </div>
             )}
         </div>
     )

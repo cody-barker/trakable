@@ -1,12 +1,21 @@
 import { useState } from 'react'
 import { signupUser } from './usersSlice'
 import { useDispatch } from 'react-redux'
+import { useSelector } from "react-redux"
 
 function SignUp() {
 
     const dispatch = useDispatch()
 
     const [isLoading, setisLoading] = useState(false);
+    const errors = useSelector((state) => state.users.errors)
+    const errorComps = errors.map((e, index) => (
+        <div key={index} className="error-container">
+            {e.errors.map((errorMessage, i) => (
+                <p key={i} className="errors">{errorMessage}</p>
+            ))}
+        </div>
+    ));
 
     const [inputState, setInputState] = useState({
         first_name: "",
@@ -43,7 +52,7 @@ function SignUp() {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit}>
             <label>
                 First Name
                 <input
@@ -104,9 +113,8 @@ function SignUp() {
                 onChange={onInputChange}
                 ></input>
             </label>
-
             <button className="login-btn" type="submit">{isLoading? "Loading..." : "Sign Up"}</button>
-      
+            {errors.length > 0 ? errorComps : null}
         </form>
     )
 }

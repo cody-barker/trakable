@@ -4,8 +4,8 @@ class User < ApplicationRecord
     has_many :projects,  -> { distinct }, through: :tasks
     has_many :teams,  -> { distinct }, through: :tasks
 
-    validates :first_name, presence: true, length: {minimum: 1}
-    validates :last_name, presence: true, length: {minimum: 1}
+    validates :first_name, presence: true
+    validates :last_name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
     validates :email, format: {without: /\s/, message: "cannot contain spaces"}
