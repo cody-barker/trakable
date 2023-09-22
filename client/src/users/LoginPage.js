@@ -12,24 +12,23 @@ function LoginPage() {
     const [showLogin, setShowLogin] = useState(true)
     
     const errorComps = errors.map((e, index) => (
-        <ul key={index}>
+        <div key={index} className="error-container">
             {e.errors.map((errorMessage, i) => (
-                <li key={i} className="error">{errorMessage}</li>
+                <p key={i} className="errors">{errorMessage}</p>
             ))}
-        </ul>
+        </div>
     ));
 
     return(
-        <div>
-            <div className="large-font">Trakable</div>
-
-            {currentUser? <p>{currentUser.first_name}</p> : null}
-          
-            {errors.length > 0 ? errorComps : null}
+        <div className="parent">
+            <h1 className="header">Trakable</h1>
            
             {showLogin ? (
-                <>
+                <div className="login-form-container">
+                    <h2>Welcome to Trakable</h2>
+                    <p>To begin, please sign in.</p>
                     <LoginForm />
+                    {errors.length > 0 ? errorComps : null}
                     <hr></hr>
                     <p>
                         Don't have an account? &nbsp;
@@ -38,7 +37,7 @@ function LoginPage() {
                          Sign Up
                         </button>
                     </p>
-                </>
+                    </div>
             ) : (
                 <>
                     <SignUpForm />

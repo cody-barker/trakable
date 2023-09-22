@@ -29,8 +29,8 @@ function LoginForm () {
 
     return(
         <form onSubmit={handleSubmit}>
-            <label>
-                Email
+            <label className="form-label">
+                Email address
                 <input
                 name="email"
                 type="text"
@@ -39,7 +39,7 @@ function LoginForm () {
                 onChange={(e) => setEmail(e.target.value)}
                 ></input>
             </label>
-            <label>
+            <label className="form-label">
                 Password
                 <input
                 name="password"
@@ -49,7 +49,6 @@ function LoginForm () {
                 onChange={(e) => setPassword(e.target.value)}
                 ></input>
             </label>
-
             <button className="login-btn" type="submit">{isLoading? "Loading..." : "Login"}</button>
         </form>
     )

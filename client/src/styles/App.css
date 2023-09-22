@@ -13,7 +13,28 @@
   }
 }
 
-.App-header {
+.header {
+  position: absolute;
+  left: 3%;
+}
+
+.parent {
+  text-align: center;
+}
+
+.login-form-container {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+
+.form-label {
+  color: rgb(77, 77, 77);
+  font-size: 12px;
+  text-align: left;
+}
+
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,7 +43,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;
@@ -47,14 +68,20 @@
 
 .login-btn {
   background-color: white;
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
   border-radius: 7.5px;
   border-width: 0.5px;
   cursor: pointer;
 }
 
+
 form {
   padding: 10px;
-  width: 180px;
+  width: 200px;
+  border: 10px;
+  margin: 10px;
   color: rgb(27, 49, 15);
 }
 
