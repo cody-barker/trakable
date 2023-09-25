@@ -13,7 +13,7 @@ function Team() {
     const users = useSelector((state) => state.users.entities)
     const teams = useSelector((state) => state.users.currentUser.teams)
     const allTeams = useSelector((state) => state.teams.entities)
-    //iterate over each users teams and find a team that matches the team
+    //Option: iterate over each users teams and find a team that matches the team
     const team = teams.find((t) => t.id === id)
     const tasks = team ? team.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)

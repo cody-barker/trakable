@@ -22,7 +22,7 @@ function Projects() {
         <div>
             <button onClick={handleClick}>+ Add Project</button>
             {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
-            <h4>Projects I've Created</h4>
+            <h4>My Projects</h4>
             {createdProjectComps}
 
         </div>
