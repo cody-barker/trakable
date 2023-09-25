@@ -53,6 +53,8 @@ function SignUp() {
 
     return(
         <form className="login-form" onSubmit={handleSubmit}>
+            <h2>Welcome to Trakable</h2>
+            <p>To begin, please sign up.</p>
             <label>
                 First Name
                 <input
