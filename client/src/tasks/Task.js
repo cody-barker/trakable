@@ -11,6 +11,9 @@ function Task() {
     const user = users.find((u) => u.id === currentUser.id)
     // const projects = useSelector((state) => state.users.currentUser.projects)
     const teams = user.teams
+    if (!teams) {
+        <div>"Loading..."</div>
+    }
     const tasks = teams.map((team) => team.tasks)
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
