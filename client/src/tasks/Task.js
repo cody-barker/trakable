@@ -14,8 +14,8 @@ function Task() {
     const tasks = teams.map((team) => team.tasks)
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
-    console.log(flattenedTasks)
-    console.log(task)
+    // console.log(flattenedTasks)
+    // console.log(task)
 
     const {
         name,
