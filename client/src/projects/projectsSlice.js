@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 //action creators
 export const fetchProjects = createAsyncThunk("users/fetchProjects", () => {
-    return fetch("/projects")
+    return fetch("/api/projects")
     .then((r) => r.json())
 })
 
 export const createProject = createAsyncThunk("projects/createProject", (payload) => {
-    return fetch("/projects", {
+    return fetch("/api/projects", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
