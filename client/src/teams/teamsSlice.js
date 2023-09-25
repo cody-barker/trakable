@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 //action creators
 export const fetchTeams = createAsyncThunk("teams/fetchTeams", () => {
-    return fetch("/teams")
+    return fetch("api/teams")
     .then((r) => r.json())
 })
 
 export const createTeam = createAsyncThunk("teams/createTeam", (payload) => {
-    return fetch("/teams", {
+    return fetch("api/teams", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -18,7 +18,7 @@ export const createTeam = createAsyncThunk("teams/createTeam", (payload) => {
 })
 
 export const updateTeam = createAsyncThunk("teams/updateTeam", (payload) => {
-    return fetch(`/teams/${payload.id}`, {
+    return fetch(`api/teams/${payload.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
