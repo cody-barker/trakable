@@ -19,7 +19,6 @@ function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const currentUser = useSelector((state) => state.users.currentUser);
-  console.log(currentUser);
 
   // Initialize previousUserId to null
   const [previousUserId, setPreviousUserId] = useState(null);
