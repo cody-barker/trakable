@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       resources :users, only: [:index]
       resources :tasks
       resources :projects
-    do
   end
 
   # Routing logic: fallback requests for React Router.
