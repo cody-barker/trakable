@@ -56,7 +56,8 @@ function App() {
         <Routes>
           <Route
           path="/"
-          element={<Tasks />}/>
+          element={<Tasks />}
+          />
           <Route 
           path="/tasks/:id"
           element={<Task />}
