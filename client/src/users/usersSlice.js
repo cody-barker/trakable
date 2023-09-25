@@ -2,17 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 //Action Creators
 export const fetchCurrentUser = createAsyncThunk("users/fetchCurrentUser", () => {
-    return fetch("api/me")
+    return fetch("/me")
     .then((r) => r.json())
 })
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", () => {
-    return fetch("api/users")
+    return fetch("/users")
     .then((r) =>r.json())
 })
 
 export const loginUser = createAsyncThunk("users/loginUser", (payload) => {
-    return fetch("api/login", {
+    return fetch("/login", {
         method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk("users/loginUser", (payload) => {
 })
 
 export const signupUser = createAsyncThunk("users/signupUser", (payload) => {
-    return fetch("api/signup", {
+    return fetch("/signup", {
         method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export const signupUser = createAsyncThunk("users/signupUser", (payload) => {
 })
 
 export const logoutUser = createAsyncThunk("users/logoutUser", () => {
-    return fetch("api/logout", {
+    return fetch("/logout", {
         method: "DELETE"
     })
     .then((r) => {
@@ -46,7 +46,7 @@ export const logoutUser = createAsyncThunk("users/logoutUser", () => {
 })
 
 export const createTask = createAsyncThunk("tasks/createTask", (payload) => {
-    return fetch("api/tasks", {
+    return fetch("/tasks", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -57,14 +57,14 @@ export const createTask = createAsyncThunk("tasks/createTask", (payload) => {
 })
 
 export const deleteTask = createAsyncThunk("tasks/deleteTask", (payload) => {
-    return fetch(`api/tasks/${payload}`, {
+    return fetch(`/tasks/${payload}`, {
         method: "DELETE"
     })
     .then((r) => r.json())
 })
 
 export const updateTask = createAsyncThunk("tasks/updateTask", (payload) => {
-    return fetch(`api/tasks/${payload.id}`, {
+    return fetch(`/tasks/${payload.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
