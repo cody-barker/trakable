@@ -11,6 +11,9 @@ Outstanding issues:
 Referenced from: /home/cody/code/labs/phase-5/trakable/client/package.json"
 
 What appears to be happening is that our backend and frontend routes are overlapping, so refreshing the page on /projects makes a GET request instead of navigating.
+Ideas:
+-Change frontend routes so they don't match
+
 
 
 

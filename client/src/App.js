@@ -66,7 +66,7 @@ function App() {
           element={<EditTask />}
           />
           <Route 
-          path="/projects"
+          path="users/:id/projects"
           element={<Projects />}
           />
           <Route 
@@ -74,7 +74,7 @@ function App() {
           element={<Project />}
           />
           <Route 
-          path="/teams"
+          path="users/:id/teams"
           element={<Teams />}
           />
           <Route 

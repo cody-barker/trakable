@@ -22,7 +22,6 @@ function TaskCard({task}) {
     
     const users = useSelector((state) => state.users.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
-    // console.log(users)
     const user = users.find((u) => u.id === user_id)
     if (!user) {
         return <div>"Loading..."</div>
