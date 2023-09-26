@@ -17,25 +17,29 @@ function Tasks() {
         setVis(!vis)
     }
 
+    const table = <table>
+                    <thead>
+                        <tr className="table-row">
+                            <th>Task</th>
+                            <th>Due Date</th>
+                            <th>Project</th>
+                            <th>Team</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {taskCardComps ? taskCardComps : null}
+                    </tbody>
+                  </table>
+
     return (
         <div>
             <button onClick={handleClick} className="add-btn">+ Add task</button>
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             <br></br>
-            <table>
-                <thead>
-                    <tr className="table-row">
-                        <th>Task</th>
-                        <th>Due Date</th>
-                        <th>Project</th>
-                        <th>Team</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {taskCardComps ? taskCardComps : null}
-                </tbody>
-            </table>
+            {taskCardComps.length > 0 ? table : <div className="note">Please add a task.</div>}
+                
+  
         </div>
     )
 }

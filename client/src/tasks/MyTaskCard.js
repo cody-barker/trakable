@@ -36,10 +36,18 @@ function TaskCard({task}) {
         navigate(`/tasks/${id}/edit`)
     }
 
+    const today = new Date()
+    const yyyy = today.getFullYear()
+    let mm = today.getMonth() + 1
+    let dd = today.getDate()
+    if (dd < 10) dd = '0' + dd
+    if (mm < 10) mm = '0' + mm
+    const formattedToday = yyyy + "-" + mm + "-" + dd
+
     return(
         <tr className="table-row">
             <td><NavLink className="task-card" to={`/tasks/${id}`}>{name}</NavLink></td>
-            <td>{due_date}</td>
+            <td>{formattedToday == due_date ? "Today" : due_date}</td>
             <td><NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></td>
             <td><NavLink className="task-card" to={`/projects/${team.id}`}>{team.name}</NavLink></td>
             <td>
