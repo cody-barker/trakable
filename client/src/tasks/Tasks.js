@@ -18,11 +18,25 @@ function Tasks() {
     }
 
     return (
-        <div>
+        <div className="tasks-container">
             <button onClick={handleClick} className="add-task-btn">+ Add task</button>
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             <br></br>
-            {taskCardComps ? taskCardComps : null}
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Task</th>
+                        <th>Due Date</th>
+                        <th>Project</th>
+                        <th>Team</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {taskCardComps ? taskCardComps : null}
+                </tbody>
+            </table>
         </div>
     )
 }

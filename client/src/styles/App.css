@@ -113,8 +113,21 @@ form {
 }
 
 .checkbox-icon {
-  height: 12px;
+  height: 14px;
+  width: 14px;
   color: white;
+  cursor: pointer;
+  padding-top: 3px;
+  margin: 1px;
+}
+
+.edit-icon {
+  height: 14px;
+  width: 14px;
+  color: white;
+  cursor: pointer;
+  padding-top: 3px;
+  margin: 1px;
 }
 
 .add-task-btn {
@@ -127,3 +140,27 @@ form {
   font-size: 12px;
   cursor: pointer;
 }
+
+.icon-container {
+  background: transparent;
+  color: transparent;
+  border: 0px transparent;
+  padding-top: 2px;
+  height: 26px;
+  width: 14px;
+  padding: 1px;
+  margin: 2px;
+}
+
+.task-card {
+  padding: 1px;
+  margin: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(59, 59, 59);
+}
+
+.task-card:hover {
+  color: rgb(57, 103, 202);
+}
+
