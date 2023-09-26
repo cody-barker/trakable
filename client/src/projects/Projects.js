@@ -20,7 +20,7 @@ function Projects() {
 
     return (
         <div>
-            <button onClick={handleClick}>+ Add Project</button>
+            <button className="add-btn" onClick={handleClick}>+ Add Project</button>
             {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
             <h4>My Projects</h4>
             {createdProjectComps}

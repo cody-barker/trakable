@@ -52,7 +52,7 @@ function Teams() {
 
     return(
         <div>
-            <button onClick={handleVis}>+ Add Team</button>
+            <button className="add-btn" onClick={handleVis}>+ Add Team</button>
             {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
             <br></br>
             <h4>My Teams</h4>

@@ -37,7 +37,7 @@ function TaskCard({task}) {
     }
 
     return(
-        <tr className="tasks-container">
+        <tr className="table-row">
             <td>{user.username}</td>
             <td><NavLink className="task-card" to={`/tasks/${id}`}>{name}</NavLink></td>
             <td>{due_date}</td>

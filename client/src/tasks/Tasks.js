@@ -24,7 +24,7 @@ function Tasks() {
             <br></br>
             <table>
                 <thead>
-                    <tr>
+                    <tr className="table-row">
                         <th>User</th>
                         <th>Task</th>
                         <th>Due Date</th>
