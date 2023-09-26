@@ -1,6 +1,6 @@
 import {useParams} from 'react-router-dom'
 import {useSelector} from 'react-redux'
-import TaskCard from '../tasks/TaskCard'
+import MyTaskCard from '../tasks/MyTaskCard'
 
 function Project() {
 
@@ -10,7 +10,7 @@ function Project() {
     const projects = useSelector((state) => state.users.currentUser.projects)
     const project = projects.find((p) => p.id === id)
     const tasks = project ? project.tasks.map((t) => t) : []
-    const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
+    const taskComps = tasks.map((task) => <MyTaskCard key={task.id} task={task}/>)
    
     if (!project) {
         return <div>Please add a task to this project.</div>

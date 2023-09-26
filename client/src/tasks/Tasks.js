@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux'
-import TaskCard from './TaskCard'
+import MyTaskCard from './MyTaskCard'
 import {useState} from 'react'
 import TaskForm from './TaskForm'
 
@@ -9,7 +9,7 @@ function Tasks() {
     const tasks = projects.map((project) => project.tasks)
     const flattenedTasks = tasks.flat()
     const taskCardComps = flattenedTasks.map((task) => {
-        return <TaskCard key={task.id} task={task}/>
+        return <MyTaskCard key={task.id} task={task}/>
     })
 
     const [vis, setVis] = useState(false)
@@ -25,7 +25,6 @@ function Tasks() {
             <table>
                 <thead>
                     <tr className="table-row">
-                        <th>User</th>
                         <th>Task</th>
                         <th>Due Date</th>
                         <th>Project</th>

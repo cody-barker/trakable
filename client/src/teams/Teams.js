@@ -43,7 +43,7 @@ function Teams() {
     const allTeams = useSelector((state) => state.teams.entities)
     const userTeams = allTeams.filter((team) => team.auth_users.includes(currentUser.id))
     const userTeamsComps = userTeams.map((team) => {
-        return <NavLink to={`/teams/${team.id}`} key={team.id}>{team.name}</NavLink>
+        return <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>{team.name}</NavLink>
     })
 
     function handleVis() {
@@ -53,10 +53,11 @@ function Teams() {
     return(
         <div>
             <button className="add-btn" onClick={handleVis}>+ Add Team</button>
-            {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
-            <br></br>
-            <h4>My Teams</h4>
-            {userTeamsComps}
+            <div className="links-container">
+                {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
+                <h4>My Teams</h4>
+                {userTeamsComps}
+            </div>
         </div>
     )
 }

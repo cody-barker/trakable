@@ -98,6 +98,7 @@ function TaskForm() {
             <label>
                 Due Date
                 <input
+                className="date"
                 name="due_date"
                 type="date"
                 autoComplete="off"

@@ -51,7 +51,6 @@ function EditTask() {
 
     return(
         <div>
-            {task.name} {task.due_date} {task.description}
             <form onSubmit={handleSubmit}>
                 {errorComps}
             <label>
@@ -84,7 +83,7 @@ function EditTask() {
                 onChange={onInputChange}
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button className="add-btn" type="submit">Submit</button>
             </form>
         </div>
     )
