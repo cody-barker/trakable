@@ -52,7 +52,6 @@ function Team() {
           <th>Task</th>
           <th>Due Date</th>
           <th>Project</th>
-          <th>Team</th>
           <th></th>
         </tr>
       </thead>
