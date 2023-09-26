@@ -6,6 +6,14 @@ Concerns:
 4. How to debug locally since it appears the production build doesn't update automatically. It does on render, just not locally.
 
 
+When trying to use rails s and npm start --prefix client
+Failed to compile.
+
+Failed to load config "react-app" to extend from.
+Referenced from: /home/cody/code/labs/phase-5/trakable/client/package.json
+
+Otherwise rails s works, but the build is outdated.
+
 
 
 
