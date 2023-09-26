@@ -32,11 +32,7 @@ function Task() {
     if (dd < 10) dd = '0' + dd
     if (mm < 10) mm = '0' + mm
     const formattedToday = yyyy + "-" + mm + "-" + dd
-    console.log(due_date)
-    console.log(today)
-    console.log(formattedToday)
    
-
     return (
         <div className="task-container">
             <div className="task-attr">{name}</div> 

@@ -38,8 +38,6 @@ function Tasks() {
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             <br></br>
             {taskCardComps.length > 0 ? table : <div className="note">Please add a task.</div>}
-                
-  
         </div>
     )
 }

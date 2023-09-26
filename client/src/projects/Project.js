@@ -16,10 +16,25 @@ function Project() {
         return <div>Please add a task to this project.</div>
     }
 
+    const table = <table>
+                    <thead>
+                        <tr className="table-row">
+                            <th>Task</th>
+                            <th>Due Date</th>
+                            <th>Project</th>
+                            <th>Team</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {taskComps ? taskComps : null}
+                    </tbody>
+                  </table>
+
     return(
        <div>
-        <h4>{project.name}</h4>
-        {taskComps.length === 0 ? null : taskComps}
+        <h4 className="title">{project.name}</h4>
+        {taskComps.length > 0 ? table : null}
        </div>
     )
 }
