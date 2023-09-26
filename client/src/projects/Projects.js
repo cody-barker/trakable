@@ -20,7 +20,7 @@ function Projects() {
 
     return (
         <div>
-            <button className="add-btn" onClick={handleClick}>+ Add Project</button>
+            <button className="add-btn" onClick={handleClick}>{!vis ? "+ Add Project" : "Cancel"}</button>
             <div className="links-container">
                 {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
                 <h4>My Projects</h4>

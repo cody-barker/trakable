@@ -30,6 +30,7 @@ function InviteForm() {
             }
             dispatch(updateTeam(updatedTeam))
             setEmailNotFoundError(false)
+            setEmail("")
         } else {
             setEmailNotFoundError(true)
         }
@@ -38,7 +39,7 @@ function InviteForm() {
     const errorComps = errors.map((teamErrors, teamIndex) => (
         <div key={teamIndex}>
             {teamErrors.errors.map((error, index) => (
-                <div className="error" key={index}>{error.slice(11)}</div>
+                <div className="errors" key={index}>{error.slice(11)}</div>
             ))}
         </div>
     ));
@@ -47,7 +48,7 @@ function InviteForm() {
         <form onSubmit={handleSubmit}>
             {errorComps}
             {emailNotFoundError && (
-                <div className="error">User with this email not found.</div>
+                <div className="errors">User with this email not found.</div>
             )}
             <label>User's Email
                 <input
@@ -57,7 +58,7 @@ function InviteForm() {
                     value={email}
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button className="btn" type="submit">Send Invite</button>
         </form>
     )
 }

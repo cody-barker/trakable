@@ -33,14 +33,30 @@ function Team() {
     function handleVis() {
         setVis(!vis)
     }
+
+    const table = <table>
+                    <thead>
+                        <tr className="table-row">
+                            <th>Assignee</th>
+                            <th>Task</th>
+                            <th>Due Date</th>
+                            <th>Project</th>
+                            <th>Team</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {taskComps ? taskComps : null}
+                    </tbody>
+                  </table>
    
     return(
         <div>   
-            <h4>{team.name}</h4>
-            <h4>Team Members {teamMembers.map((u) => <li key={u.id}>{u.username}</li>)}</h4>
-            <button onClick={handleVis}>Invite a Teammate</button>
+            <h4 className="title">{team.name}</h4>
+            <h4 className="title">Team Members {teamMembers.map((u) => <li key={u.id}>{u.username}</li>)}</h4>
+            <button className="add-btn"  onClick={handleVis}>{!vis ? "Invite a Teammate" : "Cancel"}</button>
             {vis ? <InviteForm /> : null}
-            {taskComps.length === 0 ? null : taskComps}
+            {taskComps.length > 0 ? table : null}
         </div>
     )
 }

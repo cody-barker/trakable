@@ -130,7 +130,7 @@ function TaskForm() {
                     {projectOptions}
                 </select>
             </label>
-            <button type="submit">Submit</button>
+            <button className="add-btn" type="submit">Submit task</button>
         </form>
     )
 }

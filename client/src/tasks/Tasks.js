@@ -34,7 +34,7 @@ function Tasks() {
 
     return (
         <div>
-            <button onClick={handleClick} className="add-btn">+ Add task</button>
+            <button onClick={handleClick} className="add-btn">{!vis ? "+ Add Task" : "Cancel"}</button>
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             <br></br>
             {taskCardComps.length > 0 ? table : <div className="note">Please add a task.</div>}
