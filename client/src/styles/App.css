@@ -107,9 +107,10 @@ form {
   font-size: 12px;
   background-color: transparent;
   color: rgb(255, 255, 255);
-  padding: 7px;
+  padding: 10px;
   margin: 7px;
   text-decoration: none;
+  padding-left: 23px;
 }
 
 .checkbox-icon {
@@ -130,12 +131,14 @@ form {
   margin: 1px;
 }
 
-.add-task-btn {
+.add-btn {
   background: rgb(57, 103, 202);
   color: white;
   border-radius: 5px;
   padding: 5px;
-  margin: 5px;
+  margin: 10x;
+  margin-top: 5px;
+  margin-bottom: 10px;
   width: 80px;
   font-size: 12px;
   cursor: pointer;
@@ -157,10 +160,15 @@ form {
   margin: 2px;
   text-decoration: none;
   cursor: pointer;
-  color: rgb(59, 59, 59);
+  color: rgb(57, 103, 202);
 }
 
 .task-card:hover {
   color: rgb(57, 103, 202);
+}
+
+.tasks-container {
+  padding: 5px;
+  margin: 10px;
 }
 
