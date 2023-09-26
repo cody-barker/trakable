@@ -13,7 +13,7 @@ function Project() {
     const taskComps = tasks.map((task) => <TaskCard key={task.id} task={task}/>)
    
     if (!project) {
-        return <div>Please add your first task to this project.</div>
+        return <div>Please add a task to this project.</div>
     }
 
     return(

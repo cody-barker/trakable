@@ -8,6 +8,7 @@ import Projects from './projects/Projects'
 import Project from './projects/Project'
 import Teams from './teams/Teams'
 import Team from './teams/Team'
+import NotFound from './NotFound'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
@@ -80,6 +81,10 @@ function App() {
           <Route 
           path="/teams/:id"
           element={<Team />}
+          />
+          <Route 
+          path="*"
+          element={<NotFound />}
           />
         </Routes>
     </main>
