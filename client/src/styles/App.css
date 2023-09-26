@@ -1,3 +1,4 @@
+
 .header {
   position: absolute;
   left: 3%;
@@ -114,4 +115,15 @@ form {
 .checkbox-icon {
   height: 12px;
   color: white;
+}
+
+.add-task-btn {
+  background: rgb(57, 103, 202);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 80px;
+  font-size: 12px;
+  cursor: pointer;
 }

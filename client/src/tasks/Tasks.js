@@ -19,7 +19,7 @@ function Tasks() {
 
     return (
         <div>
-            <button onClick={handleClick}>+ Add Task</button>
+            <button onClick={handleClick} className="add-task-btn">+ Add task</button>
             {vis ? <TaskForm vis={vis} setVis={setVis}/> : null}
             <br></br>
             {taskCardComps ? taskCardComps : null}
