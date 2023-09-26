@@ -36,11 +36,6 @@ function EditTask() {
         });
     };
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        dispatch(updateTask(inputState));
-    }
-
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
           {userErrors.errors.map((error, index) => (
@@ -48,6 +43,11 @@ function EditTask() {
           ))}
         </ul>
       ));
+
+      function handleSubmit(e) {
+        e.preventDefault();
+        dispatch(updateTask(inputState));
+    }
 
     return(
         <div>
