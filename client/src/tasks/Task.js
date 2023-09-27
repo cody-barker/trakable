@@ -17,6 +17,9 @@ function Task() {
     const tasks = teams.map((team) => team.tasks)
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
+    if (!task) {
+        return <div>You are not authorized to view this task.</div>
+    }
     const {
         name,
         description,
@@ -52,7 +55,7 @@ function Task() {
             <div className="task-attr">{name}</div>
             <div className="task-attr">Due: {formattedToday == due_date ? "Today" : due_date}</div>
             <div className="task-attr">Project: <NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></div>
-            <div className="task-attr">Team: <NavLink className="task-card" to={`/projects/${team.id}`}>{team.name}</NavLink></div>
+            <div className="task-attr">Team: <NavLink className="task-card" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
             <div className="task-attr">Description: {description} </div>
         </div>
     )
