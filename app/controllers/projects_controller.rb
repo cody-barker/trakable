@@ -5,8 +5,12 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        project = Project.create!(project_params)
-        render json: project, status: :created
+        if (params[:creator_id] === session[:user_id])
+            project = Project.create!(project_params)
+            render json: project, status: :created
+        else
+            render json: {errors: ["Unauthorized"]}, status: :unauthorized
+        end
     end
 
     private
