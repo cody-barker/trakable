@@ -8,6 +8,7 @@ function Project() {
     id = parseInt(id)
     
     const projects = useSelector((state) => state.users.currentUser.projects)
+    const currentUser = useSelector((state) => state.users.currentUser)
     const project = projects.find((p) => p.id === id)
     const tasks = project ? project.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <ProjectTaskCard key={task.id} task={task}/>)
