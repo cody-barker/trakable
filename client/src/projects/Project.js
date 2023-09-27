@@ -16,6 +16,12 @@ function Project() {
         return <div>Please add a task to this project.</div>
     }
 
+    const sortedTaskComps = [...taskComps].sort((a, b) => {
+        const dateA = new Date(a.props.task.due_date);
+        const dateB = new Date(b.props.task.due_date);
+        return dateA - dateB;
+      });
+
     const table = <table>
                     <thead>
                         <tr className="table-row">
@@ -26,14 +32,14 @@ function Project() {
                         </tr>
                     </thead>
                     <tbody>
-                        {taskComps ? taskComps : null}
+                        {sortedTaskComps ? sortedTaskComps : null}
                     </tbody>
                   </table>
 
     return(
        <div>
         <h4 className="title">{project.name}</h4>
-        {taskComps.length > 0 ? table : null}
+        {sortedTaskComps.length > 0 ? table : null}
        </div>
     )
 }
