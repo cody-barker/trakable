@@ -56,7 +56,7 @@ function Teams() {
             <div className="links-container">
                 {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
                 <h4>My Teams</h4>
-                {userTeamsComps}
+                {userTeamsComps.length > 0 ? userTeamsComps : "Please create a team."}
             </div>
         </div>
     )

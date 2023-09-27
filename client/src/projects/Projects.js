@@ -24,7 +24,7 @@ function Projects() {
             <div className="links-container">
                 {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
                 <h4>My Projects</h4>
-                {createdProjectComps}
+                {createdProjectComps.length > 0 ? createdProjectComps : "Please create a project."}
             </div>
         </div>
     )
