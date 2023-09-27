@@ -25,6 +25,7 @@ function Project() {
     const table = <table>
                     <thead>
                         <tr className="table-row">
+                            <th></th>
                             <th>Task</th>
                             <th>Due Date</th>
                             <th>Team</th>

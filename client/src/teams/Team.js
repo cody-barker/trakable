@@ -48,9 +48,10 @@ function Team() {
     <table>
       <thead>
         <tr className="table-row">
-          <th>Assignee</th>
+          <th></th>
           <th>Task</th>
           <th>Due Date</th>
+          <th>Assignee</th>
           <th>Project</th>
           <th></th>
         </tr>

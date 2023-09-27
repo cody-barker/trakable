@@ -73,11 +73,11 @@ function TaskCard({task}) {
 
     return(
         <tr className="table-row">
+            <td>{currentUser.id === user_id ? <button className="icon-container" onClick={handleComplete}><img className="checkbox-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-check-mark-circle-thin.png"/></button> : null}</td>
             <td><NavLink className="task-card" to={`/tasks/${id}`}>{truncatedName}</NavLink></td>
             <td><span style={{ color: dueDateColor }}>{dueDateText}</span></td>
-            <td><NavLink className="task-card" to={`/projects/${team.id}`}>{team.name}</NavLink></td>
+            <td><NavLink className="task-card" to={`/teams/${team.id}`}>{team.name}</NavLink></td>
             <td>
-                {currentUser.id === user_id ? <button className="icon-container" onClick={handleComplete}><img className="checkbox-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-check-mark-circle-thin.png"/></button> : null}
                 {currentUser.id === user_id ? <button className="icon-container" onClick={handleEdit}><img className="edit-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-text-lined.png"/></button> : null}
             </td>
         </tr>
