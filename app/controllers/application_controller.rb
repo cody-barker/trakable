@@ -16,8 +16,14 @@ class ApplicationController < ActionController::API
     render json: {errors: ["Record not found."]}, status: :not_found
   end
 
+  # def find_user_by_session_id
+  #   User.find_by(id: session[:user_id])
+  # end
+
+  #user = find_user_by_session_id
+
   def find_user_by_session_id
-    User.find_by(id: session[:user_id])
+    @user = User.find_by(id: session[:user_id])
   end
 
 end

@@ -29,10 +29,15 @@ function App() {
       .then(() => setLoading(false))
   }, [dispatch]);
 
+  console.log(currentUser, "CURRENT USER")
+
   useEffect(() => {
     // Check if the user has changed (new user login)
-    if (currentUser && currentUser.id !== previousUserId) {
+    if (currentUser && currentUser.id) {
       // Dispatch fetch actions when a new user logs in
+      console.log(currentUser.id)
+      console.log(previousUserId)
+      console.log("USEEFFECT CONDITIONAL HIT")
       dispatch(fetchUsers());
       dispatch(fetchProjects());
       dispatch(fetchTeams());
@@ -41,6 +46,22 @@ function App() {
       setPreviousUserId(currentUser.id);
     }
   }, [dispatch, currentUser, previousUserId]);
+
+  // useEffect(() => {
+  //   // Check if the user has changed (new user login)
+  //   if (currentUser && currentUser.id !== previousUserId) {
+  //     // Dispatch fetch actions when a new user logs in
+  //     console.log(currentUser.id)
+  //     console.log(previousUserId)
+  //     console.log("USEEFFECT CONDITIONAL HIT")
+  //     dispatch(fetchUsers());
+  //     dispatch(fetchProjects());
+  //     dispatch(fetchTeams());
+
+  //     // Update previousUserId to the current user's ID
+  //     setPreviousUserId(currentUser.id);
+  //   }
+  // }, [dispatch, currentUser, previousUserId]);
 
   if (loading) {
     return <div></div>

@@ -1,24 +1,23 @@
 class TasksController < ApplicationController
+    # skip_before_action :find_user_by_session_id, only: [:index]
+
     def index
         render json: Task.all
     end
 
     def create
-        user = find_user_by_session_id
-        task = user.tasks.create!(task_params)
+        task = @user.tasks.create!(task_params)
         render json: task, method: [:project_name, :team_name], status: :created
     end
 
     def update
-        user = find_user_by_session_id
-        task = user.tasks.find(params[:id])
+        task = @user.tasks.find(params[:id])
         task.update!(task_params)
         render json: task, status: :accepted
     end
 
     def destroy
-        user = find_user_by_session_id
-        task = user.tasks.find(params[:id])
+        task = @user.tasks.find(params[:id])
         task.destroy
         render json: task, status: :ok
     end
