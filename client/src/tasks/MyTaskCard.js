@@ -16,9 +16,9 @@ function TaskCard({task}) {
         user_id
     } = task
 
-    // const currentUser = useSelector((state) => state.users.currentUser)
-    // const project = currentUser.projects.find((p) => p.id === project_id)
-    // const team = currentUser.teams.find((t) => t.id === team_id)
+    //limit characters for task name
+    const maxCharacters = 40;
+    const truncatedName = name.length > maxCharacters ? `${name.substring(0, maxCharacters)}...` : name;
     
     const users = useSelector((state) => state.users.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
@@ -77,7 +77,7 @@ function TaskCard({task}) {
 
     return(
         <tr className="table-row">
-            <td><NavLink className="task-card" to={`/tasks/${id}`}>{name}</NavLink></td>
+            <td><NavLink className="task-card" to={`/tasks/${id}`}>{truncatedName}</NavLink></td>
             <td><span style={{ color: dueDateColor }}>{dueDateText}</span></td>
             <td><NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></td>
             <td><NavLink className="task-card" to={`/projects/${team.id}`}>{team.name}</NavLink></td>

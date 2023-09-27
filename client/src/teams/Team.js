@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import TaskCard from '../tasks/TaskCard';
+import TeamTaskCard from '../tasks/TeamTaskCard';
 import { useState } from 'react';
 import InviteForm from './InviteForm';
 
@@ -17,7 +17,7 @@ function Team() {
   const tasks = team ? team.tasks.map((t) => t) : [];
 
   const taskComps = tasks.map((task) => (
-    <TaskCard key={task.id} task={task} />
+    <TeamTaskCard key={task.id} task={task} />
   ));
 
   if (!team) {
