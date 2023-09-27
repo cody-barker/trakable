@@ -28,15 +28,45 @@ function Task() {
         team_id,
         user_id
     } = task
+
+ 
     const project = user.projects.find((p) => p.id === project_id)
     const team = user.teams.find((t) => t.id === team_id)
-    const today = new Date()
-    const yyyy = today.getFullYear()
-    let mm = today.getMonth() + 1
-    let dd = today.getDate()
-    if (dd < 10) dd = '0' + dd
-    if (mm < 10) mm = '0' + mm
-    const formattedToday = yyyy + "-" + mm + "-" + dd
+
+    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1); 
+
+    // Format today's date
+    const yyyyToday = today.getFullYear();
+    let mmToday = today.getMonth() + 1;
+    let ddToday = today.getDate();
+
+    if (ddToday < 10) ddToday = '0' + ddToday;
+    if (mmToday < 10) mmToday = '0' + mmToday;
+    const formattedToday = yyyyToday + "-" + mmToday + "-" + ddToday;
+
+    // Format yesterday's date
+    const yyyyYesterday = yesterday.getFullYear();
+    let mmYesterday = yesterday.getMonth() + 1;
+    let ddYesterday = yesterday.getDate();
+
+    if (ddYesterday < 10) ddYesterday = '0' + ddYesterday;
+    if (mmYesterday < 10) mmYesterday = '0' + mmYesterday;
+    const formattedYesterday = yyyyYesterday + "-" + mmYesterday + "-" + ddYesterday;
+
+    let dueDateText = due_date;
+    let dueDateColor = ''; // Empty string for default color
+
+    if (formattedToday === due_date) {
+        dueDateText = 'Today';
+        dueDateColor = 'green'; // Apply green color for today
+    } else if (formattedYesterday === due_date) {
+        dueDateText = 'Yesterday';
+        dueDateColor = 'red'; // Apply red color for yesterday
+    } else if (new Date(due_date) < today) {
+        dueDateColor = 'red'; // Apply red color for dates earlier than today
+    }
 
     function handleComplete() {
         dispatch(deleteTask(id))
@@ -53,8 +83,8 @@ function Task() {
                 {currentUser.id === user_id ? <button className="icon-container" onClick={handleEdit}><img className="edit-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-text-lined.png"/></button> : null}
             </div>
             <div className="task-attr">{name}</div>
-            <div className="task-attr">Due: {formattedToday == due_date ? "Today" : due_date}</div>
-            <div className="task-attr">Project: <NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></div>
+            <div><span className="task-attr">Due: </span><span style={{ color: dueDateColor }}>{dueDateText}</span></div>
+            {project ? <div className="task-attr">Project: <NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></div> : null}
             <div className="task-attr">Team: <NavLink className="task-card" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
             <div className="task-attr">Description: {description} </div>
         </div>

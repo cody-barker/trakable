@@ -23,7 +23,7 @@ function Projects() {
             <button className="add-btn" onClick={handleClick}>{!vis ? "+ Add Project" : "Cancel"}</button>
             <div className="links-container">
                 {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
-                <h4>My Projects</h4>
+                <h4>{currentUser.first_name}'s Projects</h4>
                 {createdProjectComps.length > 0 ? createdProjectComps : "Please create a project."}
             </div>
         </div>

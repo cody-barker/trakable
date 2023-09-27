@@ -55,7 +55,7 @@ function Teams() {
             <button className="add-btn" onClick={handleVis}>{!vis ? "+ Add Team" : "Cancel"}</button>
             <div className="links-container">
                 {vis ? <TeamForm vis={vis} setVis={setVis}/> : null}
-                <h4>My Teams</h4>
+                <h4>{currentUser.first_name}'s Teams</h4>
                 {userTeamsComps.length > 0 ? userTeamsComps : "Please create a team."}
             </div>
         </div>

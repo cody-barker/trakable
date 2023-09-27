@@ -17,8 +17,8 @@ function NavBar() {
     const {id} = currentUser
 
     return(
-        <nav id="navbar">   
-            <NavLink className="nav-btn" to="/">My Tasks</NavLink>
+        <nav id="navbar">
+            <NavLink className="nav-btn" to="/">{currentUser.first_name}'s Tasks</NavLink>
             <NavLink className="nav-btn" to={`/users/${id}/projects`}>Projects</NavLink>
             <NavLink className="nav-btn" to={`/users/${id}/teams`}>Teams</NavLink>
             <button className="nav-btn-split" onClick={handleLogout}>
