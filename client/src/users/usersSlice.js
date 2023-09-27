@@ -237,6 +237,7 @@ const usersSlice = createSlice({
                 state.status = "idle";
                 state.errors = [];
                 const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
+                //might need conditionals to handle whether the tasks or team has changed
                 project.tasks = project.tasks.map((t) => {
                     if (t.id === action.payload.id) {
                         return action.payload
