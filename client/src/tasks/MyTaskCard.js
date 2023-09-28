@@ -22,7 +22,7 @@ function TaskCard({task}) {
     
     const users = useSelector((state) => state.users.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
-    console.log(users)
+   
     if (!users) {
         return <div>"Loading...</div>
     }
