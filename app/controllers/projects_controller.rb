@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+    skip_before_action :find_user_by_session_id
 
     def index
         render json: Project.all

@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+    skip_before_action :find_user_by_session_id
     
     def index
         render json: Team.all
