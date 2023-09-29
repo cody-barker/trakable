@@ -236,45 +236,25 @@ const usersSlice = createSlice({
             } else {
                 state.status = "idle";
                 state.errors = [];
-                //find the old project
-                const oldProject = state.currentUser.projects.find((project) =>
-                project.tasks.some((task) => task.id === action.payload.id));                
-                //find the new project
                 const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
-                //if the new project === old project
-                if (oldProject.id === project.id) {
-                    project.tasks = project.tasks.map((t) => {
-                        if (t.id === action.payload.id) {
-                            return action.payload
-                        } else {
-                            return t
-                        }
-                    })
-                } else {
-                    oldProject.tasks = oldProject.tasks.filter((t) => t.id !== action.payload.id)
-                    project.tasks.push(action.payload)
-                }
-                //find the old team
-                const oldTeam = state.currentUser.teams.find((team) =>
-                team.tasks.some((task) => task.id === action.payload.id));
-                //find the new team       
                 const team = state.currentUser.teams.find((t) => t.id === action.payload.team_id)
-                //if the new team === old team
-                if (oldTeam.id === team.id) {
-                    team.tasks = team.tasks.map((t) => {
-                        if (t.id === action.payload.id) {
-                            return action.payload
-                        } else {
-                            return t
-                        }
-                    })
-                } else {
-                    oldTeam.tasks = oldTeam.tasks.filter((t) => t.id !== action.payload.id)
-                    team.tasks.push(action.payload)
-                }  
+                project.tasks = project.tasks.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
+                team.tasks = team.tasks.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
             }
-        },
-    },
-});
+        }
+    }
+})
 
 export default usersSlice.reducer;

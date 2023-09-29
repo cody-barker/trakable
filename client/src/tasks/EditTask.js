@@ -17,19 +17,6 @@ function EditTask() {
     const task = flattenedTasks.find((t) => t.id === id)
     const errors = useSelector((state) => state.users.errors)
 
-    const allTeams = useSelector((state) => state.teams.entities)
-    const allProjects = useSelector((state) => state.projects.entities)
-
-    const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
-    const projectOptions = userProjects.map((project) => {
-        return <option key={project.id} value={project.id}>{project.name}</option>
-    })
-
-    const userTeams = allTeams.filter((t) => t.auth_users.includes(currentUser.id))
-    const teamOptions = userTeams.map((team) => {
-        return <option key={team.id} value={team.id} name={team.name}>{team.name}</option>
-    })
-
     const [inputState, setInputState] = useState({
         name: task.name,
         due_date: task.due_date,
@@ -43,8 +30,6 @@ function EditTask() {
         description,
     } = inputState;
 
-    const [projectID, setProjectID] = useState(task.project_id)
-    const [teamID, setTeamID] = useState(task.team_id)
 
     function onInputChange(e){
         setInputState({
@@ -58,8 +43,6 @@ function EditTask() {
         name,
         due_date,
         description,
-        project_id: projectID,
-        team_id: teamID,
         user_id: currentUser.id
     }
 
@@ -73,15 +56,12 @@ function EditTask() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(updateTask(formData));
-    }
-
-    function onProjectChange(e) {
-        setProjectID(parseInt(e.target.value))
-    }
-
-    function onTeamChange(e) {
-        setTeamID(parseInt(e.target.value))
+        dispatch(updateTask(formData))
+        .then((result) => {
+            if (!result.payload.errors) {
+                navigate(-1)
+            }
+        })
     }
 
     return(
@@ -117,19 +97,6 @@ function EditTask() {
                 value={description}
                 onChange={onInputChange}
                 />
-            </label>
-            <label>
-                Team
-                <select onChange={onTeamChange} value={teamID}>
-                    <option name="" value="">---Select a Team---</option>
-                    {teamOptions}
-                </select>
-            </label>
-            <label>Project
-            <select onChange={onProjectChange} value={projectID}>
-                    <option name="" value="">---Select a Project---</option>
-                    {projectOptions}
-                </select>
             </label>
             <button className="add-btn" type="submit">Submit</button>
             </form>
