@@ -15,7 +15,7 @@ function Project() {
     const tasks = project ? project.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <ProjectTaskCard key={task.id} task={task}/>)
 
-    if (!project && entProject && entProject.creator_id !== currentUser.id) {
+    if (entProject && entProject.creator_id !== currentUser.id) {
         return <div>Unauthorized</div>
     }
 

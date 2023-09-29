@@ -11,7 +11,7 @@ function TeamForm() {
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
           {userErrors.errors.map((error, index) => (
-            <li className="error" key={index}>{error}</li>
+            <li className="errors" key={index}>{error}</li>
           ))}
         </ul>
       ));

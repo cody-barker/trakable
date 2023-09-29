@@ -10,18 +10,17 @@ function Team() {
   const [vis, setVis] = useState(false);
 
   const users = useSelector((state) => state.users.entities);
-  const teams = useSelector((state) => state.users.currentUser.teams);
   const currentUser = useSelector((state) => state.users.currentUser)
   const allTeams = useSelector((state) => state.teams.entities);
   const entTeam = allTeams.find((t) => t.id === id)
-  const team = teams.find((t) => t.id === id);
+  const team = currentUser.teams.find((t) => t.id === id);
   const tasks = team ? team.tasks.map((t) => t) : [];
 
   const taskComps = tasks.map((task) => (
     <TeamTaskCard key={task.id} task={task} />
   ));
 
-  if (!team && entTeam && entTeam.creator_id !== currentUser.id) {
+  if (entTeam && !entTeam.auth_users.includes(currentUser.id)) {
     return <div>Unauthorzied.</div>
   }
 
