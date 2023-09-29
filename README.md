@@ -1,8 +1,10 @@
 
 Concerns:
-1. Navigate away from task edit form if no errors
-
-4. Refactor
+1. Refactor
+2. Readme
+3. Blog
+4. Submissions
+5. Schedule review
 
 
 
