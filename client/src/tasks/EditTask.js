@@ -21,7 +21,6 @@ function EditTask() {
         name: task.name,
         due_date: task.due_date,
         description: task.description,
-        id: task.id
     });
 
     const {
@@ -39,11 +38,13 @@ function EditTask() {
     };
 
     let formData = {
-        id,
+        id: task.id,
         name,
         due_date,
         description,
-        user_id: currentUser.id
+        user_id: currentUser.id,
+        project_id: task.project_id,
+        team_id: task.team_id
     }
 
     const errorComps = errors.map((userErrors, userIndex) => (

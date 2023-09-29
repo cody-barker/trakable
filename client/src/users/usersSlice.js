@@ -252,6 +252,23 @@ const usersSlice = createSlice({
                         return t
                     }
                 })
+                const userEntity = state.entities.find((u) => u.id === action.payload.user_id)
+                const entProject = userEntity.projects.find((p) => p.id === action.payload.project_id)
+                const entTeam = userEntity.teams.find((t) => t.id === action.payload.team_id)
+                entProject.tasks = entProject.tasks.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
+                entTeam.tasks = entTeam.tasks.map((t) => {
+                    if (t.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return t
+                    }
+                })
             }
         }
     }

@@ -6,7 +6,6 @@ function Task() {
     let {id} = useParams()
     id = parseInt(id)
     const navigate = useNavigate()
-
     const users = useSelector((state) => state.users.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
     const user = users.find((u) => u.id === currentUser.id)
@@ -20,6 +19,7 @@ function Task() {
     if (!task) {
         return <div>You are not authorized to view this task.</div>
     }
+
     const {
         name,
         description,
@@ -28,7 +28,6 @@ function Task() {
         team_id,
         user_id
     } = task
-
  
     const project = user.projects.find((p) => p.id === project_id)
     const team = user.teams.find((t) => t.id === team_id)
