@@ -43,8 +43,6 @@ function EditTask() {
         description,
     } = inputState;
 
-    console.log(task)
-
     const [projectID, setProjectID] = useState(task.project_id)
     const [teamID, setTeamID] = useState(task.team_id)
 
@@ -68,7 +66,7 @@ function EditTask() {
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
           {userErrors.errors.map((error, index) => (
-            <li className="error" key={index}>{error}</li>
+            <li className="errors" key={index}>{error}</li>
           ))}
         </ul>
       ));
