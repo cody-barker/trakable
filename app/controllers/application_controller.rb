@@ -3,6 +3,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found_resp
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
   before_action :authorize
+  before_action :find_user_by_session_id
 
   def authorize
     render json: {errors: ["Not authorized."]}, status: :unauthorized unless session[:user_id]
@@ -15,12 +16,6 @@ class ApplicationController < ActionController::API
   def render_record_not_found_resp
     render json: {errors: ["Record not found."]}, status: :not_found
   end
-
-  # def find_user_by_session_id
-  #   User.find_by(id: session[:user_id])
-  # end
-
-  #user = find_user_by_session_id
 
   def find_user_by_session_id
     @user = User.find_by(id: session[:user_id])

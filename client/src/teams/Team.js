@@ -62,7 +62,8 @@ function Team() {
 
   return (
     <div>
-      <h4 className="title">{team.name}</h4>
+      <h4 className="title">Team: {team.name}</h4>
+      <p className="title">Description: {team.description}</p>
       <h4 className="title">
         Team Members{' '}
         {teamMembers.map((u) => (

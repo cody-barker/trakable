@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    # skip_before_action :find_user_by_session_id, only: [:index]
+    skip_before_action :find_user_by_session_id, only: [:index]
 
     def index
         render json: Task.all

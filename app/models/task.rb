@@ -5,7 +5,7 @@ class Task < ApplicationRecord
 
     validates :name, presence: true
     validates :due_date, presence: true
-    validates :description, presence: true
+    # validates :description, presence: true
     validates :team_id, presence: true
     validates :project_id, presence: true
     validates :team_id, numericality: {only_integer: true}

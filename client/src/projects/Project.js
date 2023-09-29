@@ -40,7 +40,8 @@ function Project() {
 
     return(
        <div>
-        <h4 className="title">{project.name}</h4>
+        <h4 className="title">Project: {project.name}</h4>
+        <p className="title">Description: {project.description}</p>
         {sortedTaskComps.length > 0 ? table : null}
        </div>
     )

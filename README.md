@@ -5,7 +5,6 @@ Concerns:
 3. When a user gets invited, consider creating a default task for that user
 4. Might've broken something on render after changing team tasks
 5. Prevent users from accessing API on Render
-6. Fix async issues in MyTaskCard
 
 
 Vue has a watcher to see if user_id or other attr change to fetch that for the new user
