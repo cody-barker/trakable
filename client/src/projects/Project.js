@@ -11,7 +11,6 @@ function Project() {
     const currentUser = useSelector((state) => state.users.currentUser)
     const project = currentUser.projects.find((p) => p.id === id)
     const entProject = allProjects.find((p) => p.id === id)
-    console.log(entProject)
     const tasks = project ? project.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <ProjectTaskCard key={task.id} task={task}/>)
 

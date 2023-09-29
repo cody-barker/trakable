@@ -36,7 +36,7 @@ function App() {
       dispatch(fetchProjects());
       dispatch(fetchTeams());
     }
-  }, [dispatch, currentUser.id]);
+  }, [dispatch, currentUser && currentUser.id]);
 
   if (loading) {
     return <div></div>
