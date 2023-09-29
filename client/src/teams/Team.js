@@ -11,14 +11,23 @@ function Team() {
 
   const users = useSelector((state) => state.users.entities);
   const teams = useSelector((state) => state.users.currentUser.teams);
+  const currentUser = useSelector((state) => state.users.currentUser)
   const allTeams = useSelector((state) => state.teams.entities);
-
+  const entTeam = allTeams.find((t) => t.id === id)
   const team = teams.find((t) => t.id === id);
   const tasks = team ? team.tasks.map((t) => t) : [];
 
   const taskComps = tasks.map((task) => (
     <TeamTaskCard key={task.id} task={task} />
   ));
+
+  if (!team && entTeam && entTeam.creator_id !== currentUser.id) {
+    return <div>Unauthorzied.</div>
+  }
+
+  if (!entTeam) {
+    return <div>Team not found.</div>
+  }
 
   if (!team) {
     return <div>Please add a task to this team.</div>;

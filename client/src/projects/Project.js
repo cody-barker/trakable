@@ -7,11 +7,21 @@ function Project() {
     let {id} = useParams()
     id = parseInt(id)
     
-    const projects = useSelector((state) => state.users.currentUser.projects)
+    const allProjects = useSelector((state) => state.projects.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
-    const project = projects.find((p) => p.id === id)
+    const project = currentUser.projects.find((p) => p.id === id)
+    const entProject = allProjects.find((p) => p.id === id)
+    console.log(entProject)
     const tasks = project ? project.tasks.map((t) => t) : []
     const taskComps = tasks.map((task) => <ProjectTaskCard key={task.id} task={task}/>)
+
+    if (!project && entProject && entProject.creator_id !== currentUser.id) {
+        return <div>Unauthorized</div>
+    }
+
+    if (!entProject) {
+        return <div>Project not found.</div>
+    }
    
     if (!project) {
         return <div>Please add a task to this project.</div>
