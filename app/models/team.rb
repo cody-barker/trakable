@@ -15,5 +15,6 @@ class Team < ApplicationRecord
         if auth_users.uniq.length != auth_users.length
           errors.add(:auth_users, "This user is already a member of the team.")
         end
-      end
+    end
+
 end

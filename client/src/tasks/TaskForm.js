@@ -70,6 +70,17 @@ function TaskForm() {
         setTeamID(parseInt(e.target.value))
     }
 
+    const filteredErrors = errors.flatMap((userErrors) =>
+        userErrors.errors.filter((error) =>
+            ![
+            'Team is not a number',
+            'Project is not a number',
+            'Project must exist',
+            'Team must exist',
+            ].includes(error)
+        )
+    );
+
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createTask(formData))
@@ -84,7 +95,17 @@ function TaskForm() {
 
     return(
         <form onSubmit={handleSubmit}>
-            {errorComps}
+            {filteredErrors.length > 0 && (
+                <div className="error-messages">
+                <ul>
+                    {filteredErrors.map((error, index) => (
+                    <li key={index} className="errors">
+                        {error}
+                    </li>
+                    ))}
+                </ul>
+                </div>
+            )}
             <label>
                 Task Name
                 <input
