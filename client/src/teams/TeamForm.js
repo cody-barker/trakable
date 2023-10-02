@@ -3,10 +3,8 @@ import { createTeam } from './teamsSlice'
 import { useState } from 'react'
 
 function TeamForm() {
-
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.users.currentUser)
-
     const errors = useSelector((state) => state.teams.errors)
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
@@ -22,10 +20,7 @@ function TeamForm() {
         creator_id: currentUser.id
     })
 
-    const {
-        name,
-        description
-    } = inputState
+    const {name, description} = inputState
 
     function onInputChange(e){
         setInputState({
@@ -45,32 +40,30 @@ function TeamForm() {
     }
 
     return(
-        <div>
             <form onSubmit={handleSubmit}>
                 {errorComps}
-            <label>
-                Team Name
-                <input
-                name="name"
-                type="text"
-                autoComplete="off"
-                value={name}
-                onChange={onInputChange}
-                />
-            </label>
-            <label>
-                Description
-                <input
-                name="description"
-                type="text"
-                autoComplete="off"
-                value={description}
-                onChange={onInputChange}
-                />
-            </label>
-            <button type="submit">Submit</button>
+                <label>
+                    Team Name
+                    <input
+                    name="name"
+                    type="text"
+                    autoComplete="off"
+                    value={name}
+                    onChange={onInputChange}
+                    />
+                </label>
+                <label>
+                    Description
+                    <input
+                    name="description"
+                    type="text"
+                    autoComplete="off"
+                    value={description}
+                    onChange={onInputChange}
+                    />
+                </label>
+                <button type="submit">Submit</button>
             </form>
-        </div>
     )
 }
 
