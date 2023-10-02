@@ -86,9 +86,7 @@ const usersSlice = createSlice({
         },
         errors: []
     },
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: {
         //fetchCurrentUser
         [fetchCurrentUser.pending](state) {
@@ -157,7 +155,6 @@ const usersSlice = createSlice({
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
-                //we need to update state.entities so that the user.team.tasks has the new task
                 //update currentUser
                 const cUproject = state.currentUser.projects.find((p) => p.id === action.payload.project_id);
                 const cUteam = state.currentUser.teams.find((t) => t.id === action.payload.team_id);
@@ -174,7 +171,6 @@ const usersSlice = createSlice({
                     state.currentUser.teams = [...state.currentUser.teams, action.payload.team];
                 }
                 //update user in entities
-                //this isn't working for other users once they sign in to look at the task
                 const userEntity = state.entities.find((u) => u.id === state.currentUser.id)
                 const entityProject = userEntity.projects.find((p) => p.id === action.payload.project_id);
                 const entityTeam = userEntity.teams.find((t) => t.id === action.payload.team_id);
@@ -234,6 +230,7 @@ const usersSlice = createSlice({
                 state.errors = [];
                 state.errors.push(action.payload);
             } else {
+                //update currentUser
                 state.status = "idle";
                 state.errors = [];
                 const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
@@ -252,6 +249,7 @@ const usersSlice = createSlice({
                         return t
                     }
                 })
+                //update user in entities
                 const userEntity = state.entities.find((u) => u.id === action.payload.user_id)
                 const entProject = userEntity.projects.find((p) => p.id === action.payload.project_id)
                 const entTeam = userEntity.teams.find((t) => t.id === action.payload.team_id)
