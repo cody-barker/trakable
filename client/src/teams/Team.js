@@ -70,6 +70,7 @@ function Team() {
               <th>Task</th>
               <th>Due Date</th>
               <th>Assignee</th>
+              <th>Title</th>
               <th>Project</th>
               <th></th>
             </tr>
