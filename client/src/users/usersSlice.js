@@ -87,30 +87,31 @@ const usersSlice = createSlice({
         errors: []
     },
     reducers: {},
-    extraReducers: {
+    extraReducers: (builder) => {
+        builder
         //fetchCurrentUser
-        [fetchCurrentUser.pending](state) {
+        .addCase(fetchCurrentUser.pending, (state) => {
             state.status = "loading";
-        },
-        [fetchCurrentUser.fulfilled](state, action) {
+        })
+        .addCase(fetchCurrentUser.fulfilled, (state, action) => {
             state.currentUser = action.payload;
             state.status = "idle";
             state.errors = [];
-        },
+        })
         //fetchUsers
-        [fetchUsers.pending](state) {
+        .addCase(fetchUsers.pending, (state) => {
             state.status = "loading";
-        },
-        [fetchUsers.fulfilled] (state, action) {
+        })
+        .addCase(fetchUsers.fulfilled, (state, action) => {
             state.entities = action.payload;
             state.status = "idle";
             state.errors = [];
-        },
+        })
         //loginUser
-        [loginUser.pending](state) {
+        .addCase(loginUser.pending, (state) => {
             state.status = "loading";
-        },
-        [loginUser.fulfilled](state, action) {
+        })
+        .addCase(loginUser.fulfilled, (state, action) => {
             if ('errors' in action.payload) {
                 state.errors = [];
                 state.errors.push(action.payload);
@@ -119,16 +120,16 @@ const usersSlice = createSlice({
                 state.errors = [];
             }
             state.status = "idle";
-        },
-        [loginUser.rejected](state, action) {
+        })
+        .addCase(loginUser.rejected, (state, action) => {
             state.errors = action.payload;
             state.status = "idle"
-        },
+        })
         //signupUser
-        [signupUser.pending](state) {
+        .addCase(signupUser.pending, (state) => {
             state.status = "loading";
-        },
-        [signupUser.fulfilled](state, action) {
+        })
+        .addCase(signupUser.fulfilled, (state, action) => {
             if ('errors' in action.payload) {
                 state.errors = [];
                 state.errors.push(action.payload);
@@ -137,20 +138,20 @@ const usersSlice = createSlice({
                 state.errors = [];
             }
             state.status = "idle";
-        },
+        })
         //logoutUser
-        [logoutUser.pending](state) {
+        .addCase(logoutUser.pending, (state) => {
             state.status = "loading";
-        },
-        [logoutUser.fulfilled](state) {
+        })
+        .addCase(logoutUser.fulfilled, (state) => {
             state.status = "idle";
             state.currentUser = null;
-        },
+        })
         //createTask
-        [createTask.pending](state) {
+        .addCase(createTask.pending, (state) => {
             state.status = "loading";
-        },
-        [createTask.fulfilled](state, action) {
+        })
+        .addCase(createTask.fulfilled, (state, action) => {
             if (action.payload?.errors) {
                 state.errors = [];
                 state.errors.push(action.payload);
@@ -190,12 +191,12 @@ const usersSlice = createSlice({
             }
             state.status = "idle";
 
-        },
+        })
         //deleteTask
-        [deleteTask.pending](state) {
+        .addCase(deleteTask.pending, (state) => {
             state.status = "loading";
-        },
-        [deleteTask.fulfilled](state, action) {
+        })
+        .addCase(deleteTask.fulfilled, (state, action) => {
             //update currentUser
             state.status = "idle";
             const project = state.currentUser.projects.find((p) => p.id === action.payload.project_id)
@@ -220,12 +221,12 @@ const usersSlice = createSlice({
             if(!userTeam.tasks) {
                 userTeam.tasks = []
             }
-        },
+        })
         //updateTask
-        [updateTask.pending](state) {
+        .addCase(updateTask.pending, (state) => {
             state.status = "loading";
-        },
-        [updateTask.fulfilled](state, action) {
+        })
+        .addCase(updateTask.fulfilled, (state, action) => {
             if (action.payload?.errors) {
                 state.errors = [];
                 state.errors.push(action.payload);
@@ -268,7 +269,7 @@ const usersSlice = createSlice({
                     }
                 })
             }
-        }
+        })
     }
 })
 
