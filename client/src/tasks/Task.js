@@ -1,11 +1,14 @@
-import {useSelector} from 'react-redux'
+import { useSelector} from 'react-redux'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { deleteTask } from '../users/usersSlice'
 
 function Task() {
     
     let {id} = useParams()
     id = parseInt(id)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const users = useSelector((state) => state.users.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
     const user = users.find((u) => u.id === currentUser.id)
@@ -59,16 +62,17 @@ function Task() {
 
     if (formattedToday === due_date) {
         dueDateText = 'Today';
-        dueDateColor = 'green'; // Apply green color for today
+        dueDateColor = 'green';
     } else if (formattedYesterday === due_date) {
         dueDateText = 'Yesterday';
-        dueDateColor = 'red'; // Apply red color for yesterday
+        dueDateColor = 'red';
     } else if (new Date(due_date) < today) {
-        dueDateColor = 'red'; // Apply red color for dates earlier than today
+        dueDateColor = 'red';
     }
 
     function handleComplete() {
         dispatch(deleteTask(id))
+        navigate(-1)
     }
 
     function handleEdit() {
@@ -81,8 +85,12 @@ function Task() {
                 {currentUser.id === user_id ? <button className="btn" onClick={handleComplete}>Complete Task</button> : null} &nbsp;
                 {currentUser.id === user_id ? <button className="btn" onClick={handleEdit}>Edit Task</button> : null}
             </div>
-            <div className="task-attr">{name}</div>
-            <div><span className="task-attr">Due: </span><span style={{ color: dueDateColor }}>{dueDateText}</span></div>
+            <div className="task-attr">
+                {name}
+            </div>
+            <div><span className="task-attr">Due: </span><span style={{ color: dueDateColor }}>
+                {dueDateText}
+            </span></div>
             {project ? <div className="task-attr">Project: <NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></div> : null}
             <div className="task-attr">Team: <NavLink className="task-card" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
             <div className="task-attr">Description: {description} </div>
