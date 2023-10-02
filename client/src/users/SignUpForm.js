@@ -1,124 +1,86 @@
-import { useState } from 'react'
-import { signupUser } from './usersSlice'
-import { useDispatch } from 'react-redux'
-import { useSelector } from "react-redux"
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signupUser } from './usersSlice';
 
 function SignUp() {
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+  const errors = useSelector((state) => state.users.errors);
 
-    const dispatch = useDispatch()
+  const errorComps = errors.map((error, index) => (
+    <div key={index} className="error-container">
+      {error.errors.map((errorMessage, i) => (
+        <p key={i} className="errors">
+          {errorMessage}
+        </p>
+      ))}
+    </div>
+  ));
 
-    const [isLoading, setisLoading] = useState(false);
-    const errors = useSelector((state) => state.users.errors)
-    const errorComps = errors.map((e, index) => (
-        <div key={index} className="error-container">
-            {e.errors.map((errorMessage, i) => (
-                <p key={i} className="errors">{errorMessage}</p>
-            ))}
-        </div>
-    ));
+  const [inputState, setInputState] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    title: '',
+  });
 
-    const [inputState, setInputState] = useState({
-        first_name: "",
-        last_name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-        title: "",
-    })
+  const { 
+    first_name,
+    last_name,
+    email,
+    password,
+    password_confirmation,
+    title
+    } = inputState;
 
-    const {
-        first_name ,
-        last_name,
-        email,
-        password,
-        password_confirmation,
-        title,
-    } = inputState
+  const onInputChange = (e) => {
+    setInputState({
+      ...inputState,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    function onInputChange(e){
-        setInputState({
-            ...inputState,
-            [e.target.name]: e.target.value
-        })
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    dispatch(signupUser(inputState)).then(() => {
+      setIsLoading(false);
+    });
+  };
 
-    function handleSubmit(e){
-        e.preventDefault()
-        setisLoading(true)
-        dispatch(signupUser(inputState))
-        .then(() => {
-            setisLoading(false)
-        })
-    }
+  function renderInput(label, name, value) {
+    return (
+      <label key={name}>
+        {label}
+        <input
+          name={name}
+          type="text"
+          autoComplete="off"
+          value={value}
+          onChange={onInputChange}
+        />
+      </label>
+    );
+  }
 
-    return(
-        <form className="login-form" onSubmit={handleSubmit}>
-            <h2>Welcome to Trakable</h2>
-            <p>To begin, please sign up.</p>
-            <label>
-                First Name
-                <input
-                name="first_name"
-                type="text"
-                autoComplete="off"
-                value={first_name}
-                onChange={onInputChange}
-                ></input>
-            </label>
-            <label>
-                Last Name
-                <input
-                name="last_name"
-                type="text"
-                autoComplete="off"
-                value={last_name}
-                onChange={onInputChange}
-                ></input>
-            </label>
-            <label>
-                Title
-                <input
-                name="title"
-                type="text"
-                autoComplete="off"
-                value={title}
-                onChange={onInputChange}
-                ></input>
-            </label>
-            <label>
-                Email
-                <input
-                name="email"
-                type="text"
-                autoComplete="off"
-                value={email}
-                onChange={onInputChange}
-                ></input>
-            </label>
-            <label>
-                Password
-                <input
-                name="password"
-                type="password"
-                autoComplete="off"
-                value={password}
-                onChange={onInputChange}
-                ></input>
-            </label>
-            <label>
-                Password Confirmation
-                <input
-                name="password_confirmation"
-                type="password"
-                autoComplete="off"
-                value={password_confirmation}
-                onChange={onInputChange}
-                ></input>
-            </label>
-            <button className="login-btn" type="submit">{isLoading? "Loading..." : "Sign Up"}</button>
-            {errors.length > 0 ? errorComps : null}
-        </form>
-    )
+  return (
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h2>Welcome to Trakable</h2>
+      <p>To begin, please sign up.</p>
+      {renderInput('First Name', 'first_name', first_name)}
+      {renderInput('Last Name', 'last_name', last_name)}
+      {renderInput('Title', 'title', title)}
+      {renderInput('Email', 'email', email)}
+      {renderInput('Password', 'password', password, 'password')}
+      {renderInput('Password Confirmation', 'password_confirmation', password_confirmation, 'password')}
+      <button className="login-btn" type="submit">
+        {isLoading ? 'Loading...' : 'Sign Up'}
+      </button>
+      {errors.length > 0 && errorComps}
+    </form>
+  );
 }
 
-export default SignUp
+export default SignUp;
