@@ -34,6 +34,7 @@ function Task() {
  
     const project = user.projects.find((p) => p.id === project_id)
     const team = user.teams.find((t) => t.id === team_id)
+    const taskUser = users.find((u) => u.id === task.user_id)
 
     const today = new Date();
     const yesterday = new Date();
@@ -85,7 +86,7 @@ function Task() {
                 {currentUser.id === user_id ? <button className="btn" onClick={handleComplete}>Complete Task</button> : null} &nbsp;
                 {currentUser.id === user_id ? <button className="btn" onClick={handleEdit}>Edit Task</button> : null}
             </div>
-            <div className="task-attr">{user.username}</div>
+            <div className="task-attr">{taskUser.username}</div>
             <div className="task-attr">
                 {name}
             </div>
