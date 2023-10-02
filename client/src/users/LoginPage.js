@@ -5,15 +5,15 @@ import LoginForm from './LoginForm'
 import SignUpForm from './SignUpForm'
 
 function LoginPage() {
-
     const errors = useSelector((state) => state.users.errors)
-
     const [showLogin, setShowLogin] = useState(true)
     
     const errorComps = errors.map((e, index) => (
         <div key={index} className="error-container">
             {e.errors.map((errorMessage, i) => (
-                <p key={i} className="errors">{errorMessage}</p>
+                <p key={i} className="errors">
+                    {errorMessage}
+                </p>
             ))}
         </div>
     ));
@@ -36,22 +36,22 @@ function LoginPage() {
                          Sign Up
                         </button>
                     </p>
-                    </div>
+                </div>
             ) : (
                     <div className="login-form-container">
-                    <SignUpForm />
-                    <hr></hr>
-                    <p>
-                        Already have an account? &nbsp;
-                        <button className="login-btn"
-                         onClick={() => setShowLogin(true)}>
-                         Log In
-                        </button>
-                    </p>
+                        <SignUpForm />
+                        <hr></hr>
+                        <p>
+                            Already have an account? &nbsp;
+                            <button className="login-btn"
+                            onClick={() => setShowLogin(true)}>
+                            Log In
+                            </button>
+                        </p>
                     </div>
             )}
         </div>
-    )
+    );
 }
 
 export default LoginPage

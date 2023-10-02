@@ -1,17 +1,14 @@
 import { useState } from 'react'
-// import Error from './Error'
 import { useDispatch } from "react-redux"
 import { loginUser } from "./usersSlice"
 
 function LoginForm () {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
     const dispatch = useDispatch()
     
-    let formData = {
+    const formData = {
         email,
         password
     }
@@ -25,6 +22,9 @@ function LoginForm () {
             setEmail("");
             setPassword("");
         })
+        .catch((error) => {
+            console.log('Login error:', error)
+        })
     }
 
     return(
@@ -32,24 +32,26 @@ function LoginForm () {
             <label className="form-label">
                 Email address
                 <input
-                name="email"
-                type="text"
-                autoComplete="off"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    type="text"
+                    autoComplete="off"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 ></input>
             </label>
             <label className="form-label">
                 Password
                 <input
-                name="password"
-                type="password"
-                autoComplete="off"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                    name="password"
+                    type="password"
+                    autoComplete="off"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 ></input>
             </label>
-            <button className="login-btn" type="submit">{isLoading? "Loading..." : "Sign In"}</button>
+            <button className="login-btn" type="submit">
+                {isLoading ? "Loading..." : "Sign In"}
+            </button>
         </form>
     )
 }
