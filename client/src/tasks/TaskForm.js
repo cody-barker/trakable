@@ -1,12 +1,9 @@
 import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createTask} from '../users/usersSlice'
-// import {addTaskToTeam} from '../teams/teamsSlice'
 
 function TaskForm() {
-    
     const dispatch = useDispatch()
-
     const currentUser = useSelector((state) => state.users.currentUser)
     const allProjects = useSelector((state) => state.projects.entities)
     const allTeams = useSelector((state) => state.teams.entities)
@@ -14,22 +11,19 @@ function TaskForm() {
 
     const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const projectOptions = userProjects.map((project) => {
-        return <option key={project.id} value={project.id}>{project.name}</option>
-    })
+        return (
+            <option key={project.id} value={project.id}>
+                {project.name}
+            </option>
+    )})
 
-    // const userTeams = allTeams.filter((team) => team.creator_id === currentUser.id)
     const userTeams = allTeams.filter((t) => t.auth_users.includes(currentUser.id))
     const teamOptions = userTeams.map((team) => {
-        return <option key={team.id} value={team.id} name={team.name}>{team.name}</option>
-    })
-
-    const errorComps = errors.map((userErrors, userIndex) => (
-        <ul key={userIndex}>
-          {userErrors.errors.map((error, index) => (
-            <li className="errors" key={index}>{error}</li>
-          ))}
-        </ul>
-      ));
+        return (
+            <option key={team.id} value={team.id} name={team.name}>
+                {team.name}
+            </option>
+    )})
 
     const [inputState, setInputState] = useState({
         name: "",
@@ -37,11 +31,7 @@ function TaskForm() {
         description: "",
     })
 
-    const {
-        name,
-        due_date,
-        description,
-    } = inputState
+    const {name, due_date, description} = inputState
 
     function onInputChange(e){
         setInputState({
@@ -63,23 +53,12 @@ function TaskForm() {
     }
 
     function onProjectChange(e) {
-        setProjectID(parseInt(e.target.value))
+        setProjectID(parseInt(e.target.value, 10))
     }
 
     function onTeamChange(e) {
-        setTeamID(parseInt(e.target.value))
+        setTeamID(parseInt(e.target.value, 10))
     }
-
-    const filteredErrors = errors.flatMap((userErrors) =>
-        userErrors.errors.filter((error) =>
-            ![
-            'Team is not a number',
-            'Project is not a number',
-            'Project must exist',
-            'Team must exist',
-            ].includes(error)
-        )
-    );
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -93,65 +72,82 @@ function TaskForm() {
         setTeamID("")
     }
 
+    const filteredErrors = errors.flatMap((userErrors) =>
+        userErrors.errors.filter((error) =>
+            ![
+            'Team is not a number',
+            'Project is not a number',
+            'Project must exist',
+            'Team must exist',
+            ].includes(error)
+        )
+    );
+
     return(
         <form onSubmit={handleSubmit}>
             {filteredErrors.length > 0 && (
                 <div className="error-messages">
-                <ul>
-                    {filteredErrors.map((error, index) => (
-                    <li key={index} className="errors">
-                        {error}
-                    </li>
-                    ))}
-                </ul>
+                    <ul>
+                        {filteredErrors.map((error, index) => (
+                        <li key={index} className="errors">
+                            {error}
+                        </li>
+                        ))}
+                    </ul>
                 </div>
             )}
             <label>
                 Task Name
                 <input
-                name="name"
-                type="text"
-                autoComplete="off"
-                value={name}
-                onChange={onInputChange}
+                    name="name"
+                    type="text"
+                    autoComplete="off"
+                    value={name}
+                    onChange={onInputChange}
                 />
             </label>
             <label>
                 Due Date
                 <input
-                className="date"
-                name="due_date"
-                type="date"
-                autoComplete="off"
-                value={due_date}
-                onChange={onInputChange}
+                    className="date"
+                    name="due_date"
+                    type="date"
+                    autoComplete="off"
+                    value={due_date}
+                    onChange={onInputChange}
                 />
             </label>
             <label>
                 Description
                 <input
-                name="description"
-                type="text"
-                autoComplete="off"
-                value={description}
-                onChange={onInputChange}
+                    name="description"
+                    type="text"
+                    autoComplete="off"
+                    value={description}
+                    onChange={onInputChange}
                 />
             </label>
             <label>
                 Team
                 <select onChange={onTeamChange} value={teamID}>
-                    <option name="" value="">---Select a Team---</option>
-                    {teamOptions}
+                    <option name="" value="">
+                        ---Select a Team---
+                    </option>
+                        {teamOptions}
                 </select>
             </label>
             <label>
                 Project
                 <select onChange={onProjectChange} value={projectID}>
-                    <option name="" value="">---Select a Project---</option>
-                    {projectOptions}
+                    <option name="" value="">
+                        ---Select a Project---
+                    </option>
+                        {projectOptions}
                 </select>
             </label>
-            <button className="add-btn" type="submit">Submit task</button>
+            <button className="add-btn" type="submit">
+                Submit task
+            </button>
         </form>
     )
 }
