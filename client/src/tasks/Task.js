@@ -85,6 +85,7 @@ function Task() {
                 {currentUser.id === user_id ? <button className="btn" onClick={handleComplete}>Complete Task</button> : null} &nbsp;
                 {currentUser.id === user_id ? <button className="btn" onClick={handleEdit}>Edit Task</button> : null}
             </div>
+            <div className="task-attr">{user.username}</div>
             <div className="task-attr">
                 {name}
             </div>
