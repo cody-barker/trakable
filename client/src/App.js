@@ -21,16 +21,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const currentUser = useSelector((state) => state.users.currentUser);
 
-  // Initialize previousUserId to null
-  // const [previousUserId, setPreviousUserId] = useState(null);
-
   useEffect(() => {
     dispatch(fetchCurrentUser())
       .then(() => setLoading(false))
   }, [dispatch]);
 
   useEffect(() => {
-    // Check if the user has changed (new user login)
     if (currentUser && currentUser.id) {
       dispatch(fetchUsers());
       dispatch(fetchProjects());
@@ -39,7 +35,7 @@ function App() {
   }, [dispatch, currentUser && currentUser.id]);
 
   if (loading) {
-    return <div></div>
+    return <div>"Loading..."</div>
   }
 
   if (!currentUser || currentUser.errors) {
@@ -49,40 +45,16 @@ function App() {
   return (
     <main>
       <NavBar />
-        <Routes>
-          <Route
-          path="/"
-          element={<Tasks />}
-          />
-          <Route 
-          path="/tasks/:id"
-          element={<Task />}
-          />
-          <Route 
-          path="/tasks/:id/edit"
-          element={<EditTask />}
-          />
-          <Route 
-          path="users/:id/projects"
-          element={<Projects />}
-          />
-          <Route 
-          path="/projects/:id"
-          element={<Project />}
-          />
-          <Route 
-          path="users/:id/teams"
-          element={<Teams />}
-          />
-          <Route 
-          path="/teams/:id"
-          element={<Team />}
-          />
-          <Route 
-          path="*"
-          element={<NotFound />}
-          />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Tasks />} />
+        <Route path="/tasks/:id" element={<Task />} />
+        <Route path="/tasks/:id/edit" element={<EditTask />} />
+        <Route path="users/:id/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<Project />} />
+        <Route path="users/:id/teams" element={<Teams />} />
+        <Route path="/teams/:id" element={<Team />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </main>
 
   );
