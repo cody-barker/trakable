@@ -7,6 +7,10 @@ function Projects() {
 
     const currentUser = useSelector((state) => state.users.currentUser)
     const allProjects = useSelector((state) => state.projects.entities)
+    const userFirstName = currentUser.first_name;
+    const userNamePossessive = userFirstName.endsWith('s') ? `${userFirstName}'` : `${userFirstName}'s`;
+
+    
 
     const createdProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
     const createdProjectComps = createdProjects.map((project) => {
@@ -23,7 +27,7 @@ function Projects() {
             <button className="add-btn" onClick={handleClick}>{!vis ? "+ Add Project" : "Cancel"}</button>
             <div className="links-container">
                 {vis ? <ProjectForm vis={vis} setVis={setVis}/> : null}
-                <h4>{currentUser.first_name}'s Projects</h4>
+                <h4>{userNamePossessive} Projects</h4>
                 {createdProjectComps.length > 0 ? createdProjectComps : "Please create a project."}
             </div>
         </div>
