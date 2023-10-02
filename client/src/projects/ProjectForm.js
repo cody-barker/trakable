@@ -3,12 +3,10 @@ import {useDispatch, useSelector} from 'react-redux'
 import {createProject} from './projectsSlice'
 
 function ProjectForm() {
-
     const dispatch = useDispatch()
-
     const currentUser = useSelector((state) => state.users.currentUser)
-
     const errors = useSelector((state) => state.projects.errors)
+
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
           {userErrors.errors.map((error, index) => (
@@ -23,10 +21,7 @@ function ProjectForm() {
         creator_id: currentUser.id
     })
 
-    const {
-        name,
-        description
-    } = inputState
+    const { name, description } = inputState
 
     function onInputChange(e){
         setInputState({
@@ -52,21 +47,21 @@ function ProjectForm() {
             <label>
                 Project Name
                 <input
-                name="name"
-                type="text"
-                autoComplete="off"
-                value={name}
-                onChange={onInputChange}
+                    name="name"
+                    type="text"
+                    autoComplete="off"
+                    value={name}
+                    onChange={onInputChange}
                 />
             </label>
             <label>
                 Description
                 <input
-                name="description"
-                type="text"
-                autoComplete="off"
-                value={description}
-                onChange={onInputChange}
+                    name="description"
+                    type="text"
+                    autoComplete="off"
+                    value={description}
+                    onChange={onInputChange}
                 />
             </label>
             <button type="submit">Submit</button>
