@@ -11,8 +11,7 @@ function EditTask() {
     const navigate = useNavigate()
     
     const currentUser = useSelector((state) => state.users.currentUser)
-    const projects = useSelector((state) => state.users.currentUser.projects)
-    const tasks = projects.map((project) => project.tasks)
+    const tasks = currentUser.projects.map((project) => project.tasks)
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
     const errors = useSelector((state) => state.users.errors)
