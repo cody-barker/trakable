@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     skip_before_action :find_user_by_session_id, only: [:index, :create]
 
     def index
-        puts "Hello"
         render json: User.all
     end
 
