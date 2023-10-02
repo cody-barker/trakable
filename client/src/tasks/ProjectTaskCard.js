@@ -19,8 +19,6 @@ function TaskCard({ task }) {
 
   const team = user.teams.find((t) => t.id === team_id);
 
-  const { dueDateText, dueDateColor } = formatDueDate(due_date);
-
   const handleComplete = () => {
     dispatch(deleteTask(id));
   };
@@ -67,6 +65,8 @@ function TaskCard({ task }) {
   function truncateString(str, maxLength) {
     return str.length > maxLength ? `${str.substring(0, maxLength)}...` : str;
   }
+
+  const { dueDateText, dueDateColor } = formatDueDate(due_date);
 
   return (
     <tr className="table-row">
