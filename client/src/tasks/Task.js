@@ -135,6 +135,9 @@ function Task() {
     const project = currentUser.projects.find((p) => p.id === project_id)
     const team = currentUser.teams.find((t) => t.id === team_id)
     const taskUser = users.find((u) => u.id === task.user_id)
+    if (!taskUser) {
+        return <div>"Loading..."</div>
+    }
 
     const today = new Date();
     const yesterday = new Date();
