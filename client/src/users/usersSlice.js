@@ -100,13 +100,16 @@ const usersSlice = createSlice({
         })
         //fetchUsers
         .addCase(fetchUsers.pending, (state) => {
-            state.status = "loading";
-        })
-        .addCase(fetchUsers.fulfilled, (state, action) => {
+            state.status = 'pending';
+          })
+          .addCase(fetchUsers.fulfilled, (state, action) => {
+            state.status = 'fulfilled';
             state.entities = action.payload;
-            state.status = "idle";
-            state.errors = [];
-        })
+          })
+          .addCase(fetchUsers.rejected, (state, action) => {
+            state.status = 'rejected';
+            state.errors = action.error.message;
+          })
         //loginUser
         .addCase(loginUser.pending, (state) => {
             state.status = "loading";
