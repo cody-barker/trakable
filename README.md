@@ -6,8 +6,9 @@ Trakable is a task management app that allows users to join teams, and contribut
 
 <img src="public/trakable_preview.gif" alt="app.gif">
 <a href="https://youtu.be/chr22DL6Ui8" alt="app video">Click here for a video walkthrough of the app.</a>
-<br>
-<a href="https://trakable.onrender.com" alt="deployed-app-link">See the app deployed on Render</a>
+<br><br>
+<a href="https://trakable.onrender.com" alt="deployed-app-link">See the app deployed on Render.</a>
+<br><br>
 
 Users can:
 
