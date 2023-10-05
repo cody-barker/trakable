@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get '/me', to: 'users#show'
       post '/login', to: 'sessions#create'
       delete '/logout', to: 'sessions#destroy'
-      resources :teams, except: [:show]
+      resources :teams, except: [:show, :update]
       resources :users, only: [:index]
       resources :tasks, except: [:show]
       resources :projects, only: [:index, :create]
