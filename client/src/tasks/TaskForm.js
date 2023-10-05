@@ -9,16 +9,16 @@ function TaskForm() {
     const allTeams = useSelector((state) => state.teams.entities)
     const errors = useSelector((state) => state.users.errors)
 
-    const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
-    const projectOptions = userProjects.map((project) => {
+    // const userProjects = allProjects.filter((project) => project.creator_id === currentUser.id)
+    const projectOptions = allProjects.map((project) => {
         return (
             <option key={project.id} value={project.id}>
                 {project.name}
             </option>
     )})
 
-    const userTeams = allTeams.filter((t) => t.auth_users.includes(currentUser.id))
-    const teamOptions = userTeams.map((team) => {
+    // const userTeams = allTeams.filter((t) => t.auth_users.includes(currentUser.id))
+    const teamOptions = allTeams.map((team) => {
         return (
             <option key={team.id} value={team.id} name={team.name}>
                 {team.name}

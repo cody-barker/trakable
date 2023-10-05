@@ -19,8 +19,8 @@ function NavBar() {
     return(
         <nav id="navbar">
             <NavLink className="nav-btn" to="/">{userNamePossessive} Tasks</NavLink>
-            <NavLink className="nav-btn" to={`/users/${id}/projects`}>Projects</NavLink>
-            <NavLink className="nav-btn" to={`/users/${id}/teams`}>Teams</NavLink>
+            <NavLink className="nav-btn" to={`/projects`}>Projects</NavLink>
+            <NavLink className="nav-btn" to={`/teams`}>Teams</NavLink>
             <button className="nav-btn-split" onClick={handleLogout}>
                 Logout
             </button>

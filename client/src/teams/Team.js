@@ -1,45 +1,23 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TeamTaskCard from '../tasks/TeamTaskCard';
-import { useState } from 'react';
-import InviteForm from './InviteForm';
 
 function Team() {
   const { id } = useParams();
   const teamId = parseInt(id);
-  const [vis, setVis] = useState(false);
 
-  const users = useSelector((state) => state.users.entities);
-  const currentUser = useSelector((state) => state.users.currentUser);
-  const allTeams = useSelector((state) => state.teams.entities);
-  const entTeam = allTeams.find((t) => t.id === teamId);
-  const team = currentUser.teams.find((t) => t.id === teamId);
+  // const currentUser = useSelector((state) => state.users.currentUser);
+  const teams = useSelector((state) => state.teams.entities);
+  const team = teams.find((t) => t.id === teamId);
   const tasks = team ? team.tasks.map((t) => t) : [];
+
+  if (!team) {
+    return <div>"Loading..."</div>;
+  }
 
   const taskComps = tasks.map((task) => (
     <TeamTaskCard key={task.id} task={task} />
   ));
-
-  if (!entTeam || !entTeam.auth_users.includes(currentUser.id)) {
-    return <div>Unauthorized.</div>;
-  }
-
-  if (!team) {
-    return <div>Please add a task to this team.</div>;
-  }
-
-  const memberTeam = allTeams.find((t) => t.id === teamId);
-  if (!memberTeam) {
-    return <div>Loading...</div>;
-  }
-
-  const teamMembers = users.filter((u) =>
-    memberTeam.auth_users.includes(u.id)
-  );
-
-  const handleVis = () => {
-    setVis(!vis);
-  };
 
   // Sort tasks based on due_date
   const sortedTaskComps = [...taskComps].sort((a, b) => {
@@ -52,16 +30,6 @@ function Team() {
     <div>
       <h4 className="title">Team: {team.name}</h4>
       <p className="title">Description: {team.description}</p>
-      <h4 className="title">
-        Team Members
-        {teamMembers.map((u) => (
-          <li key={u.id}>{u.username}</li>
-        ))}
-      </h4>
-      <button className="add-btn" onClick={handleVis}>
-        {!vis ? 'Invite a Teammate' : 'Cancel'}
-      </button>
-      {vis && <InviteForm />}
       {sortedTaskComps.length > 0 && (
         <table>
           <thead>

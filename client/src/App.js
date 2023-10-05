@@ -49,9 +49,9 @@ function App() {
         <Route path="/" element={<Tasks />} />
         <Route path="/tasks/:id" element={<Task />} />
         <Route path="/tasks/:id/edit" element={<EditTask />} />
-        <Route path="users/:id/projects" element={<Projects />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:id" element={<Project />} />
-        <Route path="users/:id/teams" element={<Teams />} />
+        <Route path="/teams" element={<Teams />} />
         <Route path="/teams/:id" element={<Team />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
