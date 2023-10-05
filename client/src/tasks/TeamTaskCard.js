@@ -93,11 +93,9 @@ function TeamTaskCard({ task }) {
                 {user.title}
             </td>
             <td>
-                {currentUser.id === user_id ? (
                 <NavLink className="task-card" to={`/projects/${project.id}`}>
                     {project.name}
                 </NavLink>
-                ) : project.name}
             </td>
             <td>
                 {currentUser.id === user_id ? (

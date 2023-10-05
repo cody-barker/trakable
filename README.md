@@ -1,4 +1,4 @@
--team state is not updating after adding a task
+-work on conditional rendering of links on team and project cards
 
 
 
