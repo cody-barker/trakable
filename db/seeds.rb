@@ -16,41 +16,32 @@ user2 = User.create!(
 
 project1 = Project.create!(
     name: "Capstone",
-    description: "As part of the Flatiron Software Engineering Flex program curriculum, all students must submit a Capstone project in Phase 5 in order to graduate.",
-    creator_id: 1
+    description: "As part of the Flatiron Software Engineering Flex program curriculum, all students must submit a Capstone project in Phase 5 in order to graduate."
 )
 
 project2 = Project.create!(
     name: "Auto",
-    description: "Everything related to working on the vehicles.",
-    creator_id: 1
+    description: "Everything related to working on the vehicles."
 )
 
 project3 = Project.create!(
     name: "Marketing",
-    description: "Marketing Tasks",
-    creator_id: 2
+    description: "Marketing Tasks"
 )
 
 team1 = Team.create!(
     name: "Flatiron",
-    description: "Cody's Flatiron Projects",
-    auth_users: [1],
-    creator_id: 1
+    description: "Cody's Flatiron Projects"
 )
 
 team2 = Team.create!(
     name: "Personal Workspace",
-    description: "Cody's Personal Projects",
-    auth_users: [1],
-    creator_id: 1
+    description: "Cody's Personal Projects"
 )
 
 team3 = Team.create!(
     name: "Kelli Radwanski Photography",
-    description: "Kelli's Work Projects",
-    auth_users: [2],
-    creator_id: 2
+    description: "Kelli's Work Projects"
 )
 
 task1 = user1.tasks.create!(

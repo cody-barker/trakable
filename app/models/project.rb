@@ -5,5 +5,6 @@ class Project < ApplicationRecord
 
     validates :name, presence: true
     validates :name, length: {maximum: 30}
+    validates :name, uniqueness: true
     validates :description, length: {maximum: 200}
 end
