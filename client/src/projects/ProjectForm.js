@@ -35,13 +35,14 @@ function ProjectForm() {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createProject(inputState))
-        .then(setInputState({
-            name: "",
-            description: "",
-            creator_id: currentUser.id
-        }))
         .then(response => {
             if (!response.payload.errors) {
+                alert(`Project: ${name} Created`)
+                setInputState({
+                    name: "",
+                    description: "",
+                    creator_id: currentUser.id
+                })
                 navigate("/")
             }
         })

@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { createTeam } from './teamsSlice'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function TeamForm() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.teams.errors)
     const errorComps = errors.map((userErrors, userIndex) => (
@@ -32,10 +34,16 @@ function TeamForm() {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createTeam(inputState))
-        setInputState({
-            name: "",
-            description: "",
-            creator_id: currentUser.id
+        .then((response) => {
+            if (!response.payload.errors) {
+                alert(`Team: ${name} Created`)
+                setInputState({
+                    name: "",
+                    description: "",
+                    creator_id: currentUser.id
+                })
+                navigate("/")
+            }
         })
     }
 

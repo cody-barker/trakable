@@ -6,9 +6,9 @@ function Team() {
   const { id } = useParams();
   const teamId = parseInt(id);
 
-  // const currentUser = useSelector((state) => state.users.currentUser);
-  const teams = useSelector((state) => state.teams.entities);
-  const team = teams.find((t) => t.id === teamId);
+  const currentUser = useSelector((state) => state.users.currentUser);
+  // const teams = useSelector((state) => state.teams.entities);
+  const team = currentUser.teams.find((t) => t.id === teamId);
   const tasks = team ? team.tasks.map((t) => t) : [];
 
   if (!team) {

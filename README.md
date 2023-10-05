@@ -1,3 +1,10 @@
+-team state is not updating after adding a task
+
+
+
+
+
+
 ## Trakable
 
 Trakable is a task management app that allows users to join teams, and contribute to projects by creating and managing tasks. Users can view their tasks by due date, project, or team, and update or complete them as needed.  Users can also create new teams and projects. Trakable is a Single Page Application that relies on a React frontend and Ruby on Rails backend to provide users with a speedy and intuitive experience.

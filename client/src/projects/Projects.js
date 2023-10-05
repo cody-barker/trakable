@@ -10,9 +10,19 @@ function Projects() {
     ? `${userFirstName}'`
     : `${userFirstName}'s`;
 
-  const projects = currentUser.projects.filter(
-    (project) => project
-  );
+  const projectComps = currentUser.projects.map((project) => {
+    if (project.tasks.length > 0) {
+      return (
+        <NavLink
+              className="nav-links"
+              to={`/projects/${project.id}`}
+              key={project.id}
+            >
+              {project.name}
+        </NavLink>
+      )
+    }
+  })
 
   const [vis, setVis] = useState(false);
 
@@ -28,19 +38,7 @@ function Projects() {
       <div className="links-container">
         {vis && <ProjectForm vis={vis} setVis={setVis} />}
         <h4>{userNamePossessive} Projects</h4>
-        {projects.length > 0 ? (
-          projects.map((project) => (
-            <NavLink
-              className="nav-links"
-              to={`/projects/${project.id}`}
-              key={project.id}
-            >
-              {project.name}
-            </NavLink>
-          ))
-        ) : (
-          <p>Please create a project.</p>
-        )}
+        {projectComps}
       </div>
     </div>
   );

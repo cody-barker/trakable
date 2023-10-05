@@ -6,21 +6,21 @@ import TeamForm from './TeamForm';
 function Teams() {
   const [vis, setVis] = useState(false);
   const currentUser = useSelector((state) => state.users.currentUser);
-  const allTeams = useSelector((state) => state.teams.entities);
-  const userTeams = allTeams.filter((team) => team.auth_users.includes(currentUser.id));
+  const userFirstName = currentUser.first_name;
+  const userNamePossessive = userFirstName.endsWith('s') ? `${userFirstName}'` : `${userFirstName}'s`;
 
   const handleVis = () => {
     setVis(!vis);
   };
 
-  const userFirstName = currentUser.first_name;
-  const userNamePossessive = userFirstName.endsWith('s') ? `${userFirstName}'` : `${userFirstName}'s`;
-
-  const userTeamsComps = userTeams.map((team) => (
-    <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>
-      {team.name}
-    </NavLink>
-  ));
+  const userTeamsComps = currentUser.teams.map((team) => {
+    if (team.tasks.length > 0) {
+      return (
+        <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>
+          {team.name}
+        </NavLink>)
+    }
+  });
 
   return (
     <div>
