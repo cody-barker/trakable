@@ -19,7 +19,6 @@ function TeamForm() {
     const [inputState, setInputState] = useState({
         name: "",
         description: "",
-        creator_id: currentUser.id
     })
 
     const {name, description} = inputState
@@ -40,7 +39,6 @@ function TeamForm() {
                 setInputState({
                     name: "",
                     description: "",
-                    creator_id: currentUser.id
                 })
                 navigate("/")
             }
