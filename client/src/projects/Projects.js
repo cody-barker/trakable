@@ -5,14 +5,13 @@ import ProjectForm from './ProjectForm';
 
 function Projects() {
   const currentUser = useSelector((state) => state.users.currentUser);
-  const allProjects = useSelector((state) => state.projects.entities);
   const userFirstName = currentUser.first_name;
   const userNamePossessive = userFirstName.endsWith('s')
     ? `${userFirstName}'`
     : `${userFirstName}'s`;
 
-  const createdProjects = allProjects.filter(
-    (project) => project.creator_id === currentUser.id
+  const projects = currentUser.projects.filter(
+    (project) => project
   );
 
   const [vis, setVis] = useState(false);
@@ -29,8 +28,8 @@ function Projects() {
       <div className="links-container">
         {vis && <ProjectForm vis={vis} setVis={setVis} />}
         <h4>{userNamePossessive} Projects</h4>
-        {createdProjects.length > 0 ? (
-          createdProjects.map((project) => (
+        {projects.length > 0 ? (
+          projects.map((project) => (
             <NavLink
               className="nav-links"
               to={`/projects/${project.id}`}

@@ -1,9 +1,11 @@
 import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createProject} from './projectsSlice'
+import { useNavigate } from 'react-router-dom'
 
 function ProjectForm() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.projects.errors)
 
@@ -33,10 +35,15 @@ function ProjectForm() {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createProject(inputState))
-        setInputState({
+        .then(setInputState({
             name: "",
             description: "",
             creator_id: currentUser.id
+        }))
+        .then(response => {
+            if (!response.payload.errors) {
+                navigate("/")
+            }
         })
     }
 
