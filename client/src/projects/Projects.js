@@ -9,9 +9,9 @@ function Projects() {
   const userNamePossessive = userFirstName.endsWith('s')
     ? `${userFirstName}'`
     : `${userFirstName}'s`;
-
+    
   const projectComps = currentUser.projects.map((project) => {
-    if (project.tasks.length > 0) {
+    if (project.tasks.some(task => task.user_id === currentUser.id)) {
       return (
         <NavLink
               className="nav-links"
@@ -21,6 +21,8 @@ function Projects() {
               {project.name}
         </NavLink>
       )
+    } else {
+      return null
     }
   })
 

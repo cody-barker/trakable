@@ -14,7 +14,7 @@ function Teams() {
   };
 
   const userTeamsComps = currentUser.teams.map((team) => {
-    if (team.tasks.length > 0) {
+    if (team.tasks.some(task => task.user_id === currentUser.id)) {
       return (
         <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>
           {team.name}
@@ -30,7 +30,7 @@ function Teams() {
       <div className="links-container">
         {vis && <TeamForm vis={vis} setVis={setVis} />}
         <h4>{userNamePossessive} Teams</h4>
-        {userTeamsComps.length > 0 ? userTeamsComps : 'Please create a team.'}
+        {userTeamsComps}
       </div>
     </div>
   );

@@ -4,16 +4,18 @@ import { useState } from 'react';
 import TaskForm from './TaskForm';
 
 function Tasks() {
+  const currentUser = useSelector((state) => state.users.currentUser)
   const projects = useSelector((state) => state.users.currentUser.projects);
   const tasks = projects.map((project) => project.tasks);
   const flattenedTasks = tasks.flat();
+  const filteredTasks = flattenedTasks.filter((task) => task.user_id === currentUser.id)
 
   const [vis, setVis] = useState(false);
   function handleClick() {
     setVis(!vis);
   }
 
-  const sortedTaskCards = [...flattenedTasks].sort((a, b) => {
+  const sortedTaskCards = [...filteredTasks].sort((a, b) => {
     const dateA = new Date(a.due_date);
     const dateB = new Date(b.due_date);
     return dateA - dateB;
@@ -23,7 +25,7 @@ function Tasks() {
     <table>
       <thead>
         <tr className="table-row">
-          <th></th>
+        <th></th>
           <th>Task</th>
           <th>Due Date</th>
           <th>Project</th>
