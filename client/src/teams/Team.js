@@ -7,12 +7,11 @@ function Team() {
   const teamId = parseInt(id);
 
   const currentUser = useSelector((state) => state.users.currentUser);
-  // const teams = useSelector((state) => state.teams.entities);
   const team = currentUser.teams.find((t) => t.id === teamId);
   const tasks = team ? team.tasks.map((t) => t) : [];
 
   if (!team) {
-    return <div>"Loading..."</div>;
+    return <div>Team not found.</div>;
   }
 
   const taskComps = tasks.map((task) => (

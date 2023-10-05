@@ -7,10 +7,7 @@ function Project() {
   const projectId = parseInt(id);
 
   const currentUser = useSelector((state) => state.users.currentUser);
-  const allProjects = useSelector((state) => state.projects.entities);
-
   const project = currentUser.projects.find((p) => p.id === projectId);
-  const entProject = allProjects.find((p) => p.id === projectId);
   const tasks = project ? project.tasks : [];
   const sortedTasks = tasks.slice().sort((a, b) => {
     const dateA = new Date(a.due_date);
@@ -18,20 +15,10 @@ function Project() {
     return dateA - dateB;
   });
 
-  const unauthorizedMessage = <div>Unauthorized</div>;
   const notFoundMessage = <div>Project not found.</div>;
-  const noTasksMessage = <div>Please add a task to this project.</div>;
-
-  if (entProject && entProject.creator_id !== currentUser.id) {
-    return unauthorizedMessage;
-  }
-
-  if (!entProject) {
-    return notFoundMessage;
-  }
 
   if (!project) {
-    return noTasksMessage;
+    return notFoundMessage;
   }
 
   const taskComps = sortedTasks.map((task) => (
