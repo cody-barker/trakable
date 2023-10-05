@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 function TeamForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const currentUser = useSelector((state) => state.users.currentUser)
     const errors = useSelector((state) => state.teams.errors)
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
