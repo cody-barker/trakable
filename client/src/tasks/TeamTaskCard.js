@@ -85,13 +85,9 @@ function TeamTaskCard({ task }) {
                 {truncatedName}
                 </NavLink>
             </td>
-            <td>
-                <span style={{ color: dueDateColor }}>{dueDateText}</span>
-            </td>
+            <td><span style={{ color: dueDateColor }}>{dueDateText}</span></td>
             <td>{user.username}</td>
-            <td>
-                {user.title}
-            </td>
+            <td>{user.title}</td>
             <td>
                 <NavLink className="task-card" to={`/projects/${project.id}`}>
                     {project.name}
