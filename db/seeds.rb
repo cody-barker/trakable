@@ -46,7 +46,7 @@ team3 = Team.create!(
 
 task1 = user1.tasks.create!(
     name: "Finish refactoring",
-    due_date: Date.new(2023, 9, 7),
+    due_date: Date.new(2023, 10, 9),
     description: "Give everything a final once over and stress test it.",
     project_id: 1,
     team_id: 1
@@ -54,7 +54,7 @@ task1 = user1.tasks.create!(
 
 task2 = user1.tasks.create!(
     name: "Create the detail page for single tasks",
-    due_date: Date.new(2023, 9, 7),
+    due_date: Date.new(2023, 10, 10),
     description: "Create the view page for a single task after clicking on it",
     project_id: 1,
     team_id: 1
@@ -62,7 +62,7 @@ task2 = user1.tasks.create!(
 
 task3 = user2.tasks.create!(
     name: "Finish Marketing Research",
-    due_date: Date.new(2023, 9, 7),
+    due_date: Date.new(2023, 10, 10),
     description: "Finish watching marketing videos",
     project_id: 3,
     team_id: 3
