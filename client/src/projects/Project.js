@@ -36,6 +36,8 @@ function Project() {
               <th></th>
               <th>Task</th>
               <th>Due Date</th>
+              <th>Assignee</th>
+              <th>Title</th>
               <th>Team</th>
               <th></th>
             </tr>
