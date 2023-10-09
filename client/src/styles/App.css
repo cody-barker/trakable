@@ -106,8 +106,8 @@ form {
 }
 
 .checkbox-icon {
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
   color: white;
   cursor: pointer;
   padding-top: 3px;
@@ -115,8 +115,8 @@ form {
 }
 
 .edit-icon {
-  height: 14px;
-  width: 14px;
+  height: 16px;
+  width: 16px;
   color: white;
   cursor: pointer;
   padding-top: 3px;
