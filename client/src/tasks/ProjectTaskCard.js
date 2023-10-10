@@ -9,8 +9,8 @@ function TaskCard({ task }) {
 
   const { name, due_date, id, team_id, user_id } = task;
 
-  const users = useSelector((state) => state.users.entities);
   const currentUser = useSelector((state) => state.users.currentUser);
+  const users = useSelector((state) => state.users.entities);
   const user = users.find((u) => u.id === user_id);
 
   if (!user) {
@@ -89,7 +89,7 @@ function TaskCard({ task }) {
         {user.username}
       </td>
       <td>
-          {user.title}
+        {user.title}
       </td>
       <td>
         <NavLink className="task-card" to={`/teams/${team.id}`}>

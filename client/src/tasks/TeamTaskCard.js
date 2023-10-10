@@ -20,8 +20,8 @@ function TeamTaskCard({ task }) {
     const maxCharacters = 40;
     const truncatedName = name.length > maxCharacters ? `${name.substring(0, maxCharacters)}...` : name;
     
-    const users = useSelector((state) => state.users.entities)
     const currentUser = useSelector((state) => state.users.currentUser)
+    const users = useSelector((state) => state.users.entities)
     const user = users.find((u) => u.id === user_id)
 
     if (!user) {
@@ -29,7 +29,6 @@ function TeamTaskCard({ task }) {
     }
 
     const project = user.projects.find((p) => p.id === project_id)
-    const team = user.teams.find((t) => t.id === team_id)
 
     function handleComplete() {
         dispatch(deleteTask(id))
