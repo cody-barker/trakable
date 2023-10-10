@@ -16,7 +16,7 @@ function Task() {
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
     if (!task) {
-        return <div>You are not authorized to view this task.</div>
+        return <div>Unauthorized. You are not a member of this task's team.</div>
     }
 
     const {

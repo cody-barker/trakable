@@ -11,7 +11,7 @@ function Team() {
   const tasks = team ? team.tasks.map((t) => t) : [];
 
   if (!team) {
-    return <div>Team not found.</div>;
+    return <div>Please create a task for this team to view it's tasks.</div>;
   }
 
   const taskComps = tasks.map((task) => (
