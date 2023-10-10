@@ -12,8 +12,7 @@ function TaskCard({ task }) {
     due_date,
     id,
     project_id,
-    team_id,
-    user_id,
+    team_id
   } = task;
 
   // Limit characters for task name
@@ -21,16 +20,14 @@ function TaskCard({ task }) {
   const truncatedName =
     name.length > maxCharacters ? `${name.substring(0, maxCharacters)}...` : name;
 
-  const users = useSelector((state) => state.users.entities);
   const currentUser = useSelector((state) => state.users.currentUser);
 
-  const user = users.find((u) => u.id === user_id);
-  if (!user) {
+  if (!currentUser) {
     return <tr><td>"Loading..."</td></tr>;
   }
 
-  const project = user.projects.find((p) => p.id === project_id);
-  const team = user.teams.find((t) => t.id === team_id);
+  const project = currentUser.projects.find((p) => p.id === project_id);
+  const team = currentUser.teams.find((t) => t.id === team_id);
 
   const handleComplete = () => {
     dispatch(deleteTask(id));
@@ -80,14 +77,12 @@ function TaskCard({ task }) {
   return (
     <tr className="table-row">
       <td>
-        {currentUser.id === user_id && (
           <button className="icon-container" onClick={handleComplete}>
             <img
               className="checkbox-icon"
               src="https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-check-mark-circle-thin.png"
             />
           </button>
-        )}
       </td>
       <td>
         <NavLink className="task-card" to={`/tasks/${id}`}>
@@ -108,14 +103,12 @@ function TaskCard({ task }) {
         </NavLink>
       </td>
       <td>
-        {currentUser.id === user_id && (
           <button className="icon-container" onClick={handleEdit}>
             <img
               className="edit-icon"
               src="https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-text-lined.png"
             />
           </button>
-        )}
       </td>
     </tr>
   );
