@@ -31,8 +31,7 @@ class TasksController < ApplicationController
             :due_date,
             :description,
             :project_id,
-            :team_id,
-            :user_id
+            :team_id
         )
     end
 end

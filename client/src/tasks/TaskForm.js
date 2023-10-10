@@ -4,7 +4,6 @@ import {createTask} from '../users/usersSlice'
 
 function TaskForm() {
     const dispatch = useDispatch()
-    const currentUser = useSelector((state) => state.users.currentUser)
     const allProjects = useSelector((state) => state.projects.entities)
     const allTeams = useSelector((state) => state.teams.entities)
     const errors = useSelector((state) => state.users.errors)
@@ -46,8 +45,7 @@ function TaskForm() {
         due_date,
         description,
         project_id: projectID,
-        team_id: teamID,
-        user_id: currentUser.id
+        team_id: teamID
     }
 
     function onProjectChange(e) {
