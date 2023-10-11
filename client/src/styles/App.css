@@ -13,8 +13,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 60%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-label {
@@ -50,10 +53,11 @@ input {
   padding: 3px;
   margin-top: 20px;
   align-self: center;
-  width: 70%;
+  width: 50%;
   border-radius: 7.5px;
   border-width: 0.5px;
   cursor: pointer;
+  
 }
 
 
@@ -233,4 +237,10 @@ table {
 
 .green {
   color: rgb(36, 145, 68);
+}
+
+.centered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

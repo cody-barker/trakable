@@ -29,25 +29,29 @@ function LoginPage() {
                     <LoginForm />
                     {errors.length > 0 ? errorComps : null}
                     <hr></hr>
-                    <p>
-                        Don't have an account? &nbsp;
+                    <div className="centered-container">
+                        <p>
+                            Don't have an account? &nbsp;
+                        </p>
                         <button className="login-btn"
-                         onClick={() => setShowLogin(false)}>
-                         Sign Up
+                            onClick={() => setShowLogin(false)}>
+                            Sign Up
                         </button>
-                    </p>
+                    </div>
                 </div>
             ) : (
                     <div className="login-form-container">
                         <SignUpForm />
                         <hr></hr>
-                        <p>
-                            Already have an account? &nbsp;
-                            <button className="login-btn"
-                            onClick={() => setShowLogin(true)}>
-                            Log In
-                            </button>
-                        </p>
+                        <div className="centered-container">
+                            <p>
+                                Already have an account? &nbsp;
+                                <button className="login-btn"
+                                onClick={() => setShowLogin(true)}>
+                                Log In
+                                </button>
+                            </p>
+                        </div>
                     </div>
             )}
         </div>

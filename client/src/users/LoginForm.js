@@ -28,7 +28,7 @@ function LoginForm () {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className="centered-container" onSubmit={handleSubmit}>
             <label className="form-label">
                 Email address
                 <input
