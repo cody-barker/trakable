@@ -80,7 +80,7 @@ function TaskForm() {
     );
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form className="small-form" onSubmit={handleSubmit}>
             {filteredErrors.length > 0 && (
                 <div className="error-messages">
                     <ul>

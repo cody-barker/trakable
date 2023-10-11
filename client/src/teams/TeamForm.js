@@ -45,7 +45,7 @@ function TeamForm() {
     }
 
     return(
-            <form onSubmit={handleSubmit}>
+            <form className="small-form" onSubmit={handleSubmit}>
                 {errorComps}
                 <label>
                     Team Name
@@ -67,7 +67,7 @@ function TeamForm() {
                     onChange={onInputChange}
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <button className="btn" type="submit">Submit</button>
             </form>
     )
 }

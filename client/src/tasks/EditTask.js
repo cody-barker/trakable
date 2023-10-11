@@ -66,7 +66,7 @@ function EditTask() {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className="small-form" onSubmit={handleSubmit}>
                 {errorComps}
             <label>
                 Task Name

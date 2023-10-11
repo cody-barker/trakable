@@ -50,7 +50,7 @@ function ProjectForm() {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className="small-form" onSubmit={handleSubmit}>
                 {errorComps}
             <label>
                 Project Name
@@ -72,7 +72,7 @@ function ProjectForm() {
                     onChange={onInputChange}
                 />
             </label>
-            <button type="submit">Submit</button>
+            <button className="btn" type="submit">Submit</button>
             </form>
         </div>
     )
