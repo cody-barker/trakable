@@ -28,7 +28,7 @@ function LoginPage() {
                     <p>To begin, please sign in.</p>
                     <LoginForm />
                     {errors.length > 0 ? errorComps : null}
-                    <hr></hr>
+                    
                     <div className="centered-container">
                         <p>
                             Don't have an account? &nbsp;
@@ -42,7 +42,7 @@ function LoginPage() {
             ) : (
                     <div className="login-form-container">
                         <SignUpForm />
-                        <hr></hr>
+                        
                         <div className="centered-container">
                             <p>
                                 Already have an account? &nbsp;
