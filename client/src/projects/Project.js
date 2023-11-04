@@ -27,8 +27,10 @@ function Project() {
 
   return (
     <div>
-      <h4 className="title">Project: {project.name}</h4>
-      <p className="title">Description: {project.description}</p>
+      <div className="card">
+        <h4 className="title">Project: {project.name}</h4>
+        <p className="title">{project.description}</p>
+      </div>
       {taskComps.length > 0 && (
         <table>
           <thead>
