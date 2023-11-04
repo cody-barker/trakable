@@ -22,9 +22,12 @@ function TaskForm() {
             </option>
     )})
 
+    const today = new Date()
+    const formattedToday = today.toISOString().split('T')[0];
+
     const [inputState, setInputState] = useState({
         name: "",
-        due_date: "",
+        due_date: formattedToday,
         description: "",
     })
 
