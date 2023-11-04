@@ -2,6 +2,8 @@ import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createProject} from './projectsSlice'
 import { useNavigate } from 'react-router-dom'
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProjectForm() {
     const dispatch = useDispatch()
@@ -32,18 +34,23 @@ function ProjectForm() {
         })
     }
 
+    const showToastMessage = () => {
+        toast.success(`Project: ${name} Created!`, {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    };
+
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(createProject(inputState))
         .then(response => {
             if (!response.payload.errors) {
-                alert(`Project: ${name} Created`)
+                showToastMessage()
                 setInputState({
                     name: "",
                     description: "",
                     creator_id: currentUser.id
                 })
-                navigate("/")
             }
         })
     }

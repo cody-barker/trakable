@@ -15,6 +15,7 @@ import { Routes, Route } from 'react-router-dom'
 import { fetchCurrentUser, fetchUsers } from './users/usersSlice'
 import { fetchProjects } from './projects/projectsSlice'
 import { fetchTeams } from './teams/teamsSlice'
+import { ToastContainer} from 'react-toastify';
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
   return (
     <main>
       <NavBar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Tasks />} />
         <Route path="/tasks/:id" element={<Task />} />

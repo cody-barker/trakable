@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createTeam } from './teamsSlice'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function TeamForm() {
     const dispatch = useDispatch()
@@ -22,6 +24,12 @@ function TeamForm() {
 
     const {name, description} = inputState
 
+    const showToastMessage = () => {
+        toast.success(`Team: ${name} Created!`, {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    };
+
     function onInputChange(e){
         setInputState({
             ...inputState,
@@ -34,17 +42,18 @@ function TeamForm() {
         dispatch(createTeam(inputState))
         .then((response) => {
             if (!response.payload.errors) {
-                alert(`Team: ${name} Created`)
+                showToastMessage()
                 setInputState({
                     name: "",
                     description: "",
                 })
-                navigate("/")
+                // navigate("/")
             }
         })
     }
 
     return(
+        <div>
             <form className="small-form" onSubmit={handleSubmit}>
                 {errorComps}
                 <label>
@@ -69,6 +78,7 @@ function TeamForm() {
                 </label>
                 <button className="btn" type="submit">Submit</button>
             </form>
+        </div>
     )
 }
 
