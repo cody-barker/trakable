@@ -74,12 +74,10 @@ form {
   border-color: transparent;
   border: 0px;
   font-size: 14px;
-  color: rgb(27, 49, 15);
+  color: #262626;
   margin: 7px;
   cursor: pointer;
   padding: 7px;
-  font-family: inherit;
-  color: white;
   position: absolute;
   right: 0px;
 }
@@ -88,12 +86,10 @@ form {
   display: flex;
   padding: 1px;
   margin: 1px;
-  border-bottom: 1px solid grey;
   height: 40px;
   align-items: center;
   object-fit: contain;
   overflow: hidden;
-  background-color: rgb(59, 59, 59);
 }
 
 .nav-btn {
@@ -102,7 +98,7 @@ form {
   color: white;
   font-size: 14px;
   background-color: transparent;
-  color: rgb(255, 255, 255);
+  color: #262626;
   padding: 10px;
   margin: 7px;
   text-decoration: none;
