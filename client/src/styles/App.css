@@ -155,7 +155,7 @@ form {
   margin: 2px;
   text-decoration: none;
   cursor: pointer;
-  color: rgb(57, 103, 202);
+  color: #262626;
 }
 
 .task-card:hover {
@@ -183,14 +183,11 @@ table {
   text-decoration: none;
   cursor: pointer;
   margin: 5px;
-}
-
-.nav-links:visited {
-  color: rgb(57, 103, 202);
+  color: #262626;
 }
 
 .nav-links:hover {
-  color: rgb(0, 43, 136);
+  color: rgb(57, 103, 202);
 }
 
 .note {
