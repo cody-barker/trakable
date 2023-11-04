@@ -1,7 +1,7 @@
 import { useSelector} from 'react-redux'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { deleteTask } from '../users/usersSlice'
+import { deleteTask } from '../../state/usersSlice'
 
 function Task() {
     

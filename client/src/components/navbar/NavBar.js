@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { logoutUser } from '../users/usersSlice'
+import { logoutUser } from '../../state/usersSlice'
 
 
 function NavBar() {

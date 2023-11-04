@@ -1,9 +1,9 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { deleteTask } from '../users/usersSlice'
+import { deleteTask } from '../../state/usersSlice'
 import { useSelector } from 'react-redux'
-import circleCheckBtn from '../assets/circle-check-btn.svg'
-import editBtn from '../assets/edit-btn.svg'
+import circleCheckBtn from '../../assets/circle-check-btn.svg'
+import editBtn from '../../assets/edit-btn.svg'
 
 function TeamTaskCard({ task }) {
     const dispatch = useDispatch();

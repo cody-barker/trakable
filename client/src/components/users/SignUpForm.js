@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { signupUser } from './usersSlice';
+import { signupUser } from '../../state/usersSlice';
 
 function SignUp() {
   const dispatch = useDispatch();

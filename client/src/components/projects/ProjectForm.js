@@ -1,14 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { createTeam } from './teamsSlice'
-import { useState } from 'react'
+import {useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {createProject} from '../../state/projectsSlice'
 import { useNavigate } from 'react-router-dom'
-import {toast} from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function TeamForm() {
+function ProjectForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const errors = useSelector((state) => state.teams.errors)
+    const currentUser = useSelector((state) => state.users.currentUser)
+    const errors = useSelector((state) => state.projects.errors)
+
     const errorComps = errors.map((userErrors, userIndex) => (
         <ul key={userIndex}>
           {userErrors.errors.map((error, index) => (
@@ -20,18 +22,10 @@ function TeamForm() {
     const [inputState, setInputState] = useState({
         name: "",
         description: "",
+        creator_id: currentUser.id
     })
 
-    const {name, description} = inputState
-
-    const showToastMessage = () => {
-        toast.success(`Team: ${name} Created!`, {
-            position: toast.POSITION.TOP_RIGHT,
-            onClose: () => {
-                navigate("/")
-            }
-        });
-    };
+    const { name, description } = inputState
 
     function onInputChange(e){
         setInputState({
@@ -40,17 +34,26 @@ function TeamForm() {
         })
     }
 
+    const showToastMessage = () => {
+        toast.success(`Project: ${name} Created!`, {
+            position: toast.POSITION.TOP_RIGHT,
+            onClose: () => {
+                navigate("/")
+            }
+        });
+    };
+
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(createTeam(inputState))
-        .then((response) => {
+        dispatch(createProject(inputState))
+        .then(response => {
             if (!response.payload.errors) {
                 showToastMessage()
                 setInputState({
                     name: "",
                     description: "",
+                    creator_id: currentUser.id
                 })
-                // navigate("/")
             }
         })
     }
@@ -59,30 +62,30 @@ function TeamForm() {
         <div>
             <form className="small-form" onSubmit={handleSubmit}>
                 {errorComps}
-                <label>
-                    Team Name
-                    <input
+            <label>
+                Project Name
+                <input
                     name="name"
                     type="text"
                     autoComplete="off"
                     value={name}
                     onChange={onInputChange}
-                    />
-                </label>
-                <label>
-                    Description
-                    <input
+                />
+            </label>
+            <label>
+                Description
+                <input
                     name="description"
                     type="text"
                     autoComplete="off"
                     value={description}
                     onChange={onInputChange}
-                    />
-                </label>
-                <button className="btn" type="submit">Submit</button>
+                />
+            </label>
+            <button className="btn" type="submit">Submit</button>
             </form>
         </div>
     )
 }
 
-export default TeamForm
+export default ProjectForm
