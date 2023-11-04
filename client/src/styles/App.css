@@ -251,3 +251,18 @@ select {
   margin-top: 10px;
   margin-left: 5px;
 }
+
+td {
+  border-right: 1px solid rgb(220, 220, 220);
+}
+
+.no-right-border {
+  border-right: none;
+}
+
+th {
+  color: rgb(147, 147, 147);
+  font-weight: lighter;
+}
+
+

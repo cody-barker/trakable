@@ -102,7 +102,7 @@ function TaskCard({ task }) {
           {team.name}
         </NavLink>
       </td>
-      <td>
+      <td className="no-right-border">
           <button className="icon-container" onClick={handleEdit}>
             <img
               className="edit-icon"
