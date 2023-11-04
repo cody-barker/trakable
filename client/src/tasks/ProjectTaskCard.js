@@ -2,6 +2,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from '../users/usersSlice';
 import { useSelector } from 'react-redux';
+import circleCheckBtn from '../assets/circle-check-btn.svg';
+import editBtn from '../assets/edit-btn.svg';
 
 function TaskCard({ task }) {
   const dispatch = useDispatch();
@@ -73,7 +75,7 @@ function TaskCard({ task }) {
       <td>
         {currentUser.id === user_id && (
           <button className="icon-container" onClick={handleComplete}>
-            <img className="checkbox-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-check-mark-circle-thin.png" />
+            <img className="checkbox-icon" src={circleCheckBtn} />
           </button>
         )}
       </td>
@@ -99,7 +101,7 @@ function TaskCard({ task }) {
       <td className="no-right-border">
         {currentUser.id === user_id && (
           <button className="icon-container" onClick={handleEdit}>
-            <img className="edit-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-text-lined.png" />
+            <img className="edit-icon" src={editBtn} />
           </button>
         )}
       </td>

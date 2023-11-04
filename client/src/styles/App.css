@@ -114,8 +114,7 @@ form {
 }
 
 .checkbox-icon {
-  height: 12px;
-  width: 12px;
+  width: 16px;
   color: white;
   cursor: pointer;
   padding-top: 3px;
