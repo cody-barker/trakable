@@ -26,7 +26,10 @@ function TeamForm() {
 
     const showToastMessage = () => {
         toast.success(`Team: ${name} Created!`, {
-            position: toast.POSITION.TOP_RIGHT
+            position: toast.POSITION.TOP_RIGHT,
+            onClose: () => {
+                navigate("/")
+            }
         });
     };
 

@@ -36,7 +36,10 @@ function ProjectForm() {
 
     const showToastMessage = () => {
         toast.success(`Project: ${name} Created!`, {
-            position: toast.POSITION.TOP_RIGHT
+            position: toast.POSITION.TOP_RIGHT,
+            onClose: () => {
+                navigate("/")
+            }
         });
     };
 
