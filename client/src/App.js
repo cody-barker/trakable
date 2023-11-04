@@ -36,7 +36,7 @@ function App() {
   }, [dispatch, currentUser && currentUser.id]);
 
   if (loading) {
-    return <div>"Loading..."</div>
+    return <div></div>
   }
 
   if (!currentUser || currentUser.errors) {
