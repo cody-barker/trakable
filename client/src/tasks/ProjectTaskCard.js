@@ -81,7 +81,7 @@ function TaskCard({ task }) {
       </td>
       <td>
         <NavLink className="task-card" to={`/tasks/${id}`}>
-          {truncateString(name, 40)}
+          {truncateString(name, 30)}
         </NavLink>
       </td>
       <td>

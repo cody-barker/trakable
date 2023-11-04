@@ -18,7 +18,7 @@ function TaskCard({ task }) {
   } = task;
 
   // Limit characters for task name
-  const maxCharacters = 40;
+  const maxCharacters = 30;
   const truncatedName =
     name.length > maxCharacters ? `${name.substring(0, maxCharacters)}...` : name;
 
