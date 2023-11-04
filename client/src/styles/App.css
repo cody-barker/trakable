@@ -261,6 +261,8 @@ select {
 
 td {
   border-right: 1px solid rgb(220, 220, 220);
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .no-right-border {
