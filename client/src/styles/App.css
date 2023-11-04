@@ -69,19 +69,6 @@ form {
   color: rgb(27, 49, 15);
 }
 
-.nav-btn-split {
-  background: transparent;
-  border-color: transparent;
-  border: 0px;
-  font-size: 14px;
-  color: #262626;
-  margin: 7px;
-  cursor: pointer;
-  padding: 7px;
-  position: absolute;
-  right: 0px;
-}
-
 #navbar {
   display: flex;
   padding: 1px;
@@ -105,6 +92,27 @@ form {
   padding-left: 23px;
 }
 
+.nav-btn-split {
+  background: transparent;
+  border-color: transparent;
+  border: 0px;
+  font-size: 14px;
+  color: #262626;
+  margin: 7px;
+  cursor: pointer;
+  padding: 7px;
+  position: absolute;
+  right: 0px;
+}
+
+.nav-btn:hover {
+  color: rgb(57, 103, 202);
+}
+
+.nav-btn-split:hover {
+  color: rgb(57, 103, 202);
+}
+
 .checkbox-icon {
   height: 12px;
   width: 12px;
@@ -124,7 +132,7 @@ form {
 }
 
 .add-btn {
-  background: rgb(57, 103, 202);
+  background: rgba(0, 81, 255, 0.77);
   color: white;
   border-radius: 5px;
   padding: 5px;

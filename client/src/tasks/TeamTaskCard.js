@@ -92,7 +92,7 @@ function TeamTaskCard({ task }) {
                     {project.name}
                 </NavLink>
             </td>
-            <td>
+            <td className="no-right-border">
                 {currentUser.id === user_id ? (
                 <button className="icon-container" onClick={handleEdit}>
                     <img className="edit-icon" src="https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-text-lined.png" />
