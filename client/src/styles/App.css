@@ -48,7 +48,7 @@ input {
 }
 
 .login-btn {
-  background-color: rgb(53, 83, 255);
+  background: rgba(0, 81, 255, 0.77);
   color: white;
   padding: 3px;
   margin-top: 20px;
@@ -220,7 +220,7 @@ table {
 }
 
 .btn {
-  background: rgb(57, 103, 202);
+  background: rgba(0, 81, 255, 0.77);
   color: white;
   border-radius: 5px;
   padding: 5px;
