@@ -27,7 +27,7 @@ function Tasks() {
         <tr className="table-row">
           <th className="blue"></th>
           <th className="orange">Task</th>
-          <th className="pink">Due Date</th>
+          <th className="pink">Due</th>
           <th className="green">Project</th>
           <th className="yellow">Team</th>
           <th className="blue"></th>
