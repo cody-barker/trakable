@@ -183,7 +183,7 @@ form {
 
 table {
   width: 90%;
-  margin: 10px;
+  margin: 30px 10px 10px 10px;
   padding: 10px;
   border-collapse: collapse;
   border: 0px transparent;
@@ -248,10 +248,6 @@ table {
   cursor: pointer;
 }
 
-.green {
-  color: rgb(36, 145, 68);
-}
-
 .centered-container {
   display: flex;
   flex-direction: column;
@@ -283,8 +279,9 @@ td {
 }
 
 th {
-  color: rgb(147, 147, 147);
+  color: rgb(0, 0, 0);
   font-weight: lighter;
+  border-radius: 5px;
 }
 
 input {
@@ -292,7 +289,7 @@ input {
 }
 
 .card {
-  margin: 10px 20px 10px 20px;
+  margin: 20px 20px 20px 20px;
   padding: 5px;
   border: 1px solid rgb(190, 190, 190);
   max-width: fit-content;
@@ -309,4 +306,24 @@ textarea{
 .task-btn-container {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.orange {
+  background-color: rgb(250,198,104)
+}
+
+.pink {
+  background-color: rgb(255,193,204)
+}
+
+.green {
+  background-color: rgb(173,223,179)
+}
+
+.yellow {
+  background-color: rgb(254,252,215)
+}
+
+.blue {
+  background-color: rgb(89,203,232)
 }
