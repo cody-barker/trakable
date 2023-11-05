@@ -28,7 +28,7 @@ function Project() {
   return (
     <div>
       <div className="card">
-        <h4 className="title">Project: {project.name}</h4>
+        <h4 className="title">{project.name}</h4>
         <p className="title">{project.description}</p>
       </div>
       {taskComps.length > 0 && (

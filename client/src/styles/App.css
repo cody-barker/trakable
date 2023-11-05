@@ -229,8 +229,8 @@ table {
 }
 
 .title { 
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin: 5px;
 }
 
 .btn {
@@ -293,8 +293,8 @@ input {
 }
 
 .card {
+  margin: 10px 20px 10px 20px;
   border: 1px solid rgb(190, 190, 190);
-  border-radius: 20px;
-  margin: 10px;
-  margin-bottom: 20px;
+  max-width: fit-content;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

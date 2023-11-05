@@ -13,13 +13,15 @@ function Projects() {
   const projectComps = currentUser.projects.map((project) => {
     if (project.tasks.some(task => task.user_id === currentUser.id)) {
       return (
-        <NavLink
-              className="nav-links"
-              to={`/projects/${project.id}`}
-              key={project.id}
-            >
-              {project.name}
-        </NavLink>
+        <div className="card">
+          <NavLink
+                className="nav-links"
+                to={`/projects/${project.id}`}
+                key={project.id}
+              >
+                {project.name}
+          </NavLink>
+        </div>
       )
     } else {
       return null
@@ -39,7 +41,7 @@ function Projects() {
       </button>
       <div className="links-container">
         {vis && <ProjectForm vis={vis} setVis={setVis} />}
-        <h4>{userNamePossessive} Projects</h4>
+        <h4>Projects</h4>
         {projectComps}
       </div>
     </div>

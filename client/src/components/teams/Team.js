@@ -28,7 +28,7 @@ function Team() {
   return (
     <div>
       <div className="card">
-        <h4 className="title">Team: {team.name}</h4>
+        <h4 className="title">{team.name}</h4>
         <p className="title">{team.description}</p>
       </div>
       {sortedTaskComps.length > 0 && (
