@@ -169,7 +169,7 @@ form {
   margin: 2px;
 }
 
-.task-card {
+.task-link {
   padding: 1px;
   margin: 2px;
   text-decoration: none;
@@ -177,7 +177,7 @@ form {
   color: #262626;
 }
 
-.task-card:hover {
+.task-link:hover {
   color: rgb(57, 103, 202);
 }
 

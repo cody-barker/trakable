@@ -80,7 +80,7 @@ function TaskCard({ task }) {
         )}
       </td>
       <td>
-        <NavLink className="task-card" to={`/tasks/${id}`}>
+        <NavLink className="task-link" to={`/tasks/${id}`}>
           {truncateString(name, 30)}
         </NavLink>
       </td>
@@ -94,7 +94,7 @@ function TaskCard({ task }) {
         {user.title}
       </td>
       <td>
-        <NavLink className="task-card" to={`/teams/${team.id}`}>
+        <NavLink className="task-link" to={`/teams/${team.id}`}>
           {team.name}
         </NavLink>
       </td>

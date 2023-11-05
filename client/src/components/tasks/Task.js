@@ -92,8 +92,8 @@ function Task() {
             <div><span className="task-attr">Due: </span><span style={{ color: dueDateColor }}>
                 {dueDateText}
             </span></div>
-            {project ? <div className="task-attr">Project: <NavLink className="task-card" to={`/projects/${project.id}`}>{project.name}</NavLink></div> : null}
-            <div className="task-attr">Team: <NavLink className="task-card" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
+            {project ? <div className="task-attr">Project: <NavLink className="task-link" to={`/projects/${project.id}`}>{project.name}</NavLink></div> : null}
+            <div className="task-attr">Team: <NavLink className="task-link" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
             <div className="task-attr">Description: {description} </div>
         </div>
     )

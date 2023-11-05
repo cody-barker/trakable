@@ -87,7 +87,7 @@ function TaskCard({ task }) {
           </button>
       </td>
       <td>
-        <NavLink className="task-card" to={`/tasks/${id}`}>
+        <NavLink className="task-link" to={`/tasks/${id}`}>
           {truncatedName}
         </NavLink>
       </td>
@@ -95,12 +95,12 @@ function TaskCard({ task }) {
         <span style={{ color: dueDateColor }}>{dueDateText}</span>
       </td>
       <td>
-        <NavLink className="task-card" to={`/projects/${project.id}`}>
+        <NavLink className="task-link" to={`/projects/${project.id}`}>
           {project.name}
         </NavLink>
       </td>
       <td>
-        <NavLink className="task-card" to={`/teams/${team.id}`}>
+        <NavLink className="task-link" to={`/teams/${team.id}`}>
           {team.name}
         </NavLink>
       </td>
