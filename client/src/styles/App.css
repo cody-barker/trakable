@@ -317,7 +317,7 @@ textarea{
 
 .right {
   position: absolute;
-  right: 0
+  right: 10px;
 }
 
 .margin-left-10 {
