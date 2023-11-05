@@ -44,7 +44,7 @@ function Tasks() {
   return (
     <div>
       <button onClick={handleClick} className="add-btn">
-        {!vis ? '+ Add Task' : 'Cancel'}
+        {!vis ? '+' : '-'}
       </button>
       {vis ? <TaskForm vis={vis} setVis={setVis} /> : null}
       <br></br>

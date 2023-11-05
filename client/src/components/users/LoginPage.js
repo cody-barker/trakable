@@ -33,7 +33,7 @@ function LoginPage() {
                         <p>
                             Don't have an account? &nbsp;
                         </p>
-                        <button className="login-btn"
+                        <button className="submit-btn"
                             onClick={() => setShowLogin(false)}>
                             Sign Up
                         </button>
@@ -46,7 +46,7 @@ function LoginPage() {
                         <div className="centered-container">
                             <p>
                                 Already have an account? &nbsp;
-                                <button className="login-btn"
+                                <button className="submit-btn"
                                 onClick={() => setShowLogin(true)}>
                                 Log In
                                 </button>

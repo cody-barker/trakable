@@ -50,7 +50,6 @@ function TeamForm() {
                     name: "",
                     description: "",
                 })
-                // navigate("/")
             }
         })
     }
@@ -79,7 +78,7 @@ function TeamForm() {
                     onChange={onInputChange}
                     />
                 </label>
-                <button className="btn" type="submit">Submit</button>
+                <button className="submit-btn" type="submit">Submit</button>
             </form>
         </div>
     )

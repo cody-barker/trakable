@@ -75,7 +75,7 @@ function SignUp() {
       {renderInput('Email', 'email', email)}
       {renderInput('Password', 'password', password, 'password')}
       {renderInput('Password Confirmation', 'password_confirmation', password_confirmation, 'password')}
-      <button className="login-btn" type="submit">
+      <button className="submit-btn" type="submit">
         {isLoading ? 'Loading...' : 'Sign Up'}
       </button>
       {errors.length > 0 && errorComps}

@@ -144,8 +144,8 @@ function TaskForm() {
                         {projectOptions}
                 </select>
             </label>
-            <button className="add-btn" type="submit">
-                Submit task
+            <button className="submit-btn" type="submit">
+                Submit
             </button>
         </form>
     )

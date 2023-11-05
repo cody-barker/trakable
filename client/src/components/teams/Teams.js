@@ -25,7 +25,7 @@ function Teams() {
   return (
     <div>
       <button className="add-btn" onClick={handleVis}>
-        {!vis ? '+ Add Team' : 'Cancel'}
+        {!vis ? '+' : '-'}
       </button>
       <div className="links-container">
         {vis && <TeamForm vis={vis} setVis={setVis} />}
