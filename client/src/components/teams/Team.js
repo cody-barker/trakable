@@ -38,8 +38,8 @@ function Team() {
               <th className="blue"></th>
               <th className="orange">Task</th>
               <th className="pink">Due</th>
+              <th className="yellow">Assignee</th>
               <th className="green">Project</th>
-              <th className="yellow">Team</th>
               <th className="blue"></th>
             </tr>
           </thead>

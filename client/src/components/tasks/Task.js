@@ -81,16 +81,14 @@ function Task() {
    
     return (
         <div className="card margin-left-20">
-            <div className="task-attr">{taskUser.username}</div>
-            <div className="task-attr">
-                {name}
-            </div>
+            <div className="task-attr bold">{name}</div>
+            <div className="task-attr">{description} </div>
+            <div className="task-attr">Assignee: {taskUser.username}</div>
             <div><span className="task-attr">Due: </span><span style={{ color: dueDateColor }}>
                 {dueDateText}
             </span></div>
             {project ? <div className="task-attr">Project: <NavLink className="task-link" to={`/projects/${project.id}`}>{project.name}</NavLink></div> : null}
             <div className="task-attr">Team: <NavLink className="task-link" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
-            <div className="task-attr">{description} </div>
             <div className="task-btn-container">
                 {currentUser.id === user_id ? <button className="submit-btn" onClick={handleComplete}>Complete</button> : null} &nbsp;
                 {currentUser.id === user_id ? <button className="submit-btn" onClick={handleEdit}>Edit</button> : null}

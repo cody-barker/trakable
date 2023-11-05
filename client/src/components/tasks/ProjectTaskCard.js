@@ -88,12 +88,6 @@ function TaskCard({ task }) {
         <span style={{ color: dueDateColor }}>{dueDateText}</span>
       </td>
       <td>
-        {user.username}
-      </td>
-      <td>
-        {user.title}
-      </td>
-      <td>
         <NavLink className="task-link" to={`/teams/${team.id}`}>
           {team.name}
         </NavLink>
