@@ -15,17 +15,16 @@ function EditTask() {
     const flattenedTasks = tasks.flat()
     const task = flattenedTasks.find((t) => t.id === id)
     const errors = useSelector((state) => state.users.errors)
+    const [description, setDescription] = useState(task.description)
 
     const [inputState, setInputState] = useState({
         name: task.name,
-        due_date: task.due_date,
-        description: task.description,
+        due_date: task.due_date
     });
 
     const {
         name,
-        due_date,
-        description,
+        due_date
     } = inputState;
 
 
@@ -90,15 +89,15 @@ function EditTask() {
             </label>
             <label>
                 Description
-                <input
+                <textarea
                 name="description"
                 type="text"
                 autoComplete="off"
                 value={description}
-                onChange={onInputChange}
+                onChange={(e) => setDescription(e.target.value)}
                 />
             </label>
-            <button className="add-btn" type="submit">Submit</button>
+            <button className="submit-btn" type="submit">Submit</button>
             </form>
         </div>
     )
