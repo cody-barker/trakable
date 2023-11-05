@@ -80,7 +80,7 @@ function Task() {
     }
    
     return (
-        <div className="card">
+        <div className="card margin-left-20">
             <div className="task-attr">{taskUser.username}</div>
             <div className="task-attr">
                 {name}
