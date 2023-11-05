@@ -80,11 +80,7 @@ function Task() {
     }
    
     return (
-        <div className="task-container">
-            <div>
-                {currentUser.id === user_id ? <button className="btn" onClick={handleComplete}>Complete Task</button> : null} &nbsp;
-                {currentUser.id === user_id ? <button className="btn" onClick={handleEdit}>Edit Task</button> : null}
-            </div>
+        <div className="card">
             <div className="task-attr">{taskUser.username}</div>
             <div className="task-attr">
                 {name}
@@ -94,7 +90,12 @@ function Task() {
             </span></div>
             {project ? <div className="task-attr">Project: <NavLink className="task-link" to={`/projects/${project.id}`}>{project.name}</NavLink></div> : null}
             <div className="task-attr">Team: <NavLink className="task-link" to={`/teams/${team.id}`}>{team.name}</NavLink></div>
-            <div className="task-attr">Description: {description} </div>
+            <div className="task-attr">{description} </div>
+            <div className="task-btn-container">
+                {currentUser.id === user_id ? <button className="submit-btn" onClick={handleComplete}>Complete</button> : null} &nbsp;
+                {currentUser.id === user_id ? <button className="submit-btn" onClick={handleEdit}>Edit</button> : null}
+            </div>
+            
         </div>
     )
 }
