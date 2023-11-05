@@ -27,7 +27,7 @@ function Team() {
 
   return (
     <div>
-      <div className="card">
+      <div className="card yellow">
         <h4 className="title">{team.name}</h4>
         <p className="title">{team.description}</p>
       </div>

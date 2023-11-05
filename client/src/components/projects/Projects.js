@@ -6,14 +6,11 @@ import ProjectForm from './ProjectForm';
 function Projects() {
   const currentUser = useSelector((state) => state.users.currentUser);
   const userFirstName = currentUser.first_name;
-  const userNamePossessive = userFirstName.endsWith('s')
-    ? `${userFirstName}'`
-    : `${userFirstName}'s`;
-    
+
   const projectComps = currentUser.projects.map((project) => {
     if (project.tasks.some(task => task.user_id === currentUser.id)) {
       return (
-        <div className="card">
+        <div className="card green">
           <NavLink
                 className="nav-links"
                 to={`/projects/${project.id}`}

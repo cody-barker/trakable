@@ -18,10 +18,10 @@ function NavBar() {
 
     return(
         <nav id="navbar">
-            <NavLink className="nav-btn" to="/">{userNamePossessive} Tasks</NavLink>
-            <NavLink className="nav-btn" to={`/projects`}>Projects</NavLink>
-            <NavLink className="nav-btn" to={`/teams`}>Teams</NavLink>
-            <button className="nav-btn-split" onClick={handleLogout}>
+            <NavLink className="nav-btn orange" to="/">{userNamePossessive} Tasks</NavLink>
+            <NavLink className="nav-btn green" to={`/projects`}>Projects</NavLink>
+            <NavLink className="nav-btn yellow" to={`/teams`}>Teams</NavLink>
+            <button className="nav-btn-split blue" onClick={handleLogout}>
                 Logout
             </button>
         </nav>

@@ -6,7 +6,6 @@ import TeamForm from './TeamForm';
 function Teams() {
   const [vis, setVis] = useState(false);
   const currentUser = useSelector((state) => state.users.currentUser);
-  const userFirstName = currentUser.first_name;
 
   const handleVis = () => {
     setVis(!vis);
@@ -15,7 +14,7 @@ function Teams() {
   const userTeamsComps = currentUser.teams.map((team) => {
     if (team.tasks.some(task => task.user_id === currentUser.id)) {
       return (
-        <div className="card">
+        <div className="card yellow">
           <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>
             {team.name}
           </NavLink>
