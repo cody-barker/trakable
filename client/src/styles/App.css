@@ -92,21 +92,6 @@ form {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.nav-btn-split {
-  margin-right: 10px;
-  border: 1px solid rgb(190, 190, 190);
-  border-radius: 10px;
-  font-size: 16px;
-  color: rgb(66, 66, 66);
-  margin: 7px;
-  cursor: pointer;
-  padding: 10px 15px 10px 15px;
-  position: absolute;
-  right: 0px;
-  margin-right: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 .nav-btn:hover {
   color: rgb(57, 103, 202);
 }
@@ -184,8 +169,7 @@ form {
 }
 
 table {
-  width: 97%;
-  margin: 30px 10px 10px 10px;
+  margin: 30px 15px 15px 10px;
   padding: 10px;
   border-collapse: collapse;
   border: 0px transparent;
@@ -197,7 +181,7 @@ table {
 }
 
 .links-container {
-  margin: 15px;
+  margin: 10px;
 }
 
 .nav-links {
@@ -291,7 +275,7 @@ input {
 }
 
 .card {
-  margin: 20px 20px 20px 20px;
+  margin: 20px 10px 20px 10px;
   padding: 5px;
   border: 1px solid rgb(190, 190, 190);
   max-width: fit-content;
@@ -328,4 +312,13 @@ textarea{
 
 .blue {
   background-color: rgb(89,203,232)
+}
+
+.right {
+  position: absolute;
+  right: 0
+}
+
+.margin-left-10 {
+  margin-left: 10px;
 }

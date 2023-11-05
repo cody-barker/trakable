@@ -26,7 +26,7 @@ function Team() {
   });
 
   return (
-    <div>
+    <div className="margin-left-10">
       <div className="card yellow">
         <h4 className="title">{team.name}</h4>
         <p className="title">{team.description}</p>

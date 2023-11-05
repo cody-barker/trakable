@@ -42,7 +42,7 @@ function Tasks() {
   );
 
   return (
-    <div>
+    <div className="margin-left-10">
       <button onClick={handleClick} className="add-btn">
         {!vis ? '+' : '-'}
       </button>

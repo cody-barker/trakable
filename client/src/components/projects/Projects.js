@@ -5,12 +5,11 @@ import ProjectForm from './ProjectForm';
 
 function Projects() {
   const currentUser = useSelector((state) => state.users.currentUser);
-  const userFirstName = currentUser.first_name;
 
   const projectComps = currentUser.projects.map((project) => {
     if (project.tasks.some(task => task.user_id === currentUser.id)) {
       return (
-        <div className="card green">
+        <div className="card green margin-left-10">
           <NavLink
                 className="nav-links"
                 to={`/projects/${project.id}`}
@@ -38,7 +37,7 @@ function Projects() {
       </button>
       <div className="links-container">
         {vis && <ProjectForm vis={vis} setVis={setVis} />}
-        <h4>Projects</h4>
+        <h4 className="margin-left-10">Projects</h4>
         {projectComps}
       </div>
     </div>

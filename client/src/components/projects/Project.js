@@ -26,7 +26,7 @@ function Project() {
   ));
 
   return (
-    <div>
+    <div className="margin-left-10">
       <div className="card green">
         <h4 className="title">{project.name}</h4>
         <p className="title">{project.description}</p>

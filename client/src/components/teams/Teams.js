@@ -14,7 +14,7 @@ function Teams() {
   const userTeamsComps = currentUser.teams.map((team) => {
     if (team.tasks.some(task => task.user_id === currentUser.id)) {
       return (
-        <div className="card yellow">
+        <div className="card yellow margin-left-10">
           <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>
             {team.name}
           </NavLink>
@@ -30,7 +30,7 @@ function Teams() {
       </button>
       <div className="links-container">
         {vis && <TeamForm vis={vis} setVis={setVis} />}
-        <h4>Teams</h4>
+        <h4 className="margin-left-10">Teams</h4>
         {userTeamsComps}
       </div>
     </div>
