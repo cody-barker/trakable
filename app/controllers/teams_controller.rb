@@ -10,6 +10,12 @@ class TeamsController < ApplicationController
         render json: team, status: :created
     end
 
+    def destroy
+        team = Team.find(params[:id])
+        team.destroy
+        render json: team, status: :ok
+    end
+
     private
 
     def team_params
