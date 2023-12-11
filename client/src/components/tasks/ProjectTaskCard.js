@@ -63,10 +63,6 @@ function TaskCard({ task }) {
   
     return yyyy + '-' + mm + '-' + dd;
   }
-  
-  function truncateString(str, maxLength) {
-    return str.length > maxLength ? `${str.substring(0, maxLength)}...` : str;
-  }
 
   const { dueDateText, dueDateColor } = formatDueDate(due_date);
 
@@ -81,7 +77,7 @@ function TaskCard({ task }) {
       </td>
       <td>
         <NavLink className="task-link" to={`/tasks/${id}`}>
-          {truncateString(name, 30)}
+          {name}
         </NavLink>
       </td>
       <td>
