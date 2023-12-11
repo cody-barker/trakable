@@ -17,11 +17,6 @@ function TaskCard({ task }) {
     team_id
   } = task;
 
-  // Limit characters for task name
-  const maxCharacters = 30;
-  const truncatedName =
-    name.length > maxCharacters ? `${name.substring(0, maxCharacters)}...` : name;
-
   const currentUser = useSelector((state) => state.users.currentUser);
 
   if (!currentUser) {
@@ -88,7 +83,7 @@ function TaskCard({ task }) {
       </td>
       <td>
         <NavLink className="task-link" to={`/tasks/${id}`}>
-          {truncatedName}
+          {name}
         </NavLink>
       </td>
       <td>
