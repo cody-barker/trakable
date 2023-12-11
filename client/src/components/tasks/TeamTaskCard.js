@@ -18,10 +18,6 @@ function TeamTaskCard({ task }) {
         user_id
     } = task;
 
-    //limit characters for task name
-    const maxCharacters = 30;
-    const truncatedName = name.length > maxCharacters ? `${name.substring(0, maxCharacters)}...` : name;
-    
     const currentUser = useSelector((state) => state.users.currentUser)
     const users = useSelector((state) => state.users.entities)
     const user = users.find((u) => u.id === user_id)
@@ -83,7 +79,7 @@ function TeamTaskCard({ task }) {
             </td>
             <td>
                 <NavLink className="task-link" to={`/tasks/${id}`}>
-                {truncatedName}
+                {name}
                 </NavLink>
             </td>
             <td><span style={{ color: dueDateColor }}>{dueDateText}</span></td>
