@@ -64,7 +64,7 @@ function EditTask() {
     }
 
     return(
-        <div>
+        <div className="flex-container">
             <form className="small-form" onSubmit={handleSubmit}>
                 {errorComps}
             <label>

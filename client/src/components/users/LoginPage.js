@@ -19,7 +19,7 @@ function LoginPage() {
     ));
 
     return(
-        <div className="parent">
+        <div className="flex-container flex-col flex-center">
             <h1 className="header">Trakable</h1>
            
             {showLogin ? (

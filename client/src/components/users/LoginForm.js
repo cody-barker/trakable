@@ -28,7 +28,7 @@ function LoginForm () {
     }
 
     return(
-        <form className="centered-container" onSubmit={handleSubmit}>
+        <form className="flex-container flex-col flex-center" onSubmit={handleSubmit}>
             <label className="form-label">
                 Email address
                 <input
