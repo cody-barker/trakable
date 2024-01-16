@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
-import TeamForm from './TeamForm';
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import TeamForm from "./TeamForm";
 
 function Teams() {
   const [vis, setVis] = useState(false);
@@ -12,21 +12,21 @@ function Teams() {
   };
 
   const userTeamsComps = currentUser.teams.map((team) => {
-    if (team.tasks.some(task => task.user_id === currentUser.id)) {
+    if (team.tasks.some((task) => task.user_id === currentUser.id)) {
       return (
-        <div className="card yellow margin-left-10">
-          <NavLink className="nav-links" to={`/teams/${team.id}`} key={team.id}>
+        <div key={team.id} className="card yellow margin-left-10">
+          <NavLink className="nav-links" to={`/teams/${team.id}`}>
             {team.name}
           </NavLink>
         </div>
-      )
+      );
     }
   });
 
   return (
     <div>
       <button className="add-btn" onClick={handleVis}>
-        {!vis ? '+' : '-'}
+        {!vis ? "+" : "-"}
       </button>
       <div className="links-container">
         {vis && <TeamForm vis={vis} setVis={setVis} />}

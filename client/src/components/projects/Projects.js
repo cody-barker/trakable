@@ -9,16 +9,12 @@ function Projects() {
   const projectComps = currentUser.projects.map((project) => {
     if (project.tasks.some(task => task.user_id === currentUser.id)) {
       return (
-        <div className="card green margin-left-10">
-          <NavLink
-                className="nav-links"
-                to={`/projects/${project.id}`}
-                key={project.id}
-              >
-                {project.name}
+        <div key={project.id} className="card green margin-left-10">
+          <NavLink className="nav-links" to={`/projects/${project.id}`}>
+            {project.name}
           </NavLink>
         </div>
-      )
+      );
     } else {
       return null
     }
