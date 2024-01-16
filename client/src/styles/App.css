@@ -43,12 +43,22 @@ label {
 
 input {
   display: block;
+  width: 100%;
   min-width: 50%;
   padding: 4px;
 }
 
 .large-font {
   font-size: 24px;
+}
+
+.error-container { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 1em;
 }
 
 .errors {
@@ -343,4 +353,8 @@ textarea {
 
 .bold {
   font-weight: bold;
+}
+
+.height--100svh {
+  min-height: 100svh;
 }
