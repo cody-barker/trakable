@@ -1,21 +1,21 @@
-import './styles/App.css';
-import NavBar from './components/navbar/NavBar'
-import Tasks from './components/tasks/Tasks'
-import LoginPage from './components/users/LoginPage'
-import Task from './components/tasks/Task'
-import EditTask from './components/tasks/EditTask'
-import Projects from './components/projects/Projects'
-import Project from './components/projects/Project'
-import Teams from './components/teams/Teams'
-import Team from './components/teams/Team'
-import NotFound from './components/NotFound'
-import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Routes, Route } from 'react-router-dom'
-import { fetchCurrentUser, fetchUsers } from './state/usersSlice'
-import { fetchProjects } from './state/projectsSlice'
-import { fetchTeams } from './state/teamsSlice'
-import { ToastContainer} from 'react-toastify';
+import "./styles/App.css";
+import NavBar from "./components/navbar/NavBar";
+import Tasks from "./components/tasks/Tasks";
+import LoginPage from "./components/users/LoginPage";
+import Task from "./components/tasks/Task";
+import EditTask from "./components/tasks/EditTask";
+import Projects from "./components/projects/Projects";
+import Project from "./components/projects/Project";
+import Teams from "./components/teams/Teams";
+import Team from "./components/teams/Team";
+import NotFound from "./components/NotFound";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Routes, Route } from "react-router-dom";
+import { fetchCurrentUser, fetchUsers } from "./state/usersSlice";
+import { fetchProjects } from "./state/projectsSlice";
+import { fetchTeams } from "./state/teamsSlice";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,8 +23,7 @@ function App() {
   const currentUser = useSelector((state) => state.users.currentUser);
 
   useEffect(() => {
-    dispatch(fetchCurrentUser())
-      .then(() => setLoading(false))
+    dispatch(fetchCurrentUser()).then(() => setLoading(false));
   }, [dispatch]);
 
   useEffect(() => {
@@ -36,11 +35,11 @@ function App() {
   }, [dispatch, currentUser && currentUser.id]);
 
   if (loading) {
-    return <div></div>
+    return <div></div>;
   }
 
   if (!currentUser || currentUser.errors) {
-    return <LoginPage />
+    return <LoginPage />;
   }
 
   return (

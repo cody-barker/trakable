@@ -1,7 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteTask } from '../../state/usersSlice';
-import { useSelector } from 'react-redux';
 import circleCheckBtn from '../../assets/circle-check-btn.svg'
 import editBtn from '../../assets/edit-btn.svg'
 
