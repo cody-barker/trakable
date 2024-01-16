@@ -66,7 +66,7 @@ function SignUp() {
   }
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="flex-container flex-col flex-center" onSubmit={handleSubmit}>
       <h2>Welcome to Trakable</h2>
       <p>To begin, please sign up.</p>
       {renderInput('First Name', 'first_name', first_name)}

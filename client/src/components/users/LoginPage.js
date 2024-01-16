@@ -23,7 +23,7 @@ function LoginPage() {
             <h1 className="header">Trakable</h1>
            
             {showLogin ? (
-                <div className="login-form-container">
+                <div className="flex-container flex-col flex-center login-form">
                     <h2>Welcome to Trakable</h2>
                     <p>To begin, please sign in.</p>
                     <LoginForm />
@@ -40,7 +40,7 @@ function LoginPage() {
                     </div>
                 </div>
             ) : (
-                    <div className="login-form-container">
+                    <div className="flex-container flex-col flex-center login-form">
                         <SignUpForm />
                         
                         <div className="centered-container">
