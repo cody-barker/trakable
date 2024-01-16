@@ -13,7 +13,7 @@ function NavBar() {
   return (
     <nav id="navbar">
       <div className="flex-container">
-        <div className="navbar__primary">
+        <div className="nav-items__primary">
           <NavLink className="nav-btn orange" to="/">
             Tasks
           </NavLink>
@@ -24,7 +24,7 @@ function NavBar() {
             Teams
           </NavLink>
         </div>
-        <div className="navbar__secondary">
+        <div className="nav-items__secondary">
           <button className="nav-btn blue" onClick={handleLogout}>
             Logout
           </button>
