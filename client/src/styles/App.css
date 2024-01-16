@@ -72,14 +72,15 @@ form {
 
 .flex-container {
   display: flex;
-  width: 80%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .nav-items__primary {
   display: flex;
   gap: 1em;
+  margin-right: 1em;
 }
 
 .nav-items__secondary {
