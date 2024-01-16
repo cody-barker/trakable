@@ -14,15 +14,10 @@ body {
 }
 
 label {
-  color: rgb(77, 77, 77);
-  font-size: 12px;
-  min-width: 250px;
-}
-
-label {
   display: block;
   color: rgb(77, 77, 77);
-  font-size: 12px;
+  font-size: 0.75rem;
+  min-width: 250px;
 }
 
 input {
