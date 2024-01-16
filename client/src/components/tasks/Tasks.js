@@ -40,16 +40,16 @@ function Tasks() {
   );
 
   return (
-    <div className="flex-container">
+    <div className="flex-container flex-col">
+      <button onClick={handleClick} className="add-btn">
+        {!vis ? "+" : "-"}
+      </button>
+      {vis ? <TaskForm vis={vis} setVis={setVis} /> : null}
       {sortedTaskCards.length > 0 ? (
         table
       ) : (
         <div className="note">Please add a task.</div>
       )}
-      <button onClick={handleClick} className="add-btn">
-        {!vis ? "+" : "-"}
-      </button>
-      {vis ? <TaskForm vis={vis} setVis={setVis} /> : null}
     </div>
   );
 }

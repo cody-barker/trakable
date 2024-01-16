@@ -58,7 +58,6 @@ input {
   cursor: pointer;
 }
 
-
 form {
   padding: 10px;
   width: 85%;
@@ -75,6 +74,11 @@ form {
   width: 95%;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.flex-col {
+  flex-direction: column;
+  gap: 1em;
 }
 
 .nav-items__primary {
