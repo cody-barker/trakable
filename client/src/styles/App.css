@@ -176,11 +176,8 @@ form {
 }
 
 table {
-  width: 96%;
-  margin: 30px 15px 15px 10px;
-  padding: 10px;
+  flex-grow: 1;
   border-collapse: collapse;
-  border: 0px transparent;
 }
 
 .table-row {
@@ -322,7 +319,7 @@ textarea{
   background-color: rgb(89,203,232)
 }
 
-.margin-left-10 {
+/* .margin-left-10 {
   margin-left: 10px;
 }
 
@@ -336,7 +333,7 @@ textarea{
 
 .margin-top-20{
   margin-top: 20px;
-}
+} */
 
 .bold {
   font-weight: bold;
