@@ -1,14 +1,10 @@
+* {
+  box-sizing: border-box
+}
+
 body {
-  overflow-x: hidden;
-}
-
-.header {
-  position: absolute;
-  left: 3%;
-}
-
-.parent {
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .login-form-container {
@@ -70,28 +66,36 @@ form {
   color: rgb(27, 49, 15);
 }
 
-#navbar {
+.header {
+  padding: 0.5em;
+}
+
+.flex-container {
   display: flex;
-  padding: 10px;
-  margin: 10px;
-  height: auto;
-  align-items: center;
-  object-fit: contain;
-  overflow: hidden;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar__primary {
+  display: flex;
+  gap: 1em;
+}
+
+.navbar__secondary {
+  display: flex;
+  margin-left: auto;
 }
 
 .nav-btn {
   cursor: pointer;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   border: 1px solid rgb(190, 190, 190);
   border-radius: 10px;
   text-decoration: none;
-  font-size: 16px;
-  background-color: transparent;
+  font-size: 1rem;
   color: rgb(66, 66, 66);
-  padding: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 10px 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -316,11 +320,6 @@ textarea{
 
 .blue {
   background-color: rgb(89,203,232)
-}
-
-.right {
-  position: absolute;
-  right: 10px;
 }
 
 .margin-left-10 {

@@ -44,21 +44,24 @@ function App() {
   }
 
   return (
-    <main>
-      <NavBar />
-      <ToastContainer />
-      <Routes>
-        <Route path="/" element={<Tasks />} />
-        <Route path="/tasks/:id" element={<Task />} />
-        <Route path="/tasks/:id/edit" element={<EditTask />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<Project />} />
-        <Route path="/teams" element={<Teams />} />
-        <Route path="/teams/:id" element={<Team />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </main>
-
+    <>
+      <header className="header">
+        <NavBar />
+      </header>
+      <main>
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<Tasks />} />
+          <Route path="/tasks/:id" element={<Task />} />
+          <Route path="/tasks/:id/edit" element={<EditTask />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<Project />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/teams/:id" element={<Team />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 
