@@ -49,7 +49,6 @@ function App() {
         <NavBar />
       </header>
       <main>
-        <ToastContainer />
         <Routes>
           <Route path="/" element={<Tasks />} />
           <Route path="/tasks/:id" element={<Task />} />
@@ -60,6 +59,7 @@ function App() {
           <Route path="/teams/:id" element={<Team />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ToastContainer />
       </main>
     </>
   );
