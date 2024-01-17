@@ -82,73 +82,76 @@ function TaskForm() {
         )
     );
 
-    return(
-        <form className="small-form" onSubmit={handleSubmit}>
-            {filteredErrors.length > 0 && (
-                <div className="error-messages">
-                    <ul>
-                        {filteredErrors.map((error, index) => (
-                        <li key={index} className="errors">
-                            {error}
-                        </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-            <label>
-                Task Name
-                <input
-                    name="name"
-                    type="text"
-                    autoComplete="off"
-                    value={name}
-                    onChange={onInputChange}
-                />
-            </label>
-            <label>
-                Due Date
-                <input
-                    className="date"
-                    name="due_date"
-                    type="date"
-                    autoComplete="off"
-                    value={due_date}
-                    onChange={onInputChange}
-                />
-            </label>
-            <label>
-                Description
-                <input
-                    name="description"
-                    type="text"
-                    autoComplete="off"
-                    value={description}
-                    onChange={onInputChange}
-                />
-            </label>
-            <label>
-                Team
-                <select onChange={onTeamChange} value={teamID}>
-                    <option name="" value="">
-                        ---Select a Team---
-                    </option>
-                        {teamOptions}
-                </select>
-            </label>
-            <label>
-                Project
-                <select onChange={onProjectChange} value={projectID}>
-                    <option name="" value="">
-                        ---Select a Project---
-                    </option>
-                        {projectOptions}
-                </select>
-            </label>
-            <button className="submit-btn" type="submit">
-                Submit
-            </button>
-        </form>
-    )
+    return (
+      <form
+        className="flex-container flex-col w100"
+        onSubmit={handleSubmit}
+      >
+        {filteredErrors.length > 0 && (
+          <div className="error-messages">
+            <ul>
+              {filteredErrors.map((error, index) => (
+                <li key={index} className="errors">
+                  {error}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <label>
+          Task Name
+          <input
+            name="name"
+            type="text"
+            autoComplete="off"
+            value={name}
+            onChange={onInputChange}
+          />
+        </label>
+        <label>
+          Due Date
+          <input
+            className="date"
+            name="due_date"
+            type="date"
+            autoComplete="off"
+            value={due_date}
+            onChange={onInputChange}
+          />
+        </label>
+        <label>
+          Description
+          <input
+            name="description"
+            type="text"
+            autoComplete="off"
+            value={description}
+            onChange={onInputChange}
+          />
+        </label>
+        <label>
+          Team
+          <select onChange={onTeamChange} value={teamID}>
+            <option name="" value="">
+              ---Select a Team---
+            </option>
+            {teamOptions}
+          </select>
+        </label>
+        <label>
+          Project
+          <select onChange={onProjectChange} value={projectID}>
+            <option name="" value="">
+              ---Select a Project---
+            </option>
+            {projectOptions}
+          </select>
+        </label>
+        <button className="submit-btn" type="submit">
+          Submit
+        </button>
+      </form>
+    );
 }
 
 export default TaskForm

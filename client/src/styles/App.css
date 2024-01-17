@@ -7,10 +7,22 @@ body {
   padding: 0;
 }
 
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+  gap: 1em;
 }
 
 label {
@@ -18,6 +30,7 @@ label {
   color: rgb(77, 77, 77);
   font-size: 0.75rem;
   min-width: 250px;
+  max-width: 50%;
 }
 
 input {
@@ -314,26 +327,18 @@ textarea {
   background-color: rgb(89, 203, 232);
 }
 
-/* .margin-left-10 {
-  margin-left: 10px;
-}
-
-.margin-left-20 {
-  margin-left: 20px;
-}
-
-.margin-top-0{
-  margin-top: 0px;
-}
-
-.margin-top-20{
-  margin-top: 20px;
-} */
-
 .bold {
   font-weight: bold;
 }
 
 .height--100svh {
   min-height: 100svh;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.gap2em {
+  gap: 2em;
 }

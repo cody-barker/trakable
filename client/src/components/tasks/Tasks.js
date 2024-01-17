@@ -40,7 +40,7 @@ function Tasks() {
   );
 
   return (
-    <div className="flex-container flex-col">
+    <div className="flex-container flex-col gap2em">
       <button onClick={handleClick} className="add-btn">
         {!vis ? "+" : "-"}
       </button>
