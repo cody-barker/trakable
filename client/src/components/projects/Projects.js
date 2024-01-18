@@ -31,7 +31,7 @@ function Projects() {
       <button className="add-btn" onClick={toggleVisibility}>
         {!vis ? '+' : '-'}
       </button>
-      <div className="flex-container flex-col gap2em">
+      <div className="flex-container flex-col">
         {vis && <ProjectForm vis={vis} setVis={setVis} />}
         <h4>Projects</h4>
         {projectComps}

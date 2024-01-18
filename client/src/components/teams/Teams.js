@@ -28,7 +28,7 @@ function Teams() {
       <button className="add-btn" onClick={handleVis}>
         {!vis ? "+" : "-"}
       </button>
-      <div className="links-container">
+      <div className="flex-container flex-col">
         {vis && <TeamForm vis={vis} setVis={setVis} />}
         <h4>Teams</h4>
         {userTeamsComps}
