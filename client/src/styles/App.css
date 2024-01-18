@@ -60,6 +60,7 @@ input {
   border: 2px;
   margin: 2px;
 }
+
 .login-question {
   margin-bottom: 1em;
 }
@@ -78,6 +79,12 @@ input {
 
 form {
   color: rgb(27, 49, 15);
+}
+
+.small-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .header {
