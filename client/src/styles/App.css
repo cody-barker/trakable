@@ -4,8 +4,8 @@
 
 body {
   margin: 0 auto;
-  padding: 1.5em;
   max-width: 1200px;
+  background-color: rgb(89, 203, 232);
 }
 
 h1,
@@ -27,6 +27,8 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  padding: 1.5em;
+  background-color: white;
 }
 
 label {
@@ -141,16 +143,22 @@ form {
   margin: 1px;
 }
 
+.relative {
+  position: relative;
+  min-height: 90svh;
+}
+
 .add-btn {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
+  bottom: 1em;
+  right: 0;
+  margin: 1em 0;
+  width: 3rem;
+  height: 3rem;
   background-color: rgb(0, 76, 255);
-  border: transparent;
+  border: none;
   border-radius: 50%;
-  font-size: 35px;
+  font-size: 2rem;
   color: white;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -331,3 +339,4 @@ textarea {
 .max-width500px {
   max-width: 500px;
 }
+

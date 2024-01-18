@@ -48,17 +48,19 @@ function App() {
         <NavBar />
       </header>
       <main>
-        <Routes>
-          <Route path="/" element={<Tasks />} />
-          <Route path="/tasks/:id" element={<Task />} />
-          <Route path="/tasks/:id/edit" element={<EditTask />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<Project />} />
-          <Route path="/teams" element={<Teams />} />
-          <Route path="/teams/:id" element={<Team />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <ToastContainer />
+        <div className="relative">
+          <Routes>
+            <Route path="/" element={<Tasks />} />
+            <Route path="/tasks/:id" element={<Task />} />
+            <Route path="/tasks/:id/edit" element={<EditTask />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<Project />} />
+            <Route path="/teams" element={<Teams />} />
+            <Route path="/teams/:id" element={<Team />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <ToastContainer />
+        </div>
       </main>
     </>
   );
