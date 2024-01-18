@@ -37,7 +37,6 @@ ol {
 }
 
 #root {
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -338,9 +337,9 @@ textarea {
   font-weight: bold;
 }
 
-.height--100svh {
+/* .height--100svh {
   min-height: 100svh;
-}
+} */
 
 .w100 {
   width: 100%;
