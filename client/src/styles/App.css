@@ -10,6 +10,9 @@ body {
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 p,
 ul,
 li,
@@ -198,14 +201,11 @@ table {
   text-align: left;
 }
 
-.table-row td:first-child, td:last-child {
+.table-row td:first-child,
+td:last-child {
   display: flex;
   justify-content: center;
   padding: 0;
-}
-
-.links-container {
-  margin: 10px;
 }
 
 .nav-links {
@@ -278,10 +278,10 @@ th {
 }
 
 .card {
-  margin: 20px 10px 20px 10px;
+  margin: 20px 0px;
   padding: 5px;
   border: 1px solid rgb(190, 190, 190);
-  max-width: fit-content;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
