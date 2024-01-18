@@ -44,7 +44,7 @@ input {
   font-size: 24px;
 }
 
-.error-container { 
+.error-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,11 +129,8 @@ form {
 }
 
 .checkbox-icon {
-  width: 16px;
-  color: white;
+  max-width: 16px;
   cursor: pointer;
-  padding-top: 3px;
-  margin: 1px;
 }
 
 .edit-icon {
@@ -175,13 +172,8 @@ form {
 
 .icon-container {
   background: transparent;
-  color: transparent;
-  border: 0px transparent;
-  padding-top: 2px;
-  height: 26px;
-  width: 14px;
-  padding: 1px;
-  margin: 2px;
+  border: none;
+  min-width: 16px;
 }
 
 .task-link {
@@ -206,6 +198,12 @@ table {
   text-align: left;
 }
 
+.table-row td:first-child, td:last-child {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
 .links-container {
   margin: 10px;
 }
@@ -226,7 +224,6 @@ table {
   font-size: 12px;
   margin: 10px;
   padding: 10px;
-  font: inherit;
 }
 
 .task-container {
@@ -248,14 +245,8 @@ table {
   background: rgba(0, 81, 255, 0.77);
   color: white;
   border-radius: 5px;
-  padding: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin: 10x;
-  margin-top: 15px;
-  margin-bottom: 6px;
-  margin-left: 0px;
-  width: fit-content;
+  padding: 5px 10px;
+  margin: 15px 0px 6px 10px;
   font-size: 12px;
   cursor: pointer;
 }
@@ -273,8 +264,7 @@ select {
 
 td {
   border-right: 1px solid rgb(220, 220, 220);
-  padding-left: 6px;
-  padding-right: 6px;
+  padding: 0px 6px;
 }
 
 .no-right-border {
