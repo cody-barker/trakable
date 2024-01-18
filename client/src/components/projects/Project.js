@@ -26,8 +26,8 @@ function Project() {
   ));
 
   return (
-    <div className="margin-left-10">
-      <div className="card green">
+    <div className="flex-container flex-col">
+      <div className="card green max-width500px">
         <h4 className="title">{project.name}</h4>
         <p className="title">{project.description}</p>
       </div>

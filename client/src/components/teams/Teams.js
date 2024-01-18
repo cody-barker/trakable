@@ -24,7 +24,7 @@ function Teams() {
   });
 
   return (
-    <div>
+    <div className="flex-container">
       <button className="add-btn" onClick={handleVis}>
         {!vis ? "+" : "-"}
       </button>

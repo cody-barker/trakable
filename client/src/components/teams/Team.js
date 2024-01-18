@@ -26,8 +26,8 @@ function Team() {
   });
 
   return (
-    <div className="margin-left-10">
-      <div className="card yellow">
+    <div className="flex-container flex-col">
+      <div className="card yellow max-width500px">
         <h4 className="title">{team.name}</h4>
         <p className="title">{team.description}</p>
       </div>

@@ -123,13 +123,6 @@ form {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.nav-btn:hover {
-  color: rgb(57, 103, 202);
-}
-
-.nav-btn-split:hover {
-  color: rgb(57, 103, 202);
-}
 
 .checkbox-icon {
   max-width: 16px;
@@ -188,7 +181,7 @@ form {
 }
 
 .task-link:hover {
-  color: rgb(57, 103, 202);
+  opacity: 0.75;
 }
 
 table {
@@ -214,10 +207,6 @@ td:last-child {
   cursor: pointer;
   margin: 5px;
   color: #262626;
-}
-
-.nav-links:hover {
-  color: rgb(57, 103, 202);
 }
 
 .note {
@@ -250,6 +239,11 @@ td:last-child {
   font-size: 12px;
   cursor: pointer;
 }
+
+button:hover, .nav-btn:hover {
+  opacity: 0.8;
+}
+
 
 .centered-container {
   display: flex;
@@ -331,4 +325,8 @@ textarea {
 
 .gap2em {
   gap: 2em;
+}
+
+.max-width500px {
+  max-width: 500px;
 }
