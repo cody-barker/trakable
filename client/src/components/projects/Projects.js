@@ -31,7 +31,7 @@ function Projects() {
       <button className="add-btn" onClick={toggleVisibility}>
         {!vis ? '+' : '-'}
       </button>
-      <div className="links-container">
+      <div>
         {vis && <ProjectForm vis={vis} setVis={setVis} />}
         <h4>Projects</h4>
         {projectComps}

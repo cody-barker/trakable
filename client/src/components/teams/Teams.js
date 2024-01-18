@@ -30,7 +30,7 @@ function Teams() {
       </button>
       <div className="links-container">
         {vis && <TeamForm vis={vis} setVis={setVis} />}
-        <h4 className="margin-left-10">Teams</h4>
+        <h4>Teams</h4>
         {userTeamsComps}
       </div>
     </div>
