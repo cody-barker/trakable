@@ -5,21 +5,27 @@
 body {
   margin: 0 auto;
   max-width: 1200px;
-  background: linear-gradient(-45deg, rgb(250, 198, 104), #3ce7bf, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  background: linear-gradient(
+    -45deg,
+    rgb(250, 198, 104),
+    #3ce7bf,
+    #23a6d5,
+    #23d5ab
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h1,
@@ -177,7 +183,7 @@ form {
 }
 
 .submit-btn {
-  width: 5em;
+  min-width: 5em;
   padding: 0.5em;
   background-color: rgb(0, 76, 255);
   border: 1px transparent;
@@ -372,14 +378,14 @@ textarea {
   margin: 1em;
   width: 8em;
   text-align: center;
-  
 }
 
 @media (max-width: 500px) {
   .hamburger-btn {
     display: flex; /* Show the button on smaller screens */
   }
-  .nav-items__primary, .nav-items__secondary {
+  .nav-items__primary,
+  .nav-items__secondary {
     display: none; /* Hide the primary navigation links by default */
   }
 }
@@ -393,4 +399,3 @@ textarea {
     flex-direction: row;
   }
 }
-
