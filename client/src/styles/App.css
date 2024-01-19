@@ -351,3 +351,47 @@ textarea {
   max-width: 500px;
 }
 
+.hamburger-btn {
+  display: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+}
+
+.hidden-menu {
+  display: none;
+}
+
+.responsive-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.responsive-menu > * {
+  margin: 1em;
+  width: 8em;
+  text-align: center;
+  
+}
+
+@media (max-width: 500px) {
+  .hamburger-btn {
+    display: flex; /* Show the button on smaller screens */
+  }
+  .nav-items__primary, .nav-items__secondary {
+    display: none; /* Hide the primary navigation links by default */
+  }
+}
+
+@media (min-width: 500px) {
+  .menu {
+    display: none;
+  }
+
+  .top-nav {
+    flex-direction: row;
+  }
+}
+
