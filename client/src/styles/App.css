@@ -144,7 +144,7 @@ form {
   text-decoration: none;
   font-size: 1rem;
   color: rgb(66, 66, 66);
-  padding: 10px 15px;
+  padding: 0.75em 1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -298,7 +298,7 @@ th {
 }
 
 .card {
-  margin: 20px 0px;
+  margin: 0;
   padding: 0.75em;
   border: 1px solid rgb(190, 190, 190);
   border-radius: 0.75em;
@@ -372,7 +372,7 @@ textarea {
 }
 
 .responsive-menu > * {
-  margin: 1em;
+  margin: 0.5em 0;
   width: 8em;
   text-align: center;
 }
