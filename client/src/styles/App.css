@@ -12,7 +12,7 @@ body {
     #23a6d5,
     #23d5ab
   );
-  background-size: 400% 400%;
+  background-size: 500% 500%;
   animation: gradient 15s ease infinite;
 }
 
@@ -340,10 +340,6 @@ textarea {
   font-weight: bold;
 }
 
-/* .height--100svh {
-  min-height: 100svh;
-} */
-
 .w100 {
   width: 100%;
 }
@@ -388,6 +384,11 @@ textarea {
   .nav-items__secondary {
     display: none; /* Hide the primary navigation links by default */
   }
+
+  #root {
+    margin: 1em;
+    padding: 0.5em;
+  }
 }
 
 @media (min-width: 500px) {
@@ -398,4 +399,5 @@ textarea {
   .top-nav {
     flex-direction: row;
   }
+
 }
