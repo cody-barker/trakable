@@ -109,7 +109,8 @@ form {
 }
 
 .header {
-  padding: 0 0 1em 0;
+  padding: 0;
+  margin-bottom: 1em;
 }
 
 .flex-container {
@@ -215,6 +216,7 @@ form {
 table {
   flex-grow: 1;
   border-collapse: collapse;
+  margin-top: 1em;
 }
 
 .table-row {
